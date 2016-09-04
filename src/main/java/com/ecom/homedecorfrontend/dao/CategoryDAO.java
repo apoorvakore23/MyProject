@@ -8,14 +8,17 @@ import com.ecom.homedecorfrontend.models.Category;
 
 
 
+
 @Repository
 public interface CategoryDAO {
 // Declare all CRUD operation
-	public boolean save(Category category);
-    public boolean update(Category category);
-    public  boolean delete(Category category);
-    public Category get(String id);
-    public List <Category> list();
+
+	public void addCategory(Category p);
+	public void updateCategory(Category p);
+	public List<Category> listCategorys();
 	
+	public void removeCategory(int Category_id);
+	
+	public Category getCategoryByCategory_Id(int id);
 	
 }

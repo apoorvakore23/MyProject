@@ -2,6 +2,8 @@ package com.ecom.homedecorfrontend.models;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Transient;
@@ -17,20 +19,23 @@ import org.springframework.stereotype.Component;
 public class Category {
 	
 	//id,name,description are fiels in the table
-	@Id
-private String id;
-	@Column(name="name")//if the name of column is different from table then only specify 
 	
+	@Id
+	@Column
+	@GeneratedValue(strategy=GenerationType.AUTO)
+private int id;
+	@Column(name="name")//if the name of column is different from table then only specify 
+	@NotEmpty(message = "Name should not be empty")
 private String name;
 	@NotEmpty
 	@Column(name="desc")
 private String description;
 @Transient
 private String createdBy; //if any field is not available in table then use transient
-public String getId() {
+public int getId() {
 	return id;
 }
-public void setId(String id) {
+public void setId(int id) {
 	this.id = id;
 }
 public String getName() {
@@ -45,5 +50,8 @@ public String getDescription() {
 public void setDescription(String description) {
 	this.description = description;
 }
-
+@Override
+public String toString() {
+	return "{CategoryID:'"+id+"',name:'"+name+"',Description:'"+description+"'}";
+}
 }

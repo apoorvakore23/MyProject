@@ -25,6 +25,13 @@
 	margin-left: 15%;
 }
 </style>
+<script>
+function blinker() {
+	$('.lead').fadeOut(500);
+	$('.lead').fadeIn(500);
+}
+setInterval(blinker, 1000);
+</script>
 </head>
 
 <body class="home">
@@ -37,7 +44,7 @@
 	<header id="head">
 		<div class="container">
 			<div class="row">
-				<h1 class="lead">HOME DECOR</h1>
+				<h1 class="lead" style="text-decoration: blink;">HOME DECOR</h1>
 				<p class="tagline">Family where Life begins &amp; Love never
 					ends...</p>
 				<p>
@@ -118,7 +125,7 @@
 	<!-- /Highlights -->
 
 	<!-- container -->
-	<h2 class="text-center thin h-bold">IN SPOTLIGHT</h2>
+	<h2 class="text-center thin h-bold"><img src="assets\images\New folder\flowerl.jpg" width="10%" height="10%">IN SPOTLIGHT<img src="assets\images\New folder\flowerR.jpg" width="10%" height="10%"></h2>
 	<div class="container">
 		<br>
 		<div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -133,24 +140,24 @@
 			<!-- Wrapper for slides -->
 			<div class="carousel-inner" role="listbox">
 				<div class="item active">
-					<img src="assets\images\dinning\8-seater-dining-table-sets.jpg" alt="dinning"
+					<img src="assets\images\New folder\Living-Room-3d-Interior-Design_660x400.jpg" alt="Living-Room-3d-Interior-Design_660x400.jpg"
 						width="460px" height="345px">
 				</div>
 				<div class="item">
-					<img src="assets\images\bedrooms\Dunston_Upholstered_Bed_King_01_2_1.jpg" alt="bedrooms"
+					<img src="assets\images\New folder\Interior-design-rendering-bedroom-3D.jpg" alt="Interior-design-rendering-bedroom-3D"
 						width="460" height="345">
 				</div>
 				<div class="item">
-					<img src="assets\images\images\bedroom1.jpg" alt="Flower"
+					<img src="assets\images\New folder\zaib-master-bedroom-interior.jpg" alt="zaib-master-bedroom-interior"
 						width="460" height="345">
 				</div>
 				
 				<div class="item">
-					<img src="assets\images\images\dinning1.jpg" alt="Flower"
+					<img src="assets\images\New folder\3D-interior-kitchen-dining-room-together.jpg" alt="Flower"
 						width="460" height="345">
 				</div>
 				<div class="item">
-					<img src="assets\images\dinning\Simple-Dining-Room-Design-Ideas.jpg" alt="Flower"
+					<img src="assets\images\New folder\3D-family-living-room-picture.jpg" alt="Flower"
 						width="460" height="345">
 				</div>
 

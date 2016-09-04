@@ -16,15 +16,28 @@
 <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
   <script src="assets/js/angular.js" type="text/javascript" ></script>
 
-<body>
+<body class="home">
+	<div>
+		<%@ include file="header.jsp"%>
+	</div>
+	<header id="head" class="secondary"></header>
+	<div class="container">
+		<ol class="breadcrumb">
+			<li><a href="index">Home</a></li>
+			<li class="active">View Product</li>
+		</ol>
 
+		<div class="row">
+			<header class="page-header">
+				<h1 class="page-title">View Product</h1>
+			</header>
 <%@ include file="header.jsp" %>
  <h3>Are you sure , you want to delete ?</h3>
 
 <div class="row">
 <div class="col-sm-6">
-<form:form modelAttribute="product" enctype="form-data" role="form" action="deleteProducttrue" method="post">
-<form:input path="id" /> 
+<form:form  modelAttribute="product" enctype="form-data" role="form" action="deleteProducttrue/${product.id }" method="post">
+<form:input path="id" style="visibility:hidden;"/> 
   
     <input type="submit" value="Confirm Delete" class="btn btn-info" />
   
@@ -38,7 +51,7 @@
  </div>
  </div>
   <%--  </c:forEach> --%>
-  
+  </div>
  
 </body>
 </html>

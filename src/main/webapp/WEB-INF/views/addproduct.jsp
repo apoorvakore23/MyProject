@@ -14,7 +14,13 @@
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="assets/css/bootstrap-theme.css"
 	media="screen">
-
+<style>
+.errStyle {
+	color: red;
+	font-style: italic;
+	font-weight: bold;
+}
+</style>
 </head>
 <body class="home">
 <div>
@@ -38,28 +44,26 @@
 					<spring:message text="Product Name" />
 				</form:label>
 				<form:input class="form-control" path="name" />
-				<%-- <form:errors path="name">
-					<p class="errStyle">* Product Name should be atleast 3
-						characters</p>
-				</form:errors> --%>
+				<form:errors path="name" cssClass="errStyle" >					
+				</form:errors>
 			</div>
 			<div class="form-group">
 				<form:label path="quantity">
 					<spring:message text="Quantity Available" />
 				</form:label>
 				<form:input class="form-control" path="quantity" />
-				<%-- <form:errors path="qty">
-					<p class="errStyle">* should be greater than 1</p>
-				</form:errors> --%>
+				<form:errors path="quantity" cssClass="errStyle">
+					
+				</form:errors>
 			</div>
 			<div class="form-group">
 				<form:label path="price">
 					<spring:message text="Product Price" />
 				</form:label>
 				<form:input class="form-control" path="price" />
-				<%-- <form:errors path="price">
-					<p class="errStyle">* should be greater than 1</p>
-				</form:errors> --%>
+				<form:errors path="price" cssClass="errStyle">
+					
+				</form:errors>
 			</div>
 			<div class="form-group">
 				<form:label path="category">
@@ -78,9 +82,9 @@
 					<spring:message text="Description" />
 				</form:label>
 				<form:input class="form-control" path="description" />
-				<%-- <form:errors path="name">
-					<p class="errStyle">* Cannot be blank</p>
-				</form:errors> --%>
+				<form:errors path="description" cssClass="errStyle">
+					
+				</form:errors>
 			</div>
 
 			

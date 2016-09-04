@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+    pageEncoding="ISO-8859-1"%>
+    <%@ page isELIgnored="false" %>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -24,7 +27,7 @@
 		$scope.product = ${product} ;		
 		$scope.name="HomeDecor";
 		$scope.search=location.search.substring(8);
-		alert('hello');
+	
 	}
 			
 	);
@@ -38,7 +41,7 @@
 		<%@ include file="header.jsp"%>
 	</div>
 	<header id="head" class="secondary"></header>
-	<div class="container" ng-app="homeDecor" ng-controller="displayProduct">
+	<div class="container" >
 		<ol class="breadcrumb">
 			<li><a href="index">Home</a></li>
 			<li class="active">View Product</li>
@@ -49,14 +52,12 @@
 				<h1 class="page-title">View Product</h1>
 			</header>
 	<div class="list-group" >
-
 		<div class="container" >
-
-
-			<table class="table table-striped" ng-repeat="product in product/filter:search">
+		<form:form  modelAttribute="product" enctype="form-data" role="form" action="deleteProducttrue/${product.id }" method="post">
+			<table class="table table-striped" >
 				<tr>
 					<th>Name</th>
-					<td>{{product.name}}</td>
+					<td>${product.name}</td>
 				</tr>
 								<tr>
 					<th>Price</th>
@@ -72,7 +73,8 @@
 				</tr>
 				<tr>
 			</table>
-		</div>
+				</form:form>
+						</div>
 
 		<a class="list-group-item" href="cart">
 			<button class="btn btn-primary btn-lg btn-block">add to cart</button>

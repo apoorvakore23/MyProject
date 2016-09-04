@@ -21,14 +21,14 @@ import com.ecom.homedecorfrontend.models.Product;
 import com.ecom.homedecorfrontend.service.ProductServices;
 
 
+
 @Controller
 
 public class indexController{
 	
 	@Autowired
 	ProductServices services;
-	@Autowired
-	ProductDAO  productDAO;
+	
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	   public String index()
@@ -50,18 +50,13 @@ public class indexController{
 	{
 		   return "newarrivals";
 	}
-	
-	@RequestMapping(value = "/signin", method = RequestMethod.GET)
-	   public String signin()
+	/*@RequestMapping(value = "/login", method = RequestMethod.GET)
+	   public String login()
 	{
-		   return "signin";
-	}
+		   return "login";
+	}*/
 	
-	@RequestMapping(value = "/signup", method = RequestMethod.GET)
-	   public String signup()
-	{
-		   return "signup";
-	}
+	
 	
 	@RequestMapping(value = "/living", method = RequestMethod.GET)
 	   public String living()
@@ -91,12 +86,26 @@ public class indexController{
 	}
 	
 	@RequestMapping(value="/add", method=RequestMethod.POST )
-	public String AddActionPage(@ModelAttribute("product")  Product p, Model model)
+	public String AddActionPage(@ModelAttribute("product")  Product p,BindingResult result, Model model)
 	{
-		services.addProduct(p);
-		return "index";	
 		
-	}
+		
+		System.out.println("post method addproduct");
+		
+		if (result.hasErrors()) {
+					
+					return "addproduct";
+				}
+				else{
+					
+					services.addProduct(p);
+					
+				return "index";
+				}
+				
+			}
+		
+	
 	@RequestMapping(value="/dispProduct", method=RequestMethod.GET )	
 	public ModelAndView addProduct(){
 	List<Product> pList=services.listProduct();

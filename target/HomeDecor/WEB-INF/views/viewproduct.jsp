@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<%-- <%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec"%>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
- --%>
+
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page isELIgnored="false" %>
 <!DOCTYPE html>
@@ -78,9 +78,9 @@
 										
 										<td><a href="details/${product.id}">View</a> &nbsp; |
 											
-												<a href="edit/${product.id}">Edit</a>&nbsp;&nbsp; |
+										<sec:authorize access="hasRole('ROLE_ADMIN')">		<a href="edit/${product.id}">Edit</a>&nbsp;&nbsp; |
 											
-												<a href="delete/${product.id}">Delete</a>
+												<a href="delete/${product.id}">Delete</a><sec:authorize>
 												
 											</td>
 										</tr>

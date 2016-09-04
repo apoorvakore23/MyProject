@@ -1,9 +1,15 @@
 package com.ecom.homedecorfrontend.models;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Size;
 
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.stereotype.Component;
 
 @Entity
@@ -11,41 +17,49 @@ import org.springframework.stereotype.Component;
 @Component
 public class UserDetails {
 @Id
-	private String id;
-	private String name;
+@GeneratedValue(strategy=GenerationType.AUTO)
+private int id;
+@NotEmpty(message = "Name should not be empty")
+	private String fname;
+	private String lname;
+	@NotEmpty(message = "User name should not be empty")
+	private String userName;
+	@NotEmpty(message = "password should not be empty")
+	@Size(min = 6, max = 15)
 	private String password;
-	private String mail;
-	private int contact;
-	private String address;
-	private String role;
-	public String getId() {
+	@NotEmpty(message = "Email address should not be empty")
+	@Email(message = "Enter Valid Email address")
+	private String email;
+	private String contact;
+	private String address;	
+	
+	private boolean enabled =true;
+	public boolean isEnabled() {
+		return enabled;
+	}
+
+	public void setEnabled(boolean enabled) {
+		this.enabled = enabled;
+	}
+
+	public int getId() {
 		return id;
 	}
-	public void setId(String id) {
+	public void setId(int id) {
 		this.id = id;
 	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
+	
 	public String getPassword() {
 		return password;
 	}
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public String getMail() {
-		return mail;
-	}
-	public void setMail(String mail) {
-		this.mail = mail;
-	}
-	public int getContact() {
+	
+	public String getContact() {
 		return contact;
 	}
-	public void setContact(int contact) {
+	public void setContact(String contact) {
 		this.contact = contact;
 	}
 	public String getAddress() {
@@ -54,11 +68,30 @@ public class UserDetails {
 	public void setAddress(String address) {
 		this.address = address;
 	}
-	public String getRole() {
-		return role;
+	
+	public String getFname() {
+		return fname;
 	}
-	public void setRole(String role) {
-		this.role = role;
+	public void setFname(String fname) {
+		this.fname = fname;
+	}
+	public String getLname() {
+		return lname;
+	}
+	public void setLname(String lname) {
+		this.lname = lname;
+	}
+	public String getUserName() {
+		return userName;
+	}
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
 	}
 	
 	

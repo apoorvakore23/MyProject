@@ -36,7 +36,8 @@ setInterval(blinker, 1000);
 
 <body class="home">
 	<!-- Fixed navbar -->
-	<div><%@ include file="header.jsp"%>
+	<div>
+	<%@ include file="header.jsp"%>
 	</div>
 	<!-- /.navbar -->
 

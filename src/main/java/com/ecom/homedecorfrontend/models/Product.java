@@ -6,6 +6,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
 @Table(name="Product")
@@ -15,12 +19,17 @@ public class Product {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
 	@Column
+	@NotEmpty(message = "Name should not be empty")
 	private String name;
 	@Column	
+	@Min(1)
+	@NotNull(message = "Price should not be empty")
 	private int price; 
 	@Column
+	@NotNull(message = "quantity should not be empty")
 	private int quantity;
 	@Column
+	@NotEmpty(message = "Category should not be empty")
 	private String category;
 	@Column
 	private String description;	
