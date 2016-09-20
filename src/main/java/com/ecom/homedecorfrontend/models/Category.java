@@ -26,9 +26,11 @@ public class Category {
 private int id;
 	@Column(name="name")//if the name of column is different from table then only specify 
 	@NotEmpty(message = "Name should not be empty")
+	
 private String name;
 	@NotEmpty
 	@Column(name="desc")
+	
 private String description;
 @Transient
 private String createdBy; //if any field is not available in table then use transient

@@ -10,6 +10,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Delete</title>
 </head>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/main.css">
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
@@ -24,12 +25,12 @@
 	<div class="container">
 		<ol class="breadcrumb">
 			<li><a href="index">Home</a></li>
-			<li class="active">View Product</li>
+			<li class="active">Delete Product</li>
 		</ol>
 
 		<div class="row">
 			<header class="page-header">
-				<h1 class="page-title">View Product</h1>
+				<h1 class="page-title">Delete Product</h1>
 			</header>
 <%@ include file="header.jsp" %>
  <h3>Are you sure , you want to delete ?</h3>

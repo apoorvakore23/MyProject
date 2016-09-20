@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.ecom.homedecorfrontend.models.Product;
 import com.ecom.homedecorfrontend.models.UserDetails;
 import com.ecom.homedecorfrontend.models.UserRoles;
 
@@ -33,5 +34,6 @@ public class UserDetailsDAOImpl implements UserDetailsDAO {
 		
 	}
 
+	
 			
 		}

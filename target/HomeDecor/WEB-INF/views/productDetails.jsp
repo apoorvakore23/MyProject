@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     <%@ page isELIgnored="false" %>
+    <%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec"%>
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
@@ -10,7 +11,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 
 
-
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/main.css">
 <link rel="stylesheet"
 	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 <script
@@ -26,10 +27,8 @@
 	decorApp.controller('displayProduct',function($scope,$http,$location){		
 		$scope.product = ${product} ;		
 		$scope.name="HomeDecor";
-		$scope.search=location.search.substring(8);
-	
+		$scope.search=location.search.substring(8);	
 	}
-			
 	);
 	
 </script>
@@ -42,24 +41,30 @@
 	</div>
 	<header id="head" class="secondary"></header>
 	<div class="container" >
-		<ol class="breadcrumb">
+		<div class="row">
+			
+		<div class="list-group" >
+		<div class="container" >
+		<header class="page-header">			
+			<ol class="breadcrumb">
 			<li><a href="index">Home</a></li>
 			<li class="active">View Product</li>
 		</ol>
-
-		<div class="row">
-			<header class="page-header">
-				<h1 class="page-title">View Product</h1>
-			</header>
-	<div class="list-group" >
-		<div class="container" >
-		<form:form  modelAttribute="product" enctype="form-data" role="form" action="deleteProducttrue/${product.id }" method="post">
-			<table class="table table-striped" >
+		</header>	
+		<h1 class="page-title">View Product</h1>
+		<hr><br>
+		<div class="col-sm-4" >		
+		<img src="<c:url value='/assets/Multipath/${product.name}.jpg'/>"  class="img-thumbnail" >
+		</div>
+		<div class="col-sm-8" >  
+				<table class=" table-hover" >
+			
 				<tr>
 					<th>Name</th>
 					<td>${product.name}</td>
 				</tr>
-								<tr>
+				<br>
+					<br>			<tr>
 					<th>Price</th>
 					<td>${product.price}</td>
 				</tr>
@@ -71,17 +76,48 @@
 					<th>Category</th>
 					<td>${product.category}</td>
 				</tr>
-				<tr>
+				
 			</table>
-				</form:form>
+			<form:form method="POST" action="${pageContext.request.contextPath}/addtocart?productId=${product.id}"
+			modelAttribute="cart">
+						<input type="hidden" name="_flowExecutionKey" value="${flowExecutionKey}"/>
+
+			<input type="hidden" value="${product.id}" />
+
+			<%-- <span class="h5"> <label>Quantity : </label><form:input path="quantity" class="form-control"
+					type="number" style="width:15%" min="1" max="${product.quantity}" />
+			</span> --%>
+			<br />
+			<sec:authorize access="hasRole('ROLE_USER')">
+<button type="submit" class="btn  btn-warning glyphicon glyphicon-shopping-cart">AddToCart</button>
+			</sec:authorize>
+			
+		</form:form>
+			
+				
+				</div>
 						</div>
 
-		<a class="list-group-item" href="cart">
-			<button class="btn btn-primary btn-lg btn-block">add to cart</button>
-		</a>
+		
 	</div>
 	<br>
 	<br>
-	<%@ include file="footer.jsp"%></div></div>
+	</div></div>
+	
+
+	<!-- JavaScript libs are placed at the end of the document so the pages load faster -->
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+	<script src="assets/js/headroom.min.js"></script>
+	<script src="assets/js/jQuery.headroom.min.js"></script>
+	<script src="assets/js/template.js"></script>
 </body>
+<footer id="footer" class="top-space"><%@ include file="/WEB-INF/views/footer.jsp" %>
+
+
+		
+
+	</footer>	
+		
+
 </html>

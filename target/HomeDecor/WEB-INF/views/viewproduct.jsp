@@ -21,15 +21,12 @@
 	src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 	<script src="assets/js/angular.js" type="text/javascript" ></script>
 <script>
-
 	var decorApp=angular.module('homeDecor',[]);
 	decorApp.controller('getProduct',function($scope,$http,$location){		
-		$scope.product = ${pList} ;		
+		$scope.products = ${pList} ;		
 		$scope.name="HomeDecor";
-		$scope.search=location.search.substring(8);
-		
-	}
-			
+		$scope.search=location.search.substring(8);		
+	}			
 	);
 	
 </script>
@@ -44,143 +41,123 @@
 			<li><a href="index">Home</a></li>
 			<li class="active">View Product</li>
 		</ol>
-
 		<div class="row">
 			<header class="page-header">
 				<h1 class="page-title">View Product</h1>
 			</header>
-			<div class="container" ng-app="homeDecor" ng-controller="getProduct">
-
-				<%-- <c:set var="product_id" value="${pList}"></c:set> --%>
+			<c:set var="pid" value="${param.id}"/>
+			<div  ng-app="homeDecor" ng-controller="getProduct">
+			<div id="custom-search-input">
+                <div class="input-group col-md-12">
+                    <input ng-model="search.name" type="text" class="form-control input-lg" placeholder="Search" />
+                    <span class="input-group-btn">
+                        <button class="btn btn-info btn-lg" type="button">
+                            <i class="glyphicon glyphicon-search"></i>
+                        </button>
+                    </span>
+                </div>
+            </div>			
 				<div class="panel-body" >
-
-
 					<table class="table table-hover">
-
 						<thead>
 							<tr>
 								<th>Product</th>
 								<th>Quantity Available</th>
 								<th>Price</th>
 								<th>Description</th>
-								<th>Action</th>
-								
+								<th>Action</th>								
 								</tr>
 						</thead>	
-						<c:forEach items="${pList}" var="product">							
-								<tbody>								
-									<tr><!-- ng-repeat="product in product/filter:search" -->
+						<c:if test="${pid=='4' }">		
+						<tbody>								
+									<tr ng-repeat="product in products|filter:search"> 
 									
-										<td>${product.name}</td>
-										<td>${product.quantity }
-										<td>Rs.${product.price}</td>
-										<td>${product.description}</td>	
+										<td>{{product.name}}</td>
+										<td>{{product.quantity }}</td>
+										<td>Rs.{{product.price}}</td>
+										<td>{{product.description}}</td>	
 										
-										<td><a href="details/${product.id}">View</a> &nbsp; |
+										<td><a href="${pageContext.request.contextPath}/details/{{product.id}}">View</a> &nbsp;<sec:authorize access="hasRole('ROLE_ADMIN')"> |
 											
-										<sec:authorize access="hasRole('ROLE_ADMIN')">		<a href="edit/${product.id}">Edit</a>&nbsp;&nbsp; |
+												<a href="${pageContext.request.contextPath}/edit/{{product.id}}">Edit</a>&nbsp;&nbsp; |
 											
-												<a href="delete/${product.id}">Delete</a><sec:authorize>
+												<a href="${pageContext.request.contextPath}/delete/{{product.id}}">Delete</a></sec:authorize>
 												
 											</td>
 										</tr>
-								</tbody>
-						</c:forEach>
-						</table>
-				</div>
-			</div>
-							<%-- <p:if test="${product_id=='1'}">
-								<tbody>
-									<tr ng-repeat="product in Data|filter:search">
-										<td>{{product.id}}</td>
+										</tbody>
+										
+										</c:if>
+					
+					<c:if test="${pid=='1' }">		
+						<tbody>								
+									<tr ng-repeat="product in products|filter:{category:'Living'}|filter:search"> 
+									
 										<td>{{product.name}}</td>
-										<td>{{product.price}}</td>
-										<td>{{product.description}}</td>
-										<td>{{product.product_category}}</td>
-										<td><a href="details?id={{product.product_id}}">View</a>|
-											<sec:authorize access="hasRole('ROLE_ADMIN')">
-												<a href="edit?id={{product.product_id}}">Edit</a>
-											</sec:authorize>| <sec:authorize access="hasRole('ROLE_ADMIN')">
-												<a href="delete?id={{product.product_id}}">Delete</a>
-											</sec:authorize>
-									</tr>
-								</tbody>
-							</p:if>
-
-							<p:if test="${product_id=='2'}">
-								<tbody>
-									<tr ng-repeat="product in Data|filter:search">
-										<td>{{product.id}}</td>
-										<td>{{product.name}}</td>
-										<td>{{product.price}}</td>
-										<td>{{product.description}}</td>
-										<td>{{product.product_category}}</td>
-										<td><a href="details?id={{product.product_id}}">View</a>|
-											<sec:authorize access="hasRole('ROLE_ADMIN')">
-												<a href="edit?id={{product.product_id}}">Edit</a>
-											</sec:authorize>| <sec:authorize access="hasRole('ROLE_ADMIN')">
-												<a href="delete?id={{product.product_id}}">Delete</a>
-											</sec:authorize></td>
-
-									</tr>
-								</tbody>
-							</p:if>
-
-
-
-							<p:if test="${product_id=='3'}">
-								<tbody>
-									<tr ng-repeat="product in Data|filter:search">
-										<td>{{product.id}}</td>
-										<td>{{product.name}}</td>
-
-										<td>{{product.price}}</td>
-										<td>{{product.description}}</td>
-										<td>{{product.product_category}}</td>
-										<td><a href="details?id={{product.product_id}}">View</a>|
-											<sec:authorize access="hasRole('ROLE_ADMIN')">
-												<a href="edit?id={{product.product_id}}">Edit</a>
-											</sec:authorize>| <sec:authorize access="hasRole('ROLE_ADMIN')">
-												<a href="delete?id={{product.product_id}}">Delete</a>
-											</sec:authorize>
-									</tr>
-								</tbody>
-							</p:if>
-
-							 --%>
-							
-							<%-- <p:forEach var="product" items="${product}"  varStatus="status">
-							<tbody>
-							<tr>
-										<td>${product.id}</td>
-										<td>${product.name}</td>
-										<td>${product.price}</td>
-										<td>${product.description}</td>
+										<td>{{product.quantity }}</td>
+										<td>Rs.{{product.price}}</td>
+										<td>{{product.description}}</td>	
+										
+										<td><a href="${pageContext.request.contextPath}/details/{{product.id}}">View</a> &nbsp;<sec:authorize access="hasRole('ROLE_ADMIN')"> |
+											
+												<a href="${pageContext.request.contextPath}/edit/{{product.id}}">Edit</a>&nbsp;&nbsp; |
+											
+												<a href="${pageContext.request.contextPath}/delete/{{product.id}}">Delete</a></sec:authorize>
+												
+											</td>
 										</tr>
 										</tbody>
-										</p:forEach> --%>
+										
+										</c:if>
 					
-
-			<%-- <p:if test="${not empty lists}">
-
-		<ul>
-			<p:forEach var="listValue" items="${lists}">
-				<table>
-					<tr>
-						<td>${listValue.toString()}</td>
-						<br>
-
-					</tr>
-				</table>
-			</p:forEach>
-		</ul>
-
-	</p:if> --%>
-
+					<c:if test="${pid=='3' }">		
+						<tbody>								
+									<tr ng-repeat="product in products|filter:{category:'Dinning'}|filter:search"> 
+									
+										<td>{{product.name}}</td>
+										<td>{{product.quantity }}</td>
+										<td>Rs.{{product.price}}</td>
+										<td>{{product.description}}</td>	
+										
+										<td><a href="${pageContext.request.contextPath}/details/{{product.id}}">View</a> &nbsp;<sec:authorize access="hasRole('ROLE_ADMIN')"> |
+											
+												<a href="${pageContext.request.contextPath}/edit/{{product.id}}">Edit</a>&nbsp;&nbsp; |
+											
+												<a href="${pageContext.request.contextPath}/delete/{{product.id}}">Delete</a></sec:authorize>
+												
+											</td>
+										</tr>
+										</tbody>
+										
+										</c:if>
+										<c:if test="${pid=='2' }">		
+						<tbody>								
+									<tr ng-repeat="product in products|filter:{category:'Bedroom'}|filter:search"> 
+									
+										<td>{{product.name}}</td>
+										<td>{{product.quantity }}</td>
+										<td>Rs.{{product.price}}</td>
+										<td>{{product.description}}</td>	
+										
+										<td><a href="${pageContext.request.contextPath}/details/{{product.id}}">View</a> &nbsp;<sec:authorize access="hasRole('ROLE_ADMIN')"> |
+											
+												<a href="${pageContext.request.contextPath}/edit/{{product.id}}">Edit</a>&nbsp;&nbsp; |
+											
+												<a href="${pageContext.request.contextPath}/delete/{{product.id}}">Delete</a></sec:authorize>
+												
+											</td>
+										</tr>
+										</tbody>
+										
+										</c:if>
+					
+										
+</table></div></div>
 			<br> <br>
 		</div>
 	</div>
-	<%@ include file="footer.jsp"%>
+	<div class="footer1"><%@ include file="footer.jsp"%></div>
+	
 
 </body>
 </html>

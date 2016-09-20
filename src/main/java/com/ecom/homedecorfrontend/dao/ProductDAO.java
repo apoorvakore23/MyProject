@@ -21,7 +21,7 @@ public interface ProductDAO {
 	
 	public Product getProductByProduct_Id(int id);
 	
-	
+	public void storeFile(Product p);
 	
 	
 }

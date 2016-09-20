@@ -10,6 +10,7 @@
 <meta charset="utf-8">
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/main.css">
 <link rel="stylesheet"
 	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 <script
@@ -26,16 +27,18 @@
 	</div>
 	<header id="head" class="secondary"></header>
 	<div class="container">
+		
+		<div class="row">
+			
+
+		<header class="page-header">
 		<ol class="breadcrumb">
 			<li><a href="index">Home</a></li>
 			<li class="active">Edit Product</li>
 		</ol>
-
-		<div class="row">
-			<header class="page-header">
 				<h1 class="page-title">Edit Product</h1>
 			</header>
-
+			
 	<form:form modelAttribute="product" role="form" action="updateProduct" method="post">
 		<form:input style="visibility:hidden;" path="id" />
 		<table>
@@ -43,14 +46,14 @@
 			<td><form:label path="name">
 						<spring:message text="Product name" />
 					</form:label></td>
-				<td><form:input path="name" /></td>
+				<td><form:input path="name" class="form-control" /></td>
 				<td><form:errors path="name" cssClass="error" /></td>
 			</tr>
 						<tr>
-				<td><form:label path="price">
+				<td><form:label path="price" >
 						<spring:message text="Product price" />
 					</form:label></td>
-				<td><form:input path="price" /></td>
+				<td><form:input path="price" class="form-control" /></td>
 				<td><form:errors path="price" cssClass="error" /></td>
 			</tr>
 
@@ -58,7 +61,7 @@
 				<td><form:label path="description">
 						<spring:message text="product description " />
 					</form:label></td>
-				<td><form:input path="description" /></td>
+				<td><form:input path="description" class="form-control" /></td>
 			</tr>
 			<tr>
 				<td><form:label path="category">
@@ -71,7 +74,13 @@
 				</form:select>
 				<td><form:errors path="category" cssClass="error" /></td>
 			</tr>
-			
+			<%-- <tr>
+				<td><form:label path="file">
+						<spring:message text="Image"  />
+					</form:label></td>
+				<td><form:input type="file" path="file"  multiple="multiple" />
+				</td>
+			</tr> --%>
 			<tr>
 				<td colspan="2"><input type="submit" class="btn btn-info" value="Update" /></td>
 			</tr>
@@ -79,8 +88,8 @@
 	</form:form></div></div>
 <br>
 	<br>
-
-<%@ include file="footer.jsp" %>	
+<div class="footer1">
+<%@ include file="footer.jsp" %>	</div>
 
 </body>
 </html>

@@ -12,11 +12,16 @@
 	<link rel="stylesheet" media="screen" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
 	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
 	<link rel="stylesheet" href="assets/css/font-awesome.min.css">
-
-	<!-- Custom styles for our template -->
 	<link rel="stylesheet" href="assets/css/bootstrap-theme.css" media="screen" >
 	<link rel="stylesheet" href="assets/css/main.css">
 	<script src="assets/js/regform.js"></script>  
+	<style>
+.error {
+	color: red;
+	font-style: italic;
+	font-weight: bold;
+}
+</style>
 	
 
 </head>
@@ -55,7 +60,7 @@
 			<table class="table table-hover">
 				<tr>
 					<td><form:label path="fname" >
-							<spring:message text="First Name"  />
+							<spring:message text="First Name"  />*
 						</form:label></td>
 					<td><form:input path="fname" class="form-control" /></td>
 					<td><form:errors path="fname" cssClass="error" /></td>

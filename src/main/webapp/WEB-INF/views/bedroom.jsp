@@ -36,7 +36,7 @@
 						<div class="col-sm-4">
 							<div class="thumbnail">
 								<img
-									src="assets\images\bedrooms\Bedroom_Bedroom storage_ Acc_Modular Wardrobes.jpg"
+									src="assets/images/bedrooms/Bedroom_Bedroom storage_ Acc_Modular Wardrobes.jpg"
 									alt="4-seater-dining-table-sets" width="400" height="300" />
 								<p>
 									<strong>Bedroom storage_ Acc_Modular Wardrobes</strong>
@@ -56,7 +56,7 @@
 						<div class="col-sm-4">
 							<div class="thumbnail">
 								<img
-									src="assets\images\bedrooms\Bedroom_Kids bedroom _kids Beds.jpg"
+									src="assets/images/bedrooms/Bedroom_Kids bedroom _kids Beds.jpg"
 									alt="Leather_Sofa_Set" width="400" height="300">
 								<p>
 									<strong>Bedroom _kids Beds</strong>
@@ -78,7 +78,7 @@
 						<div class="col-sm-4">
 							<div class="thumbnail">
 								<img
-									src="assets\images\bedrooms\Bedroom_Storage _Acc_Wardrobe_DO_10_10.jpg"
+									src="assets/images/bedrooms/Bedroom_Storage _Acc_Wardrobe_DO_10_10.jpg"
 									alt="Danton_Capra_2_Seater_Folding_Dining_Table" width="400"
 									height="300">
 								<p>
@@ -107,7 +107,7 @@
 						<div class="col-sm-4">
 							<div class="thumbnail">
 								<img
-									src="assets\images\bedrooms\Corbin_DO_GD_01_IMG_122_Bedside Lamps_L2.jpg"
+									src="assets/images/bedrooms/Corbin_DO_GD_01_IMG_122_Bedside Lamps_L2.jpg"
 									alt="Sofa cum Beds" width="400" height="300">
 								<p>
 									<strong>Bedside Lamps</strong>
@@ -127,7 +127,7 @@
 
 						<div class="col-sm-4">
 							<div class="thumbnail">
-								<img src="assets\images\bedrooms\Single Bed.jpg"
+								<img src="assets/images/bedrooms/Single Bed.jpg"
 									alt="recliner sofa set" width="400" height="300">
 								<p>
 									<strong>Single Bed</strong>
@@ -149,7 +149,7 @@
 
 						<div class="col-sm-4">
 							<div class="thumbnail">
-								<img src="assets\images\bedrooms\trundle-beds.jpg"
+								<img src="assets/images/bedrooms/trundle-beds.jpg"
 									alt="Dinning set" width="400" height="300">
 								<p>
 									<strong>trundle-beds</strong>
@@ -170,7 +170,7 @@
 					<div class="row text-center">
 						<div class="col-sm-4">
 							<div class="thumbnail">
-								<img src="assets\images\bedrooms\hydraulic-storage-beds.jpg"
+								<img src="assets/images/bedrooms/hydraulic-storage-beds.jpg"
 									width="400" height="300">
 								<p>
 									<strong>hydraulic-storage-beds</strong>
@@ -189,7 +189,7 @@
 						</div>
 						<div class="col-sm-4">
 							<div class="thumbnail">
-								<img src="assets\images\bedrooms\Decor_Lighting_Table Lamps.jpg"
+								<img src="assets/images/bedrooms/Decor_Lighting_Table Lamps.jpg"
 									width="400" height="300">
 								<p>
 									<strong>Decor_Lighting_Table Lamps</strong>
@@ -208,7 +208,7 @@
 						</div>
 						<div class="col-sm-4">
 							<div class="thumbnail">
-								<img src="assets\images\bedrooms\upholstered-beds.jpg"
+								<img src="assets/images/bedrooms/upholstered-beds.jpg"
 									alt="San Francisco" width="400" height="300">
 								<p>
 									<strong>upholstered-beds</strong>

@@ -5,7 +5,12 @@
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
+<link rel="stylesheet" media="screen" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
+	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+	<link rel="stylesheet" href="assets/css/font-awesome.min.css">
+	<!-- Custom styles for our template -->
+	<link rel="stylesheet" href="assets/css/bootstrap-theme.css" media="screen" >
+	<link rel="stylesheet" href="assets/css/main.css">
 <link rel="stylesheet"
 	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 <script
@@ -37,16 +42,14 @@
 		<header class="page-header">
 					<h1 class="page-title">Add Product</h1>
 				</header>
-		<form:form role="form" enctype="form-data" action="add"
+		<form:form role="form" enctype="multipart/form-data" action="add"
 			modelAttribute="product">
 			<div class="form-group">
 				<form:label path="name" >
 					<spring:message text="Product Name" />
 				</form:label>
 				<form:input class="form-control" path="name" />
-				<form:errors path="name">
-					<p class="errStyle">* Product Name should be atleast 3
-						characters</p>
+				<form:errors path="name" cssClass="errStyle" >					
 				</form:errors>
 			</div>
 			<div class="form-group">
@@ -54,8 +57,8 @@
 					<spring:message text="Quantity Available" />
 				</form:label>
 				<form:input class="form-control" path="quantity" />
-				<form:errors path="qty">
-					<p class="errStyle">* should be greater than 1</p>
+				<form:errors path="quantity" cssClass="errStyle">
+					
 				</form:errors>
 			</div>
 			<div class="form-group">
@@ -63,15 +66,15 @@
 					<spring:message text="Product Price" />
 				</form:label>
 				<form:input class="form-control" path="price" />
-				<form:errors path="price">
-					<p class="errStyle">* should be greater than 1</p>
+				<form:errors path="price" cssClass="errStyle">
+					
 				</form:errors>
 			</div>
 			<div class="form-group">
 				<form:label path="category">
 					<spring:message text="Category" />
 				</form:label>
-				<form:select class="form-control" path="category">
+				<form:select class="form-control" path="Category"  >
 					<form:option value="Living">Living</form:option>
 					<form:option value="Dinning">Dinning</form:option>
 					<form:option value="Bedroom">Bedroom</form:option>
@@ -84,12 +87,18 @@
 					<spring:message text="Description" />
 				</form:label>
 				<form:input class="form-control" path="description" />
-				<form:errors path="name">
-					<p class="errStyle">* Cannot be blank</p>
+				<form:errors path="description" cssClass="errStyle">
+					
 				</form:errors>
 			</div>
 
-			
+			<div>
+			<form:label path="image">
+						<spring:message text="Image" />
+					</form:label>
+				<form:input type="file" path="image" multiple="multiple" />
+				
+			</div><br>
 			<div class="form-group">
 				<input class="btn btn-info" type="submit"
 					value="<spring:message text="Add Product"/>" />
@@ -104,6 +113,7 @@
 	
 		
 </body>
+
 	 <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
 	<script src="<c:url value='/assets/js/AngularjsController.js'/>"></script>
 </html>

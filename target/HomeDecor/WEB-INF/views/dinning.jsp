@@ -32,7 +32,7 @@
 					<div class="row text-center">
 						<div class="col-sm-4">
 							<div class="thumbnail">
-									<img src="assets\images\dinning\4-seater-dining-table-sets.jpg"
+									<img src="assets/images/dinning/4-seater-dining-table-sets.jpg"
 									alt="4-seater-dining-table-sets" width="400" height="300" />
 								<p>	<strong>4-seater-dining-table-sets</strong></p>
 								<button class="btn btn-info btn-sm " data-toggle="collapse"
@@ -48,7 +48,7 @@
 
 						<div class="col-sm-4">
 							<div class="thumbnail">
-								<img src="assets\images\dinning\8-seater-dining-table-sets.jpg"
+								<img src="assets/images/dinning/8-seater-dining-table-sets.jpg"
 									alt="Leather_Sofa_Set" width="400" height="300">
 								<p>
 									<strong>8-seater-dining-table-sets</strong>
@@ -67,7 +67,7 @@
 						</div>
 						<div class="col-sm-4">
 							<div class="thumbnail">
-								<img src="assets\images\dinning\Danton_Capra_2_Seater_Folding_Dining_Table_Set_MH_01_2_All Dining Table set_L2.jpg"
+								<img src="assets/images/dinning/Danton_Capra_2_Seater_Folding_Dining_Table_Set_MH_01_2_All Dining Table set_L2.jpg"
 									alt="Danton_Capra_2_Seater_Folding_Dining_Table" width="400" height="300">
 								<p>
 									<strong>Danton_Capra_2_Seater_Folding_Dining_Table</strong>
@@ -91,7 +91,7 @@
 					<div class="row text-center">
 						<div class="col-sm-4">
 							<div class="thumbnail">
-								<img src="assets\images\dinning\dinning3.jpg"
+								<img src="assets/images/dinning/dinning3.jpg"
 									alt="Sofa cum Beds" width="400" height="300">
 								<p>
 									<strong>Dinning wooden set</strong>
@@ -110,7 +110,7 @@
 
 						<div class="col-sm-4">
 							<div class="thumbnail">
-								<img src="assets\images\dinning\Dining_Dining Storage_Kitchen Cabinets Desings.jpg"
+								<img src="assets/images/dinning/Dining_Dining Storage_Kitchen Cabinets Desings.jpg"
 									alt="recliner sofa set" width="400" height="300">
 								<p>
 									<strong>Dining Storage_Kitchen Cabinets Desings</strong>
@@ -131,7 +131,7 @@
 
 						<div class="col-sm-4">
 							<div class="thumbnail">
-							<img src="assets\images\dinning\image (1) (1).png"
+							<img src="assets/images/dinning/image (1) (1).png"
 									alt="Dinning set" width="400" height="300">
 								<p>
 									<strong>Dinning set</strong>
@@ -151,7 +151,7 @@
 					<div class="row text-center">
 						<div class="col-sm-4">
 							<div class="thumbnail">
-							<img src="assets\images\dinning\image (1).png"
+							<img src="assets/images/dinning/image (1).png"
 									width="400" height="300">
 								<p>
 									<strong>Wonder Sofa set</strong>
@@ -169,7 +169,7 @@
 						</div>
 						<div class="col-sm-4">
 							<div class="thumbnail">
-								<img src="assets\images\dinning\Williams_XL_Dining_Table_Teak_02_3_Dining Tables_L2.jpg"
+								<img src="assets/images/dinning/Williams_XL_Dining_Table_Teak_02_3_Dining Tables_L2.jpg"
 									width="400" height="300">
 								<p>
 									<strong>Dining_Table_Teak</strong>
@@ -187,7 +187,7 @@
 						</div>
 						<div class="col-sm-4">
 							<div class="thumbnail">
-								<img src="assets\images\dinning\image (1) (1).png" 
+								<img src="assets/images/dinning/image (1) (1).png" 
 								alt="San Francisco"
 									width="400" height="300">
 								<p>

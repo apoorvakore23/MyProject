@@ -38,5 +38,9 @@ public class ProductServices {
 	public void removeProduct(int product_id) {
 		productDAO.removeProduct(product_id);
 	}
+	public void storeFile(Product p)
+	{
+		productDAO.storeFile(p);
+	}
 }
 

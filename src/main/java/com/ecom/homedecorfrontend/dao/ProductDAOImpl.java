@@ -1,5 +1,8 @@
 package com.ecom.homedecorfrontend.dao;
 
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.util.List;
 
 import org.hibernate.Query;
@@ -12,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.ecom.homedecorfrontend.models.Product;
 @EnableTransactionManagement
@@ -21,7 +25,7 @@ public class ProductDAOImpl implements ProductDAO
 	// LoggerFactory.getLogger(ProductDAOImpl.class);
 	@Autowired
 	private SessionFactory sessionFactory;
-	private static final  Logger log =LoggerFactory.getLogger(ProductDAOImpl.class);
+	/*private static final  Logger log =LoggerFactory.getLogger(ProductDAOImpl.class);*/
 	/*
 	 * public void setSessionFactory(SessionFactory sf){ this.sessionFactory =
 	 * sf; }
@@ -78,6 +82,27 @@ public class ProductDAOImpl implements ProductDAO
 		System.out.println(pList);
 		return pList;
 	}
+	public void storeFile(Product p) 	{
+		 
+		/*MultipartFile file= p.getFile();
+	
+		if (!file.isEmpty()) {
+			
+		try{
+		byte[] bytes =file.getBytes();
+		System.out.println("DAO in"+file.getOriginalFilename());		
+		File serverFile = new File("E:/HomeDecor/HomeDecor/src/main/webapp/assets/images/"+p.getImage());
+		serverFile.createNewFile();
+		BufferedOutputStream stream = new BufferedOutputStream(	new FileOutputStream(serverFile));
+		stream.write(bytes);
+		stream.close();
+		}
+		catch(Exception ex)
+		{
+			System.out.println(ex);
+		}
+			
+	}	*/}
 
 	/*@Transactional
 	@SuppressWarnings("unchecked")
@@ -97,14 +122,14 @@ public class ProductDAOImpl implements ProductDAO
 		
 	}*/
 
-	}
+	
 
 
 
 
 
 
-
+}
 
 
 

@@ -1,0 +1,68 @@
+<!-- <?xml version="1.0" encoding="UTF-8"?> -->
+<flow xmlns="http://www.springframework.org/schema/webflow" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.springframework.org/schema/webflow http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd">
+
+<var name="cart" class="com.niit.bookhub.model.Cart" />
+
+<!-- <on-start> -->
+<!-- 	 demohandler is java class available through annotated Demohandler.java class.here we are calling it’s initFlow() method. -->
+<!-- 	  <evaluate expression="cartHandler.initFlow()" result="flowScope.cartbean"/> -->
+<!-- 	</on-start> -->
+
+
+<!-- <action-state id="billing-address"> -->
+<!-- <evaluate expression="cartService.findById(requestParameters.cartId))" result="cart"></evaluate> -->
+<!--   <transition to="InvalidCartWarning" on-exception="java.io.IOException" /> -->  
+<!--  <transition to="orderConfirmation" on="submit"/> -->  
+<!-- </action-state> -->
+
+<!-- <view-state id="cart" model="flowScope.cartBean"> -->
+<!-- <transition to="InvalidCartWarning" on-exception="java.io.IOException" /> -->
+<!-- <transition to="billing-address" on="submit"/> -->
+<!-- </view-state> -->
+
+
+<action-state id="processCheckout" >
+<evaluate expression="cartDAOImpl.findById(requestParameters.cartId)" result="cart"></evaluate>
+<transition to="InvalidCartWarning" on-exception="java.lang.NullPointerException" />
+<transition to="collectCustomerInfo"  />
+</action-state>
+
+<view-state id="collectCustomerInfo" view="billing.jsp" model="cart">
+<transition on="submit" to="orderConfirmation" />
+<transition on="backToCollectCustomerInfo" to="collectCustomerInfo" />
+</view-state>
+ 
+
+<view-state id="orderConfirmation" view="order-confirm.jsp" model="cart">
+<transition on="submit" to="saveOrder" />
+<transition on="backToCollectCustomerInfo" to="collectCustomerInfo" />
+</view-state>
+
+<action-state id="saveOrder">
+<evaluate expression="cartDAOImpl.updateCart(cart)" result="cart"></evaluate>
+<transition to="InvalidCartWarning" on-exception="java.lang.NullPointerException" />
+<transition to="processOrder"  />
+</action-state>
+
+<view-state id="processOrder" view="thank-you.jsp">
+<transition on="submit" to="thankCustomer" />
+<transition on="backToCollectCustomerInfo" to="collectCustomerInfo" />
+</view-state>
+
+<view-state id="thankCustomer" model="cart">
+<transition to="endState" />
+</view-state>
+
+<end-state id="endState" />
+
+<view-state id="invalidCartWarning">
+<transition to="endState" />
+</view-state>
+
+<end-state id="cancelCheckout" view="checkOutCancelled.jsp" />
+
+<global-transitions>
+<transition on="cancel" to="cancelCheckout" />
+</global-transitions>
+
+</flow>

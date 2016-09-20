@@ -61,10 +61,15 @@
 							<h3 class="thin text-center">Login to your account</h3>
 							<p class="text-center text-muted">New User?  <a href="register" class=" glyphicon glyphicon-circle-arrow-up">Register</a>  </p>
 							<hr>
-							<c:if test="${error=='true'}">
+<c:if test="${error=='true'}">
   <div class="errorblock">
    Your login attempt was not successful, try again.
  
+  </div>
+ </c:if>
+ <c:if test="${login=='true'}">
+  <div class="logoutblock">
+  You have Registered successfully...!! 
   </div>
  </c:if>
  <c:if test="${not empty logoutmsg }">

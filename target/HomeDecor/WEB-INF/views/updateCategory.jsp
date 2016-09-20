@@ -10,6 +10,7 @@
 <meta charset="utf-8">
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/main.css">
 <link rel="stylesheet"
 	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 <script
@@ -43,14 +44,14 @@
 			<td><form:label path="name">
 						<spring:message text="Category name" />
 					</form:label></td>
-				<td><form:input path="name" /></td>
+				<td><form:input path="name" class="form-control"/></td>
 				<td><form:errors path="name" cssClass="error" /></td>
 			</tr>
 				<tr>	
 				<td><form:label path="description">
 						<spring:message text="Category description " />
 					</form:label></td>
-				<td><form:input path="description" /></td>
+				<td><form:input path="description" class="form-control" /></td>
 			</tr>
 			
 			<tr>

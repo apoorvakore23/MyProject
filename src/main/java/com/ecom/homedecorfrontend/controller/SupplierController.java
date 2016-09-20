@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -31,10 +32,24 @@ public class SupplierController {
 	}
 	
 	@RequestMapping(value="/addSuppliers", method=RequestMethod.POST )
-	public String AddActionPage(@ModelAttribute("supplier")  Supplier s, Model model)
+	public ModelAndView AddActionPage(@Valid @ModelAttribute("supplier")  Supplier s,BindingResult result, Model model)
 	{
-		services.addSupplier(s);
-		return "index";	
+		
+		if (result.hasErrors()) {
+			System.out.println("post method addproduct"+result);
+			ModelAndView mv=new ModelAndView("addSupplier");
+					return mv;
+				}
+				else{
+					
+					services.addSupplier(s);					
+					List<Supplier> sList=services.listSupplier();
+					ModelAndView mv=new ModelAndView("viewSupplier");
+					mv.addObject("sList",sList);
+					System.out.println(sList);
+					return mv;	
+				}
+			
 		
 	}
 	@RequestMapping(value="/dispSuppliers", method=RequestMethod.GET )	
@@ -59,17 +74,24 @@ public class SupplierController {
 	
 	
 	@RequestMapping(value="/editSupplier/updateSupplier", method=RequestMethod.POST )
-	public String EditActionPage(@Valid @ModelAttribute("supplier") Supplier s, BindingResult result, Model model)
+	public ModelAndView EditActionPage(@Valid @ModelAttribute("supplier") Supplier s, BindingResult result, Model model)
 	{
 		System.out.println(result);
 		
 		System.out.println("post method addSupplier");
         if (result.hasErrors()) {
-        	return "updateSupplier";
+        	ModelAndView mv=new ModelAndView("updateSupplier");
+			return mv;
+        	
 		}
 		else{		
 			services.updateSupplier(s);
-			return "viewSupplier";
+			List<Supplier> sList=services.listSupplier();
+			ModelAndView mv=new ModelAndView("viewSupplier");
+			mv.addObject("sList",sList);
+			System.out.println(sList);
+			return mv;
+			
 		}		
 	}
 	@ModelAttribute("Supplier") 
@@ -95,12 +117,17 @@ public class SupplierController {
 	}
 	
 	@RequestMapping(value="deleteSupplier/deleteSuppliertrue/{supplierId}", method=RequestMethod.POST)
-	public String  DeleteActionPage(@PathVariable("supplierId") int id)
+	public ModelAndView  DeleteActionPage(@PathVariable("supplierId") int id)
 	{
 		
 		System.out.println("coming to controller and call remove Supplier return allSupplier");
 		services.removeSupplier(id);
-		return "viewSupplier";
+		List<Supplier> sList=services.listSupplier();
+		ModelAndView mv=new ModelAndView("viewSupplier");
+		mv.addObject("sList",sList);
+		System.out.println(sList);
+		return mv;
+		
 	}
 	
 	

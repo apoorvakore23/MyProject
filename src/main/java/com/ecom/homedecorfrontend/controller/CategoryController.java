@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,17 +27,25 @@ public class CategoryController {
 	CategoryServices services;
 	
 	
-	@RequestMapping(value="/addCategorys", method=RequestMethod.GET )
+	@RequestMapping(value="/addCategory", method=RequestMethod.GET )
 	public ModelAndView AddPage()
 	{
 		return new ModelAndView("addCategory","category",new Category());
 	}
 	
-	@RequestMapping(value="/addCategorys", method=RequestMethod.POST )
-	public String AddActionPage(@ModelAttribute("category")  Category c, Model model)
+	@RequestMapping(value="/addCategory", method=RequestMethod.POST )
+	public String AddActionPage(  @Validated  @ModelAttribute("category")  Category c,BindingResult result, Model model)
 	{
-		services.addCategory(c);
-		return "index";	
+		if (result.hasErrors()) {
+			System.out.println("post method addproduct"+result);	
+					return "addCategory";
+				}
+				else{
+					
+					services.addCategory(c);
+					return "index";
+				}
+			
 		
 	}
 	@RequestMapping(value="/dispCategorys", method=RequestMethod.GET )	

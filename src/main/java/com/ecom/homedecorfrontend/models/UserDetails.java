@@ -93,6 +93,10 @@ private int id;
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	
+	@Override
+	public String toString() {
+		return "{UserId:'"+id+"',fname:'"+fname+"',lname:'"+lname+"',address:'"+address+"',username:'"+userName+"',email:'"+email+"',password:'"+password+"'}";
+	}
+
 	
 }

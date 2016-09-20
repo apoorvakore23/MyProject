@@ -10,6 +10,7 @@
 <meta charset="utf-8">
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/main.css">
 <link rel="stylesheet"
 	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 <script
@@ -43,14 +44,14 @@
 			<td><form:label path="name">
 						<spring:message text="Supplier name" />
 					</form:label></td>
-				<td><form:input path="name" /></td>
+				<td><form:input path="name" class="form-control" /></td>
 				<td><form:errors path="name" cssClass="error" /></td>
 			</tr>
 						<tr>
 				<td><form:label path="address">
 						<spring:message text="Supplier Address" />
 					</form:label></td>
-				<td><form:input path="address" /></td>
+				<td><form:input path="address" class="form-control"/></td>
 				<td><form:errors path="address" cssClass="error" /></td>
 			</tr>
 
@@ -58,13 +59,13 @@
 				<td><form:label path="contactNo">
 						<spring:message text="Supplier contactNo" />
 					</form:label></td>
-				<td><form:input path="contactNo" /></td>
+				<td><form:input path="contactNo" class="form-control" /></td>
 			</tr>
 			<tr>
 				<td><form:label path="emailID">
 						<spring:message text="Supplier emailID" />
 					</form:label></td>
-				<td><form:input path="emailID" /></td>
+				<td><form:input path="emailID"  class="form-control" /></td>
 			</tr>
 			
 			<tr>

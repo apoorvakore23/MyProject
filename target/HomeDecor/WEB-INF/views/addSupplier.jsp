@@ -5,7 +5,12 @@
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
+<link rel="stylesheet" media="screen" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
+	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+	<link rel="stylesheet" href="assets/css/font-awesome.min.css">
+	<!-- Custom styles for our template -->
+	<link rel="stylesheet" href="assets/css/bootstrap-theme.css" media="screen" >
+	<link rel="stylesheet" href="assets/css/main.css">
 <link rel="stylesheet"
 	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 <script
@@ -54,7 +59,7 @@
 					<spring:message text="Address of Supplier" />
 				</form:label>
 				<form:input class="form-control" path="address" />
-				<form:errors path="qty">
+				<form:errors path="address">
 					<p class="errStyle">* should be greater than 1</p>
 				</form:errors>
 			</div>
@@ -63,7 +68,7 @@
 					<spring:message text="EmailID of Supplier" />
 				</form:label>
 				<form:input class="form-control" path="emailID" />
-				<form:errors path="qty">
+				<form:errors path="emailID">
 					<p class="errStyle">* should be greater than 1</p>
 				</form:errors>
 			</div>
@@ -72,7 +77,7 @@
 					<spring:message text="ContactNo of Supplier" />
 				</form:label>
 				<form:input class="form-control" path="contactNo" />
-				<form:errors path="qty">
+				<form:errors path="contactNo">
 					<p class="errStyle">* should be greater than 1</p>
 				</form:errors>
 			</div>

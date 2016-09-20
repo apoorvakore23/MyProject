@@ -68,22 +68,22 @@
     <!-- Wrapper for slides -->
     <div class="carousel-inner" role="listbox">
       <div class="item active">
-        <img src="assets\images\New Arrivals\9.jpg" alt="Chania" width="460px" height="345px">
+        <img src="assets/images/New Arrivals/9.jpg" alt="Chania" width="460px" height="345px">
       </div>
       <div class="item">
-        <img src="assets\images\New Arrivals\2.gif" alt="Chania" width="460" height="345">
+        <img src="assets/images/New Arrivals/2.gif" alt="Chania" width="460" height="345">
       </div>
           <div class="item">
-        <img src="assets\images\New Arrivals\3.jpg" alt="Flower" width="460" height="345">
+        <img src="assets/images/New Arrivals/3.jpg" alt="Flower" width="460" height="345">
       </div>
 <div class="item">
-        <img src="assets\images\New Arrivals\4.gif" alt="Flower" width="460" height="345">
+        <img src="assets/images/New Arrivals/4.gif" alt="Flower" width="460" height="345">
       </div>
 <div class="item">
-        <img src="assets\images\New Arrivals\7.gif" alt="Flower" width="460" height="345">
+        <img src="assets/images/New Arrivals/7.gif" alt="Flower" width="460" height="345">
       </div>
 <div class="item">
-        <img src="assets\images\New Arrivals\6.gif" alt="Flower" width="460" height="345">
+        <img src="assets/images/New Arrivals/6.gif" alt="Flower" width="460" height="345">
       </div>
 
 </div>
@@ -106,11 +106,11 @@
 				
 				
 				<div class="polaroid">
-  <img src="assets\images\New Arrivals\1.gif" alt="Norway" width="500px"/><p>Stay At Home</p>
+  <img src="assets/images/New Arrivals/1.gif" alt="Norway" width="500px"/><p>Stay At Home</p>
   </div>
 
 <div class="polaroid">
-  <img src="assets\images\New Arrivals\8.gif" alt="Norway" width="500px" /><p>Shop for Sale</p>
+  <img src="assets/images/New Arrivals/8.gif" alt="Norway" width="500px" /><p>Shop for Sale</p>
   </div>
 
 

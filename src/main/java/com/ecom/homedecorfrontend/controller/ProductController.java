@@ -63,14 +63,18 @@ public class ProductController {
 	return model;		
 	}
 	
-	
-	/*@RequestMapping(value="/editProduct", method=RequestMethod.GET )	
-	public ModelAndView editProduct(){
-	List<Product> pList=services.listProduct();
-	ModelAndView model=new ModelAndView("viewproduct");
-	model.addObject("pList",pList);
-	System.out.println(pList);
-	return model;		
+	/*@RequestMapping(value="/disp", method=RequestMethod.GET )
+	public String ViewAllPage()
+	{
+		System.out.println("in disp controller");
+		return "viewproduct";
+	}
+	@RequestMapping(value="/data", method=RequestMethod.GET )
+	public @ResponseBody List<Product> Data()
+	{
+		System.out.println("in data controller");			 
+		 System.out.println(services.listProduct());
+		 return  services.listProduct();
 	}*/
 	
 	@RequestMapping(value="/edit/{productId}", method = RequestMethod.GET)
@@ -140,19 +144,7 @@ public class ProductController {
 	}
 	
 	
-	/*@RequestMapping(value="/disp", method=RequestMethod.GET )
-	public String ViewAllPage()
-	{
-		System.out.println("in disp controller");
-		return "viewproduct";
-	}
-	@RequestMapping(value="/data", method=RequestMethod.GET )
-	public @ResponseBody List<Product> Data()
-	{
-		System.out.println("in data controller");			 
-		 System.out.println(services.listProduct());
-		 return  services.listProduct();
-	}*/
+	
 	
 /*@RequestMapping(value="/data", method=RequestMethod.GET)
 	public ModelAndView Data()

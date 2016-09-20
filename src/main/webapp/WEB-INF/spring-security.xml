@@ -16,8 +16,9 @@
 			password-parameter="j_password"
 			authentication-failure-url="/fail2login" />
 		<security:logout logout-success-url="/logout" logout-url="/j_spring_security_logout"/>
-
+<security:csrf disabled="true"/>
 	</security:http>
+	
 
 	<security:authentication-manager>
 		<security:authentication-provider>

@@ -6,10 +6,12 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.web.multipart.MultipartFile;
 
 @Entity
 @Table(name="Product")
@@ -33,11 +35,20 @@ public class Product {
 	private String category;
 	@Column
 	private String description;	
-	public Product() {
-
+	public String getFile() {
+		return file;
 	}
-
-	
+	public void setFile(String file) {
+		this.file = file;
+	}
+	@Column(name = "ImagePath")
+	private String file;
+	@Transient
+	private MultipartFile image;
+/*@Transient
+	private MultipartFile storeFile;	*/
+	public Product() {
+	}
 	public int getId() {
 		return id;
 	}
@@ -50,8 +61,17 @@ public class Product {
 	public void setName(String name) {
 		this.name = name;
 	}
+	
+
+
 	public int getPrice() {
 		return price;
+	}
+	public MultipartFile getImage() {
+		return image;
+	}
+	public void setImage(MultipartFile image) {
+		this.image = image;
 	}
 	public void setPrice(int price) {
 		this.price = price;
@@ -76,7 +96,7 @@ public class Product {
 	}
 	@Override
 	public String toString() {
-		return "{ProductID:'"+id+"',name:'"+name+"',Price:'"+price+"',Product_Description:'"+description+"',Product_Category:'"+category+"'}";
+		return "{id:'"+id+"',name:'"+name+"',price:'"+price+"',description:'"+description+"',quantity:'"+quantity+"',category:'"+category+"',image:'"+image+"',file:'"+file+"'}";
 	}
 
 }

@@ -47,7 +47,7 @@
 
 		<div class="row">
 			<header class="page-header">
-				<h1 class="page-title">View Product</h1>
+				<h1 class="page-title">View Supplier</h1>
 			</header>
 			<div class="container" ng-app="homeDecor" ng-controller="getSupplier">
 
@@ -180,7 +180,8 @@
 			<br> <br>
 		</div>
 	</div>
-	<%@ include file="footer.jsp"%>
+	<div class="footer1">
+	<%@ include file="footer.jsp"%></div>
 
 </body>
 </html>

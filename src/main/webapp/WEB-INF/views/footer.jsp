@@ -4,11 +4,11 @@
 	<meta name="viewport"    content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="">
 	<meta name="author"      content="Sergey Pozhilov (GetTemplate.com)">
-	<link rel="stylesheet" href="assets/css/bootstrap-theme.css"	media="screen">
-	  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/bootstrap-theme.css"	media="screen">
+	  <script src="${pageContext.request.contextPath}/asstes/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/asstes/css/bootstrap.min.css">
 	
-	<link rel="stylesheet" href="assets/css/main.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/main.css">
 	</head>
 <body>
 <div class="footer1">
@@ -41,7 +41,7 @@
 					<div class="col-md-6 widget">
 						<h3 class="widget-title">Terms &amp; Condition</h3>
 						<div class="widget-body">
-							<p>These terms and conditions of use ("Terms of Use" Äù) of the website www.homedecor.com and instances thereof (‚ÄúWebsite‚Äù) between  HOME D√âCOR SOLUTIONS PRIVATE LIMITED, a company incorporated under the Companies Act, 1956, (‚ÄúCompany‚Äù or ‚ÄúHome Decore‚Äù and its successors and assigns) and the users of the Website ("You" or "Your" or "Yourself" or "User") describe the terms on which the Company offers You access to the Website.</p>
+							<p>These terms and conditions of use ("Terms of Use" Äù) of the website www.homedecor.com and instances thereof (ÄúWebsite) between  HOME D√âCOR SOLUTIONS PRIVATE LIMITED, a company incorporated under the Companies Act, 1956, (CompanyÄù or Home Decore and its successors and assigns) and the users of the Website ("You" or "Your" or "Yourself" or "User") describe the terms on which the Company offers You access to the Website.</p>
 <p>PLEASE READ THE TERMS CAREFULLY BEFORE USING OR ACCESSING ANY MATERIAL, INFORMATION OR SERVICES THROUGH THE WEBSITE. YOUR USE OF THE WEBSITE OR THE SERVICES PROVIDED BY THE WEBSITE SHALL SIGNIFY YOUR ACCEPTANCE OF THE TERMS AND YOUR AGREEMENT TO BE LEGALLY BOUND BY THE SAME.</p>
 						</div>
 					</div>

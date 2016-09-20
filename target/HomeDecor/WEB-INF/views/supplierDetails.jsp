@@ -10,7 +10,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 
 
-
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/main.css">
 <link rel="stylesheet"
 	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 <script
@@ -42,17 +42,20 @@
 	</div>
 	<header id="head" class="secondary"></header>
 	<div class="container" >
-		<ol class="breadcrumb">
-			<li><a href="index">Home</a></li>
-			<li class="active">View Supplier</li>
-		</ol>
+		
 
 		<div class="row">
 			<header class="page-header">
-				<h1 class="page-title">View Supplier</h1>
+			
+				
 			</header>
 	<div class="list-group" >
 		<div class="container" >
+		<ol class="breadcrumb">
+			<li><a href="index">Home</a></li>
+			<li class="active">View Supplier</li>
+		</ol><br>
+		<h1 class="page-title">View Supplier</h1>
 		<form:form  modelAttribute="supplier" enctype="form-data" role="form" action="deleteSuppliertrue/${supplier.id }" method="post">
 			<table class="table table-striped" >
 				<tr>
@@ -76,9 +79,7 @@
 				</form:form>
 						</div>
 
-		<a class="list-group-item" href="cart">
-			<button class="btn btn-primary btn-lg btn-block">add to cart</button>
-		</a>
+		
 	</div>
 	<br>
 	<br>

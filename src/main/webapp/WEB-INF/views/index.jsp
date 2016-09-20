@@ -88,10 +88,10 @@ setInterval(blinker, 1000);
 						<div class="animated rotateInDownLeft">
 							<div class="service-box">
 								<div class="service-icon">
-									<span><img src="assets\images\images\living.jpg" class="img-thumbnail" 
+									<span><img src="assets/images/images/living.jpg" class="img-thumbnail" 
 										alt="living" /></span>
 								</div>
-									<a href="disp?id=2" class="btn-link" >Living Rooms Set </a>
+									<a href="dispProduct?id=1" class="btn-link" >Living Rooms Set </a>
 							</div>
 						</div>
 					</div>
@@ -99,10 +99,10 @@ setInterval(blinker, 1000);
 						<div class="animated rotateInDownLeft">
 							<div class="service-box">
 								<div class="service-icon ">
-									<span><img src="assets\images\images\bedroom.jpg" class="img-thumbnail"
+									<span><img src="assets/images/images/bedroom.jpg" class="img-thumbnail"
 										alt="Bedroom" /></span>
 								</div>					
-									<a href="disp?id=1" class="btn-link">Bed Rooms Set</a>
+									<a href="dispProduct?id=2" class="btn-link">Bed Rooms Set</a>
 								</div>
 						</div>
 					</div>
@@ -110,10 +110,10 @@ setInterval(blinker, 1000);
 						<div class="animated rotateInDownLeft">
 							<div class="service-box">
 								<div class="service-icon">
-									<span><img src="assets\images\images\kitchen set.jpg" class="img-thumbnail" width="85%"
+									<span><img src="assets/images/images/kitchen set.jpg" class="img-thumbnail" width="85%"
 										alt="kitchen set" /></span>
 								</div>
-									<a href="disp?id=3" class="btn-link">Kitchen set</a>
+									<a href="dispProduct?id=3" class="btn-link">Kitchen set</a>
 
 							</div>
 						</div>
@@ -126,7 +126,7 @@ setInterval(blinker, 1000);
 	<!-- /Highlights -->
 
 	<!-- container -->
-	<h2 class="text-center thin h-bold"><img src="assets\images\New folder\flowerl.jpg" width="10%" height="10%">IN SPOTLIGHT<img src="assets\images\New folder\flowerR.jpg" width="10%" height="10%"></h2>
+	<h2 class="text-center thin h-bold"><img src="assets/images/New folder/flowerl.jpg" width="10%" height="10%">IN SPOTLIGHT<img src="assets/images/New folder/flowerR.jpg" width="10%" height="10%"></h2>
 	<div class="container">
 		<br>
 		<div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -141,24 +141,24 @@ setInterval(blinker, 1000);
 			<!-- Wrapper for slides -->
 			<div class="carousel-inner" role="listbox">
 				<div class="item active">
-					<img src="assets\images\New folder\Living-Room-3d-Interior-Design_660x400.jpg" alt="Living-Room-3d-Interior-Design_660x400.jpg"
+					<img src="assets/images/New folder/Living-Room-3d-Interior-Design_660x400.jpg" alt="Living-Room-3d-Interior-Design_660x400.jpg"
 						width="460px" height="345px">
 				</div>
 				<div class="item">
-					<img src="assets\images\New folder\Interior-design-rendering-bedroom-3D.jpg" alt="Interior-design-rendering-bedroom-3D"
+					<img src="assets/images/New folder/Interior-design-rendering-bedroom-3D.jpg" alt="Interior-design-rendering-bedroom-3D"
 						width="460" height="345">
 				</div>
 				<div class="item">
-					<img src="assets\images\New folder\zaib-master-bedroom-interior.jpg" alt="zaib-master-bedroom-interior"
+					<img src="assets/images/New folder/zaib-master-bedroom-interior.jpg" alt="zaib-master-bedroom-interior"
 						width="460" height="345">
 				</div>
 				
 				<div class="item">
-					<img src="assets\images\New folder\3D-interior-kitchen-dining-room-together.jpg" alt="Flower"
+					<img src="assets/images/New folder/3D-interior-kitchen-dining-room-together.jpg" alt="Flower"
 						width="460" height="345">
 				</div>
 				<div class="item">
-					<img src="assets\images\New folder\3D-family-living-room-picture.jpg" alt="Flower"
+					<img src="assets/images/New folder/3D-family-living-room-picture.jpg" alt="Flower"
 						width="460" height="345">
 				</div>
 
@@ -196,16 +196,15 @@ setInterval(blinker, 1000);
 	<!-- /social links -->
 
 
-	<footer id="footer" class="top-space"><%@ include
-			file="footer.jsp"%>
+	<footer id="footer" class="top-space"><%@ include file="footer.jsp" %>
+	</footer>	
+		
 
-
-
-
-	</footer>
-
-
-
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+	<script src="assets/js/headroom.min.js"></script>
+	<script src="assets/js/jQuery.headroom.min.js"></script>
+	<script src="assets/js/template.js"></script>
 
 
 	

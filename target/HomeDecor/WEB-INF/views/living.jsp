@@ -32,7 +32,7 @@
 					<div class="row text-center">
 						<div class="col-sm-4">
 							<div class="thumbnail">
-								<img src="assets\images\sofas\Fabric_sofas.jpg"
+								<img src="assets/images/sofas/Fabric_sofas.jpg"
 									alt="Fabric_sofas" width="400" height="300" />
 								<p>	<strong>Fabric_sofas</strong></p>
 								<button class="btn btn-info btn-sm " data-toggle="collapse"
@@ -48,7 +48,7 @@
 
 						<div class="col-sm-4">
 							<div class="thumbnail">
-								<img src="assets\images\sofas\Leather_L2.jpg"
+								<img src="assets/images/sofas/Leather_L2.jpg"
 									alt="Leather_Sofa_Set" width="400" height="300">
 								<p>
 									<strong>Leather Sofa Set</strong>
@@ -67,7 +67,7 @@
 						</div>
 						<div class="col-sm-4">
 							<div class="thumbnail">
-								<img src="assets\images\sofas\Leatherette Sofa Sets.jpg"
+								<img src="assets/images/sofas/Leatherette Sofa Sets.jpg"
 									alt="Leatherette Sofa Sets" width="400" height="300">
 								<p>
 									<strong>Leather Sofa Sets</strong>
@@ -91,7 +91,7 @@
 					<div class="row text-center">
 						<div class="col-sm-4">
 							<div class="thumbnail">
-								<img src="assets\images\sofas\Sofa cum Beds.jpg"
+								<img src="assets/images/sofas/Sofa cum Beds.jpg"
 									alt="Sofa cum Beds" width="400" height="300">
 								<p>
 									<strong>Sofa cum Beds</strong>
@@ -110,7 +110,7 @@
 
 						<div class="col-sm-4">
 							<div class="thumbnail">
-								<img src="assets\images\sofas\recliner sofa set.jpg"
+								<img src="assets/images/sofas/recliner sofa set.jpg"
 									alt="recliner sofa set" width="400" height="300">
 								<p>
 									<strong>recliner sofa set</strong>
@@ -129,7 +129,7 @@
 
 						<div class="col-sm-4">
 							<div class="thumbnail">
-								<img src="assets\images\sofas\Modular_sofs.jpg"
+								<img src="assets/images/sofas/Modular_sofs.jpg"
 									alt="Modular_sofs" width="400" height="300">
 								<p>
 									<strong>Modular_sofs</strong>
@@ -149,7 +149,7 @@
 					<div class="row text-center">
 						<div class="col-sm-4">
 							<div class="thumbnail">
-								<img src="assets\images\sofas\Love seat_L2.jpg" alt="Love seat"
+								<img src="assets/images/sofas/Love seat_L2.jpg" alt="Love seat"
 									width="400" height="300">
 								<p>
 									<strong>Love seat</strong>
@@ -167,7 +167,7 @@
 						</div>
 						<div class="col-sm-4">
 							<div class="thumbnail">
-								<img src="assets\images\images\living2.jpg" alt="San Francisco"
+								<img src="assets/images/images/living2.jpg" alt="San Francisco"
 									width="400" height="300">
 								<p>
 									<strong>sofa set</strong>
@@ -185,7 +185,7 @@
 						</div>
 						<div class="col-sm-4">
 							<div class="thumbnail">
-								<img src="assets\images\sofas\Wooden Sofa Sets.jpg" alt="San Francisco"
+								<img src="assets/images/sofas/Wooden Sofa Sets.jpg" alt="San Francisco"
 									width="400" height="300">
 								<p>
 									<strong>Wooden Sofa Sets</strong>

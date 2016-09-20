@@ -6,6 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
@@ -30,7 +31,7 @@ private int id;
 	@Email(message = "Enter Valid Email address")
 	private String emailID;
 	@NotNull
-	@Min(1)
+	
 	private int contactNo;
 	public int getId() {
 		return id;

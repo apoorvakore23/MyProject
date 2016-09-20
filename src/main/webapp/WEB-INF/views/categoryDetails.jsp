@@ -9,7 +9,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 
-
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/main.css">
 
 <link rel="stylesheet"
 	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
@@ -68,9 +68,7 @@
 				</form:form>
 						</div>
 
-		<a class="list-group-item" href="cart">
-			<button class="btn btn-primary btn-lg btn-block">add to cart</button>
-		</a>
+		
 	</div>
 	<br>
 	<br>

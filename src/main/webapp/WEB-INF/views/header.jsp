@@ -27,10 +27,13 @@
 				<a class="navbar-brand" href="index"><img src="assets/images/logo.png"  alt="Progressus HTML5 template"></a>
 			</div> -->
 			<!-- <div ng-app="myApp" ng-controller="myCtrl"> -->
+			<sec:authorize access="isAuthenticated()">
+				<span class="welcome">WELCOME  ${userDetails}</span></sec:authorize>
+				<li><a   class="navbar-brand pull-left" href="index"><img src="${pageContext.request.contextPath}/assets/images/logo.png"  width="50%" alt="Home Decore"></a></li>
 			<div class="navbar-collapse collapse">
 							<ul class="nav navbar-nav pull-right">
-							<!-- <li><a  href="index"><img src="assets/images/logo.png"  alt="Progressus HTML5 template"></a></li> -->
-					<li class="active"><a href="${pageContext.request.contextPath}/index">Home</a></li>
+							
+					<li><a href="${pageContext.request.contextPath}/index">Home</a></li>
 					<li><a href="${pageContext.request.contextPath}/about">About</a></li>
 					<li><a href="${pageContext.request.contextPath}/newarrivals">New Arrivals</a></li>
 					
@@ -44,24 +47,24 @@
 					</li>
 					
 					<li class="dropdown">
-					<a  href="${pageContext.request.contextPath}/add" class="dropdown-toggle" data-toggle="dropdown">Product Details<span class="caret"></span></a>
+					<a  href="${pageContext.request.contextPath}/#" class="dropdown-toggle" data-toggle="dropdown">Product Details<span class="caret"></span></a>
 					<ul class="dropdown-menu">
 			          <sec:authorize access="hasRole('ROLE_ADMIN')"><li><a href="${pageContext.request.contextPath}/add">Add Product</a></li>  </sec:authorize>
-			          <li><a href="${pageContext.request.contextPath}/dispProduct">View Product</a></li>			          
+			          <li><a href="${pageContext.request.contextPath}/dispProduct?id=4">View Product</a></li>			          
 			        </ul>		
 					</li>
 			 <sec:authorize access="hasRole('ROLE_ADMIN')">	<li class="dropdown">
-					<a  href="${pageContext.request.contextPath}/add" class="dropdown-toggle" data-toggle="dropdown" href="#">Suppliers Details<span class="caret"></span></a>
+					<a  href="${pageContext.request.contextPath}/#" class="dropdown-toggle" data-toggle="dropdown" href="#">Suppliers Details<span class="caret"></span></a>
 					<ul class="dropdown-menu">
 			          <li><a href="${pageContext.request.contextPath}/addSuppliers">Add Supplier</a></li>
 			          <li><a href="${pageContext.request.contextPath}/dispSuppliers">View Suppliers</a></li>			          
 			        </ul>		
 					</li></sec:authorize>
 				 <sec:authorize access="hasRole('ROLE_ADMIN')">	<li class="dropdown">
-					<a  href="${pageContext.request.contextPath}/add" class="dropdown-toggle" data-toggle="dropdown" href="#">Categories Details<span class="caret"></span></a>
+					<a  href="${pageContext.request.contextPath}/#" class="dropdown-toggle" data-toggle="dropdown" href="#">Categories Details<span class="caret"></span></a>
 					<ul class="dropdown-menu">
-			          <li><a href="${pageContext.request.contextPath}/addCategorys">Add Supplier</a></li>
-			          <li><a href="${pageContext.request.contextPath}/dispCategorys">View Suppliers</a></li>			          
+			          <li><a href="${pageContext.request.contextPath}/addCategory">Add Category</a></li>
+			          <li><a href="${pageContext.request.contextPath}/dispCategorys">View Category</a></li>			          
 			        </ul>		
 					</li>	</sec:authorize>
 					<li><a href="${pageContext.request.contextPath}/contact">Contact</a></li>											
@@ -73,6 +76,8 @@
 						class="glyphicon glyphicon-log-in"></span> Login</a></li>
 						</sec:authorize>
 				<li><sec:authorize access="isAuthenticated()">
+				<sec:authorize access="hasRole('ROLE_USER')">
+					<li><a href="<c:url value="/user/viewcart" />">Cart <span class="glyphicon glyphicon-shopping-cart"></span></a></li>	</sec:authorize>
 						<li><a  class="btn"href='<c:url value="/logout" />'>
 								<span class="glyphicon glyphicon-log-out"></span> Logout
 						</a></li>
