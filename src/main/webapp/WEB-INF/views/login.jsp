@@ -80,7 +80,7 @@
 							<form role="form" action="<c:url value='j_spring_security_check' />" method="post">
 								<div class="top-margin">
 									<label>Username/Email <span class="text-danger">*</span></label>
-									<input type="text" id="id" name="j_username" class="form-control" required />
+									<input type="text" id="userId" name="j_username" class="form-control" required />
 								</div>
 								<div class="top-margin">
 									<label>Password <span class="text-danger">*</span></label>

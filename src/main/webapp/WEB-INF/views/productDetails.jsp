@@ -20,7 +20,7 @@
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <script
 	src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-	<script src="assets/js/angular.js" type="text/javascript" ></script>
+	
 <script>
 
 	var decorApp=angular.module('homeDecor',[]);
@@ -53,8 +53,8 @@
 		</header>	
 		<h1 class="page-title">View Product</h1>
 		<hr><br>
-		<div class="col-sm-4" >		
-		<img src="<c:url value='/assets/Multipath/${product.name}.jpg'/>"  class="img-thumbnail" >
+		<div class="col-sm-4"  ng-app = "cartApp">		
+		<img src="<c:url value='/assets/Multipath/${product.file}'/>"  alt="noImage" class="img-thumbnail" >
 		</div>
 		<div class="col-sm-8" >  
 				<table class=" table-hover" >
@@ -74,26 +74,31 @@
 				</tr>
 				<tr>
 					<th>Category</th>
-					<td>${product.category}</td>
+					<td>    ${product.category}</td>
 				</tr>
 				
 			</table>
-			<form:form method="POST" action="${pageContext.request.contextPath}/addtocart?productId=${product.id}"
-			modelAttribute="cart">
+			<%-- <form:form method="POST" action="${pageContext.request.contextPath}/addtocart?productId=${product.id}"
+			modelAttribute="cart" ng-controller="cartCtrl">
 						<input type="hidden" name="_flowExecutionKey" value="${flowExecutionKey}"/>
 
 			<input type="hidden" value="${product.id}" />
 
-			<%-- <span class="h5"> <label>Quantity : </label><form:input path="quantity" class="form-control"
+			<span class="h5"> <label>Quantity : </label><form:input path="quantity" class="form-control"
 					type="number" style="width:15%" min="1" max="${product.quantity}" />
-			</span> --%>
+			</span>
 			<br />
 			<sec:authorize access="hasRole('ROLE_USER')">
 <button type="submit" class="btn  btn-warning glyphicon glyphicon-shopping-cart">AddToCart</button>
 			</sec:authorize>
 			
-		</form:form>
+		</form:form> --%>
 			
+			<p ng-controller="cartCtrl">
+                        <a href="<c:url value = "/dispProduct?id=4" />" class="btn btn-default">Back</a>
+                        <a href="#" class="btn btn-warning btn-large" ng-click="/addToCart('${product.id}')"><span class="glyphicon glyphicon-shopping-cart"></span> Order Now</a>
+                        <a href="<spring:url value="/customer/cart" />" class="btn btn-default"><span class="glyphicon glyphicon-hand-right"></span> View Cart</a>
+                    </p>
 				
 				</div>
 						</div>
@@ -111,13 +116,10 @@
 	<script src="assets/js/headroom.min.js"></script>
 	<script src="assets/js/jQuery.headroom.min.js"></script>
 	<script src="assets/js/template.js"></script>
+	<script src="<c:url value="${pageContext.request.contextPath}/assets/js/controller.js?v3" /> "></script>
 </body>
 <footer id="footer" class="top-space"><%@ include file="/WEB-INF/views/footer.jsp" %>
-
-
-		
-
-	</footer>	
+</footer>	
 		
 
 </html>

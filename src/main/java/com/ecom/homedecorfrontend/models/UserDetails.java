@@ -16,9 +16,86 @@ import org.springframework.stereotype.Component;
 @Table
 @Component
 public class UserDetails {
+	
+	@Id
+    @GeneratedValue
+    private int usersId;
+    private String username;
+    private String password;
+    private Boolean enabled;
+    private int customerId;
+
+    public UserDetails() {
+		super();
+	}
+
+	public int getUsersId() {
+        return usersId;
+    }
+
+    public void setUsersId(int usersId) {
+        this.usersId = usersId;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public Boolean getEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(Boolean enabled) {
+        this.enabled = enabled;
+    }
+
+    public int getCustomerId() {
+        return customerId;
+    }
+
+    public void setCustomerId(int customerId) {
+        this.customerId = customerId;
+    }
+
+    @Override
+	public String toString() {
+		return "{usersId:'"+usersId+"',username:'"+username+"',password:'"+password+"',customerId:'"+customerId+"'}";
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	/*
 @Id
 @GeneratedValue(strategy=GenerationType.AUTO)
 private int id;
+public int getCustomerId() {
+	return customerId;
+}
+
+public void setCustomerId(int customerId) {
+	this.customerId = customerId;
+}
 @NotEmpty(message = "Name should not be empty")
 	private String fname;
 	private String lname;
@@ -32,6 +109,7 @@ private int id;
 	private String email;
 	private String contact;
 	private String address;	
+	  private int customerId;
 	
 	private boolean enabled =true;
 	public boolean isEnabled() {
@@ -92,11 +170,8 @@ private int id;
 	}
 	public void setEmail(String email) {
 		this.email = email;
-	}
-	@Override
-	public String toString() {
-		return "{UserId:'"+id+"',fname:'"+fname+"',lname:'"+lname+"',address:'"+address+"',username:'"+userName+"',email:'"+email+"',password:'"+password+"'}";
-	}
+	}*/
+	
 
 	
 }

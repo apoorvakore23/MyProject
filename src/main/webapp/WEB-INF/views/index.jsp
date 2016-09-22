@@ -91,7 +91,7 @@ setInterval(blinker, 1000);
 									<span><img src="assets/images/images/living.jpg" class="img-thumbnail" 
 										alt="living" /></span>
 								</div>
-									<a href="dispProduct?id=1" class="btn-link" >Living Rooms Set </a>
+									<a href="dispProduct?id=1" class="btn-link"><h4>LivingRoom Set</h4> </a>
 							</div>
 						</div>
 					</div>
@@ -102,7 +102,7 @@ setInterval(blinker, 1000);
 									<span><img src="assets/images/images/bedroom.jpg" class="img-thumbnail"
 										alt="Bedroom" /></span>
 								</div>					
-									<a href="dispProduct?id=2" class="btn-link">Bed Rooms Set</a>
+									<a href="dispProduct?id=2" class="btn-link"><h4>BedRoom Set</h4></a>
 								</div>
 						</div>
 					</div>
@@ -113,7 +113,7 @@ setInterval(blinker, 1000);
 									<span><img src="assets/images/images/kitchen set.jpg" class="img-thumbnail" width="85%"
 										alt="kitchen set" /></span>
 								</div>
-									<a href="dispProduct?id=3" class="btn-link">Kitchen set</a>
+									<a href="dispProduct?id=3" class="btn-link"><h4>DinningRoom set</h4></a>
 
 							</div>
 						</div>

@@ -76,11 +76,11 @@
 										<td>${supplier.emailID }</td>
 										<td>${supplier.contactNo }</td>
 										
-										<td><a href="detailsSupplier/${supplier.id}">View</a> &nbsp; |
+										<td><a href="detailsSupplier/${supplier.id}" class=" btn btn-info">View</a> &nbsp;
 											
-												<a href="editSupplier/${supplier.id}">Edit</a>&nbsp;&nbsp; |
+												<a href="editSupplier/${supplier.id}" class="btn btn-warning">Edit</a>&nbsp;&nbsp; |
 											
-												<a href="deleteSupplier/${supplier.id}">Delete</a>
+												<a href="deleteSupplier/${supplier.id}" class="btn btn-danger">Delete</a>
 												
 											</td>
 										</tr>

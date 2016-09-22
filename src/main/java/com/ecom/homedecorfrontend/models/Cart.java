@@ -1,105 +1,62 @@
 package com.ecom.homedecorfrontend.models;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import javax.persistence.*;
 import java.io.Serializable;
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import javax.validation.constraints.Pattern;
-import javax.validation.constraints.Size;
-
-import org.hibernate.validator.constraints.NotEmpty;
+import java.util.List;
 
 
 @Entity
-@Table(name ="CART")
-public class Cart implements Serializable {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int cartId;
-	private int quantity;
-	private int productId;
-	private double price;
-	private String address;
-	
-	private String phoneNo;
-	private String productName;
-	
-	public String getProductName() {
-		return productName;
-	}
+public class Cart implements Serializable{
 
-	public void setProductName(String productName) {
-		this.productName = productName;
-	}
+    private static final long serialVersionUID = 3940548625296145582L;
 
-	public Cart() {
-		super();
-	}
+    @Id
+    @GeneratedValue
+    private int cartId;
 
-	public int getCartId() {
-		return cartId;
-	}
+    @OneToMany(mappedBy = "cart", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private List<CartItem> cartItems;
 
-	public void setCartId(int cartId) {
-		this.cartId = cartId;
-	}
+    @OneToOne
+    @JoinColumn(name = "customerId")
+    @JsonIgnore
+    private Customer customer;
 
-	public int getQuantity() {
-		return quantity;
-	}
+    private double grandTotal;
 
-	public void setQuantity(int quantity) {
-		this.quantity = quantity;
-	}
+    public int getCartId() {
+        return cartId;
+    }
 
-	public int getProductId() {
-		return productId;
-	}
+    public void setCartId(int cartId) {
+        this.cartId = cartId;
+    }
 
-	public void setProductId(int productId) {
-		this.productId = productId;
-	}
+    public List<CartItem> getCartItems() {
+        return cartItems;
+    }
 
-	public double getPrice() {
-		return price;
-	}
+    public void setCartItems(List<CartItem> cartItems) {
+        this.cartItems = cartItems;
+    }
 
-	public void setPrice(double price) {
-		this.price = price;
-	}
+    public Customer getCustomer() {
+        return customer;
+    }
 
-	public String getAddress() {
-		return address;
-	}
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
 
-	public void setAddress(String address) {
-		this.address = address;
-	}
-	
-	
+    public double getGrandTotal() {
+        return grandTotal;
+    }
 
-	public String getPhoneNo() {
-		return phoneNo;
-	}
+    public void setGrandTotal(double grandTotal) {
+        this.grandTotal = grandTotal;
+    }
 
-	public void setPhoneNo(String phoneNo) {
-		this.phoneNo = phoneNo;
-	}
-	
-	@Override
-	public String toString() {
-		return "{cartId:'"+cartId+"',quantity:'"+quantity+"',productId:'"+productId+"',price:'"+price+"',address:'"+address+"',phoneNo:'"+phoneNo+"'}";
-	}
-	
-	
-	
-}
+} // The End of Class;

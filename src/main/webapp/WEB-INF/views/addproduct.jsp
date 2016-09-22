@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+    <%@ page isELIgnored="false" %>
+ 
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -74,10 +77,10 @@
 				<form:label path="category">
 					<spring:message text="Category" />
 				</form:label>
-				<form:select class="form-control" path="Category"  >
-					<form:option value="Living">Living</form:option>
+				<form:select class="form-control" path="Category" items="${CategoryDetails}" itemValue="name" itemLabel="name" >
+					<%-- <form:option value="Living">Living</form:option>
 					<form:option value="Dinning">Dinning</form:option>
-					<form:option value="Bedroom">Bedroom</form:option>
+					<form:option value="Bedroom">Bedroom</form:option> --%>
 				</form:select>
 
 			</div>

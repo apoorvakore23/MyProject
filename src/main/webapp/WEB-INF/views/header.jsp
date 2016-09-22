@@ -75,9 +75,9 @@
 				<li><a class="btn" href="${pageContext.request.contextPath}/login"><span
 						class="glyphicon glyphicon-log-in"></span> Login</a></li>
 						</sec:authorize>
-				<li><sec:authorize access="isAuthenticated()">
+				<li><sec:authorize access="isAuthenticated()"> 
 				<sec:authorize access="hasRole('ROLE_USER')">
-					<li><a href="<c:url value="/user/viewcart" />">Cart <span class="glyphicon glyphicon-shopping-cart"></span></a></li>	</sec:authorize>
+					<li><a href="<c:url value="/customer/cart" />">Cart <span class="glyphicon glyphicon-shopping-cart"></span></a></li>	</sec:authorize>
 						<li><a  class="btn"href='<c:url value="/logout" />'>
 								<span class="glyphicon glyphicon-log-out"></span> Logout
 						</a></li>

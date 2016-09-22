@@ -1,6 +1,7 @@
 package com.ecom.homedecorfrontend.controller;
 
 import java.security.Principal;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -20,23 +21,30 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.ecom.homedecorfrontend.models.BillingAddress;
+import com.ecom.homedecorfrontend.models.Customer;
+import com.ecom.homedecorfrontend.models.ShippingAddress;
 import com.ecom.homedecorfrontend.models.UserDetails;
 import com.ecom.homedecorfrontend.service.CategoryServices;
+import com.ecom.homedecorfrontend.service.CustomerService;
 import com.ecom.homedecorfrontend.service.SupplierServices;
-import com.ecom.homedecorfrontend.service.UserDetailsService;
+
+
+
 
 
 @Controller
 public class UserController {
 	
+	@Autowired
+    private CustomerService customerService;
 
 	@Autowired
-	private UserDetailsService userService;
-	@Autowired
 	private SupplierServices supplierservices;
+	
 	@Autowired
 	private CategoryServices categoryDetails;
-	@RequestMapping(value = "/register", method = RequestMethod.GET)
+	/*@RequestMapping(value = "/register", method = RequestMethod.GET)
 	public ModelAndView addData() {
 		System.out.println("adduser page display");
 		return new ModelAndView("register", "adduser", new UserDetails());
@@ -55,13 +63,63 @@ if (result.hasErrors()) {
 		else{
 	
 	userService.addUser(u);
+	Customer customer = new Customer();
+    BillingAddress billingAddress = new BillingAddress();
+    ShippingAddress shippingAddress = new ShippingAddress();
+    customer.setBillingAddress(billingAddress);
+    customer.setShippingAddress(shippingAddress);
+
+    model.addAttribute("customer", customer);
+
 	
 	return new ModelAndView("login","login",true);
 		
 	}
 		
 }
-	
+	*/
+	 @RequestMapping("/register")
+	    public String registerCustomer(Model model){
+	        Customer customer = new Customer();
+	        BillingAddress billingAddress = new BillingAddress();
+	        ShippingAddress shippingAddress = new ShippingAddress();
+	        customer.setBillingAddress(billingAddress);
+	        customer.setShippingAddress(shippingAddress);
+
+	        model.addAttribute("customer", customer);
+
+	        return "register";
+	    }
+
+
+	    @RequestMapping(value = "/register", method = RequestMethod.POST)
+	    public String registerCustomerPost(@Valid @ModelAttribute("customer") Customer customer, BindingResult result, Model model){
+
+	        if(result.hasErrors()){
+	            return "register";
+	        }
+
+	        List<Customer> customerList = customerService.getAllCustomers();
+
+	        for (int i=0; i< customerList.size(); i++){
+	            if(customer.getCustomerEmail().equals(customerList.get(i).getCustomerEmail())){
+	                model.addAttribute("emailMsg", "Email already exists");
+
+	                return "register";
+	            }
+
+	            if(customer.getUsername().equals(customerList.get(i).getUsername())){
+	                model.addAttribute("usernameMsg", "Username already exists");
+
+	                return "register";
+	            }
+	        }
+
+	        customer.setEnabled(true);
+	        customerService.addCustomer(customer);
+	        return "login";
+	    }
+
 	
 	 @RequestMapping(value="/login", method = RequestMethod.GET)
 	 public String login(HttpSession session) {
@@ -97,7 +155,7 @@ if (result.hasErrors()) {
 		 ModelAndView mv=new ModelAndView("index");
 		 session.setAttribute("userDetails",name);
 		/* mv.addObject("userDetails",name);*/
-		 System.out.println(userService);
+		
 		 session.setAttribute("supplierDetails",supplierservices.listSupplier());
 		 session.setAttribute("CategoryDetails",categoryDetails.listCategory());
 		 return mv;

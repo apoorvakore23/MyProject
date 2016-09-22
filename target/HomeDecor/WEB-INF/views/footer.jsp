@@ -4,9 +4,18 @@
 	<meta name="viewport"    content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="">
 	<meta name="author"      content="Sergey Pozhilov (GetTemplate.com)">
+	<link rel="stylesheet" href="/assets/css/bootstrap-theme.css"	media="screen">
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/bootstrap-theme.css"	media="screen">
 	  <script src="${pageContext.request.contextPath}/asstes/js/bootstrap.min.js"></script>
-	<link rel="stylesheet" href="${pageContext.request.contextPath}/asstes/css/bootstrap.min.css">
+	  <link rel="stylesheet" href="${pageContext.request.contextPath}/asstes/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/asstes/css/bootstrap.min.css">
+	<link rel="stylesheet" media="screen" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
+	
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/font-awesome.min.css">
+
+	<!-- Custom styles for our template -->
+	
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/main.css">
 	
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/main.css">
 	</head>

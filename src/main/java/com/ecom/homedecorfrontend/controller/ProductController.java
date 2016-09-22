@@ -54,7 +54,7 @@ public class ProductController {
 			}
 		
 	
-	@RequestMapping(value="/dispProduct", method=RequestMethod.GET )	
+	@RequestMapping(value="/dispProduct" )	
 	public ModelAndView addProduct(){
 	List<Product> pList=services.listProduct();
 	ModelAndView model=new ModelAndView("viewproduct");

@@ -61,6 +61,7 @@
 					<table class="table table-hover">
 						<thead>
 							<tr>
+							<th>Preview</th>
 								<th>Product</th>
 								<th>Quantity Available</th>
 								<th>Price</th>
@@ -71,17 +72,17 @@
 						<c:if test="${pid=='4' }">		
 						<tbody>								
 									<tr ng-repeat="product in products|filter:search"> 
-									
+									<td><img src="<c:url value='/assets/Multipath/{{product.file}}'/>"  alt="noImage" class="img-thumbnail" ></td>
 										<td>{{product.name}}</td>
 										<td>{{product.quantity }}</td>
 										<td>Rs.{{product.price}}</td>
 										<td>{{product.description}}</td>	
 										
-										<td><a href="${pageContext.request.contextPath}/details/{{product.id}}">View</a> &nbsp;<sec:authorize access="hasRole('ROLE_ADMIN')"> |
+										<td><a href="${pageContext.request.contextPath}/details/{{product.id}}" class="btn btn-info btn3d">View</a> <br><br><sec:authorize access="hasRole('ROLE_ADMIN')"> 
 											
-												<a href="${pageContext.request.contextPath}/edit/{{product.id}}">Edit</a>&nbsp;&nbsp; |
+												<a href="${pageContext.request.contextPath}/edit/{{product.id}}" class="btn btn-warning btn3d">Edit</a><br><br>
 											
-												<a href="${pageContext.request.contextPath}/delete/{{product.id}}">Delete</a></sec:authorize>
+												<a href="${pageContext.request.contextPath}/delete/{{product.id}}" class="btn btn-danger btn3d">Delete</a></sec:authorize>
 												
 											</td>
 										</tr>
