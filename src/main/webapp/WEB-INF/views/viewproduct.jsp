@@ -19,11 +19,12 @@
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <script
 	src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-	<script src="assets/js/angular.js" type="text/javascript" ></script>
+	<script src="/assets/js/angular.js" type="text/javascript" ></script>
+	<%-- <script src="<c:url value='/assets/js/angularJsController.js'/>"></script> --%>
 <script>
 	var decorApp=angular.module('homeDecor',[]);
 	decorApp.controller('getProduct',function($scope,$http,$location){		
-		$scope.products = ${pList} ;		
+		$scope.Products = ${pList} ;		
 		$scope.name="HomeDecor";
 		$scope.search=location.search.substring(8);		
 	}			
@@ -36,7 +37,7 @@
 		<%@ include file="header.jsp"%>
 	</div>
 	<header id="head" class="secondary"></header>
-	<div class="container">
+	<div class="container"  >
 		<ol class="breadcrumb">
 			<li><a href="index">Home</a></li>
 			<li class="active">View Product</li>
@@ -46,7 +47,7 @@
 				<h1 class="page-title">View Product</h1>
 			</header>
 			<c:set var="pid" value="${param.id}"/>
-			<div  ng-app="homeDecor" ng-controller="getProduct">
+			<div ng-app="homeDecor" ng-controller="getProduct" >
 			<div id="custom-search-input">
                 <div class="input-group col-md-12">
                     <input ng-model="search.name" type="text" class="form-control input-lg" placeholder="Search" />
@@ -71,14 +72,14 @@
 						</thead>	
 						<c:if test="${pid=='4' }">		
 						<tbody>								
-									<tr ng-repeat="product in products|filter:search"> 
+									<tr ng-repeat="product in Products|filter:search"> 
 									<td><img src="<c:url value='/assets/Multipath/{{product.file}}'/>"  alt="noImage" class="img-thumbnail" ></td>
 										<td>{{product.name}}</td>
 										<td>{{product.quantity }}</td>
 										<td>Rs.{{product.price}}</td>
 										<td>{{product.description}}</td>	
 										
-										<td><a href="${pageContext.request.contextPath}/details/{{product.id}}" class="btn btn-info btn3d">View</a> <br><br><sec:authorize access="hasRole('ROLE_ADMIN')"> 
+										<td><a href="${pageContext.request.contextPath}/details?id={{product.id}}" class="btn btn-info btn3d">View</a> <br><br><sec:authorize access="hasRole('ROLE_ADMIN')"> 
 											
 												<a href="${pageContext.request.contextPath}/edit/{{product.id}}" class="btn btn-warning btn3d">Edit</a><br><br>
 											
@@ -92,7 +93,7 @@
 					
 					<c:if test="${pid=='1' }">		
 						<tbody>								
-									<tr ng-repeat="product in products|filter:{category:'Living'}|filter:search"> 
+									<tr ng-repeat="product in Products|filter:{category:'Living'}|filter:search"> 
 									
 										<td>{{product.name}}</td>
 										<td>{{product.quantity }}</td>
@@ -113,7 +114,7 @@
 					
 					<c:if test="${pid=='3' }">		
 						<tbody>								
-									<tr ng-repeat="product in products|filter:{category:'Dinning'}|filter:search"> 
+									<tr ng-repeat="product in Products|filter:{category:'Dinning'}|filter:search"> 
 									
 										<td>{{product.name}}</td>
 										<td>{{product.quantity }}</td>
@@ -133,7 +134,7 @@
 										</c:if>
 										<c:if test="${pid=='2' }">		
 						<tbody>								
-									<tr ng-repeat="product in products|filter:{category:'Bedroom'}|filter:search"> 
+									<tr ng-repeat="product in Products|filter:{category:'Bedroom'}|filter:search"> 
 									
 										<td>{{product.name}}</td>
 										<td>{{product.quantity }}</td>

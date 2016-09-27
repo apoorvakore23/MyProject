@@ -1,41 +1,37 @@
 package com.ecom.homedecorfrontend.models;
 
 import javax.persistence.*;
+
+
 import java.io.Serializable;
 
 @Entity
 public class CustomerOrder implements Serializable{
-
-
-    private static final long serialVersionUID = -1546649310334411202L;
-
-    @Id
-    @GeneratedValue
-    private int customerOrderId;
-
-    @OneToOne
+	@Id
+	@SequenceGenerator(name = "order_seq", sequenceName = "order_seq")
+	@GeneratedValue(strategy=GenerationType.AUTO,generator = "order_seq")
+    private int orderId;
+	
+	@OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "cartId")
     private Cart cart;
 
-    @OneToOne
-    @JoinColumn(name = "customerId")
-    private Customer customer;
+    @OneToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "userId")
+    private Customer usersDetail;
 
-    @OneToOne
-    @JoinColumn(name = "billingAddressId")
-    private BillingAddress billingAddress;
-
-    @OneToOne
-    @JoinColumn(name="shippingAddressId")
+	
+    @OneToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name="shipId")
     private ShippingAddress shippingAddress;
 
-    public int getCustomerOrderId() {
-        return customerOrderId;
-    }
+    public int getOrderId() {
+		return orderId;
+	}
 
-    public void setCustomerOrderId(int customerOrderId) {
-        this.customerOrderId = customerOrderId;
-    }
+	public void setOrderId(int userOrderId) {
+		this.orderId = userOrderId;
+	}
 
     public Cart getCart() {
         return cart;
@@ -45,21 +41,7 @@ public class CustomerOrder implements Serializable{
         this.cart = cart;
     }
 
-    public Customer getCustomer() {
-        return customer;
-    }
 
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
-    }
-
-    public BillingAddress getBillingAddress() {
-        return billingAddress;
-    }
-
-    public void setBillingAddress(BillingAddress billingAddress) {
-        this.billingAddress = billingAddress;
-    }
 
     public ShippingAddress getShippingAddress() {
         return shippingAddress;
@@ -68,4 +50,12 @@ public class CustomerOrder implements Serializable{
     public void setShippingAddress(ShippingAddress shippingAddress) {
         this.shippingAddress = shippingAddress;
     }
+    public Customer getUsersDetail() {
+		return usersDetail;
+	}
+
+	public void setUsersDetail(Customer usersDetail) {
+		this.usersDetail = usersDetail;
+	}
+
 } // The End of Class;

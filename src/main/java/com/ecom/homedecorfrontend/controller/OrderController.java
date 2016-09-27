@@ -10,32 +10,32 @@ import com.ecom.homedecorfrontend.models.Cart;
 import com.ecom.homedecorfrontend.models.Customer;
 import com.ecom.homedecorfrontend.models.CustomerOrder;
 import com.ecom.homedecorfrontend.service.CartService;
-import com.ecom.homedecorfrontend.service.CustomerOrderService;
+import com.ecom.homedecorfrontend.service.CustmerOrderServiceImpl;
+
 
 @Controller
 public class OrderController {
+	  @Autowired
+	    private CartService cartService;
 
-    @Autowired
-    private CartService cartService;
+	    @Autowired
+	    private CustmerOrderServiceImpl orderService;
+	    
+	    /* * createOrder method is used to insert user order into the database.*/
+	     
+	    @RequestMapping("/order/{cartId}")
+	    public String createOrder(@PathVariable("cartId") int cartId) {
+	    	CustomerOrder userOrder = new CustomerOrder();
+	        Cart cart=cartService.getCartById(cartId);
+	        userOrder.setCart(cart);
 
-    @Autowired
-    private CustomerOrderService customerOrderService;
+	        Customer usersDetail = cart.getUsersDetail();
+	        userOrder.setUsersDetail(usersDetail);
+	  //      userOrder.setShippingAddress();
 
-    @RequestMapping("/order/{cartId}")
-    public String createOrder(@PathVariable("cartId") int cartId){
-        CustomerOrder customerOrder = new CustomerOrder();
-        Cart cart = cartService.getCartById(cartId);
-        customerOrder.setCart(cart);
+	        orderService.addCustomerOrder(userOrder);
 
-        Customer customer = cart.getCustomer();
-        customerOrder.setCustomer(customer);
-        customerOrder.setBillingAddress(customer.getBillingAddress());
-        customer.setShippingAddress(customer.getShippingAddress());
+	        return "redirect:/checkout?cartId="+cartId;
+	    }
 
-        customerOrderService.addCustomerOrder(customerOrder);
-
-        return "redirect:/checkout?cartId=" + cartId;
-
-    }
-
-} // The End of Class;
+}

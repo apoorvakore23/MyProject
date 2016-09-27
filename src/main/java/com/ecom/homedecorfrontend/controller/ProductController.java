@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -23,7 +24,7 @@ public class ProductController {
 	
 	@Autowired
 	ProductServices services;
-	private String path="E:\\HomeDecor\\HomeDecor\\src\\main\\webapp\\assets\\Multipath\\";
+	private String path="E:\\apoorva\\HomeDecor\\src\\main\\webapp\\assets\\Multipath\\";
 	@RequestMapping(value="/add", method=RequestMethod.GET )
 	public ModelAndView AddPage()
 	{
@@ -63,11 +64,11 @@ public class ProductController {
 	return model;		
 	}
 	
-	/*@RequestMapping(value="/disp", method=RequestMethod.GET )
+	@RequestMapping(value="/details", method=RequestMethod.GET )
 	public String ViewAllPage()
 	{
 		System.out.println("in disp controller");
-		return "viewproduct";
+		return "productDetails";
 	}
 	@RequestMapping(value="/data", method=RequestMethod.GET )
 	public @ResponseBody List<Product> Data()
@@ -75,7 +76,7 @@ public class ProductController {
 		System.out.println("in data controller");			 
 		 System.out.println(services.listProduct());
 		 return  services.listProduct();
-	}*/
+	}
 	
 	@RequestMapping(value="/edit/{productId}", method = RequestMethod.GET)
 	public ModelAndView EditPage(@PathVariable("productId") int id)
@@ -108,7 +109,7 @@ public class ProductController {
 			
 		}		
 	}
-	@ModelAttribute("product") 
+	/*@ModelAttribute("product") 
 	@RequestMapping(value="/details/{productId}", method = RequestMethod.GET)
 	public ModelAndView DetailsPage(@PathVariable("productId") int id)
 	{
@@ -116,7 +117,7 @@ public class ProductController {
 		Product p = services.getProductByProduct_Id(id);
 			System.out.println(p);
 		return new ModelAndView("productDetails","product",p);
-	}
+	}*/
 	
 	@ModelAttribute("product") 
 	@RequestMapping(value="/delete/{productId}", method=RequestMethod.GET )	
@@ -144,7 +145,12 @@ public class ProductController {
 	}
 	
 	
-	
+	@RequestMapping(value = "/dataById/{id}", method = RequestMethod.GET)
+	public @ResponseBody Product dataById(@PathVariable("id") int id) {
+System.out.println("product controller"+services.getProductByProduct_Id(id));
+		return services.getProductByProduct_Id(id);
+
+	}
 	
 /*@RequestMapping(value="/data", method=RequestMethod.GET)
 	public ModelAndView Data()

@@ -1,6 +1,7 @@
 package com.ecom.homedecorfrontend.models;
 
 
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
@@ -10,53 +11,52 @@ import java.util.List;
 
 @Entity
 public class Cart implements Serializable{
-
-    private static final long serialVersionUID = 3940548625296145582L;
-
-    @Id
-    @GeneratedValue
-    private int cartId;
-
-    @OneToMany(mappedBy = "cart", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@Id
+	@SequenceGenerator(name = "cart_seq", sequenceName = "cart_seq")
+	@GeneratedValue(strategy=GenerationType.AUTO,generator = "cart_seq")
+	@Column(name="CartId")
+	private int cartId;
+	
+	@OneToMany(mappedBy = "cart", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<CartItem> cartItems;
+	
+	 	@OneToOne(fetch = FetchType.EAGER)
+	    @JoinColumn(name = "custId")
+	    @JsonIgnore
+	    private Customer usersDetail;
+	
+		private double grandTotal;
 
-    @OneToOne
-    @JoinColumn(name = "customerId")
-    @JsonIgnore
-    private Customer customer;
+	    public int getCartId() {
+	        return cartId;
+	    }
 
-    private double grandTotal;
+	    public void setCartId(int cartId) {
+	        this.cartId = cartId;
+	    }
 
-    public int getCartId() {
-        return cartId;
-    }
+	    public List<CartItem> getCartItems() {
+	        return cartItems;
+	    }
 
-    public void setCartId(int cartId) {
-        this.cartId = cartId;
-    }
+	    public void setCartItems(List<CartItem> cartItems) {
+	        this.cartItems = cartItems;
+	    }
 
-    public List<CartItem> getCartItems() {
-        return cartItems;
-    }
+	    public double getGrandTotal() {
+	        return grandTotal;
+	    }
 
-    public void setCartItems(List<CartItem> cartItems) {
-        this.cartItems = cartItems;
-    }
+	    public void setGrandTotal(double grandTotal) {
+	        this.grandTotal = grandTotal;
+	    }
+	    
+	    public Customer getUsersDetail() {
+			return usersDetail;
+		}
 
-    public Customer getCustomer() {
-        return customer;
-    }
-
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
-    }
-
-    public double getGrandTotal() {
-        return grandTotal;
-    }
-
-    public void setGrandTotal(double grandTotal) {
-        this.grandTotal = grandTotal;
-    }
+		public void setUsersDetail(Customer usersDetail) {
+			this.usersDetail = usersDetail;
+		}
 
 } // The End of Class;

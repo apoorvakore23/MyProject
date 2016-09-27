@@ -1,5 +1,6 @@
 package com.ecom.homedecorfrontend.models;
 
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
@@ -8,24 +9,22 @@ import java.io.Serializable;
 @Entity
 public class CartItem implements Serializable {
 
-    private static final long serialVersionUID = -904360230041854157L;
-
     @Id
-    @GeneratedValue
+    @SequenceGenerator(name = "cartitem_seq", sequenceName = "cartitem_seq")
+   	@GeneratedValue(strategy=GenerationType.AUTO,generator = "cartitem_seq")
     private int cartItemId;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "cartId")
     @JsonIgnore
     private Cart cart;
 
-    @ManyToOne
-    @JoinColumn(name = "productId")
-    private Product product;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "itemId")
+    private Product item;
 
     private int quantity;
     private double totalPrice;
-
 
     public int getCartItemId() {
         return cartItemId;
@@ -43,12 +42,12 @@ public class CartItem implements Serializable {
         this.cart = cart;
     }
 
-    public Product getProduct() {
-        return product;
+    public Product getItem() {
+        return item;
     }
 
-    public void setProduct(Product product) {
-        this.product = product;
+    public void setItem(Product item) {
+        this.item = item;
     }
 
     public int getQuantity() {
@@ -66,5 +65,6 @@ public class CartItem implements Serializable {
     public void setTotalPrice(double totalPrice) {
         this.totalPrice = totalPrice;
     }
-    
+	
+
 } // The End of Class;

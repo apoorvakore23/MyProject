@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.ecom.homedecorfrontend.models.BillingAddress;
+
 import com.ecom.homedecorfrontend.models.Customer;
 import com.ecom.homedecorfrontend.models.ShippingAddress;
 import com.ecom.homedecorfrontend.models.UserDetails;
@@ -81,9 +81,9 @@ if (result.hasErrors()) {
 	 @RequestMapping("/register")
 	    public String registerCustomer(Model model){
 	        Customer customer = new Customer();
-	        BillingAddress billingAddress = new BillingAddress();
+	       
 	        ShippingAddress shippingAddress = new ShippingAddress();
-	        customer.setBillingAddress(billingAddress);
+	       
 	        customer.setShippingAddress(shippingAddress);
 
 	        model.addAttribute("customer", customer);
@@ -108,7 +108,8 @@ if (result.hasErrors()) {
 	                return "register";
 	            }
 
-	            if(customer.getUsername().equals(customerList.get(i).getUsername())){
+	            if(customer.getUsername().equals(customerList.get(i).getUsername()))
+	            {
 	                model.addAttribute("usernameMsg", "Username already exists");
 
 	                return "register";

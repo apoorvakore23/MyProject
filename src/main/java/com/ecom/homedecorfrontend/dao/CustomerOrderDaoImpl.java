@@ -3,6 +3,7 @@ package com.ecom.homedecorfrontend.dao;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -17,9 +18,12 @@ public class CustomerOrderDaoImpl implements CustomerOrderDao {
     private SessionFactory sessionFactory;
 
     public void addCustomerOrder(CustomerOrder customerOrder){
-        Session session = sessionFactory.getCurrentSession();
+        Session session = sessionFactory.openSession();
+    	Transaction tx = session.beginTransaction();
         session.saveOrUpdate(customerOrder);
+        tx.commit();
         session.flush();
+        session.close();
     }
 
 

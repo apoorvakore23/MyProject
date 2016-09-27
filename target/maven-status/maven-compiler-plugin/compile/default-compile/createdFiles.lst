@@ -3,16 +3,15 @@ com\ecom\homedecorfrontend\dao\SupplierDAO.class
 com\ecom\homedecorfrontend\controller\UserController.class
 com\ecom\homedecorfrontend\controller\OrderController.class
 com\ecom\homedecorfrontend\dao\CustomerDaoImpl.class
-com\ecom\homedecorfrontend\controller\CartResources.class
 com\ecom\homedecorfrontend\models\ShippingAddress.class
 com\ecom\homedecorfrontend\dao\CustomerDao.class
 com\ecom\homedecorfrontend\service\CartServiceImpl.class
+com\ecom\homedecorfrontend\service\ShippingServices.class
 com\ecom\homedecorfrontend\dao\CartItemDao.class
 com\ecom\homedecorfrontend\models\CustomerOrder.class
 com\ecom\homedecorfrontend\dao\CategoryDAOImpl.class
 com\ecom\homedecorfrontend\controller\indexController.class
 com\ecom\homedecorfrontend\dao\CartItemDaoImpl.class
-com\ecom\homedecorfrontend\models\BillingAddress.class
 com\ecom\homedecorfrontend\dao\CustomerOrderDao.class
 com\ecom\homedecorfrontend\models\Supplier.class
 com\ecom\homedecorfrontend\dao\CartDao.class
@@ -24,6 +23,7 @@ com\ecom\homedecorfrontend\controller\SupplierController.class
 com\ecom\homedecorfrontend\service\ProductServices.class
 com\ecom\homedecorfrontend\dao\ProductDAO.class
 com\ecom\homedecorfrontend\service\CategoryServices.class
+com\ecom\homedecorfrontend\dao\ShippingDAO.class
 com\ecom\homedecorfrontend\service\CustomerService.class
 com\ecom\homedecorfrontend\dao\SupplierDAOImpl.class
 com\ecom\homedecorfrontend\service\SupplierServices.class

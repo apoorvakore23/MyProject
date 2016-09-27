@@ -15,7 +15,7 @@
 	<link rel="stylesheet" href="/assets/css/main.css">
 	<script
 	src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-<%-- <script src="<c:url value='/assets/js/angularJsController.js'/>"/></script></head> --%>
+<script src="<c:url value='/assets/js/controller.js'/>"/></script></head>
 	
 	
 	<body class="home">
@@ -77,7 +77,8 @@
 						</sec:authorize>
 				<li><sec:authorize access="isAuthenticated()"> 
 				<sec:authorize access="hasRole('ROLE_USER')">
-					<li><a href="<c:url value="/customer/cart" />">Cart <span class="glyphicon glyphicon-shopping-cart"></span></a></li>	</sec:authorize>
+										<a href="<c:url value='/memberShip'/>"  ><span class="glyphicon glyphicon-hand-right"></span> Cart</a>
+										</sec:authorize>
 						<li><a  class="btn"href='<c:url value="/logout" />'>
 								<span class="glyphicon glyphicon-log-out"></span> Logout
 						</a></li>

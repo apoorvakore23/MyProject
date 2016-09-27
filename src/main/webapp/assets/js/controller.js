@@ -1,42 +1,74 @@
-var cartApp = angular.module ("cartApp", []);
+var cartApp = angular.module("myApp", []);
 
-cartApp.controller("cartCtrl", function($scope, $http){
+cartApp.controller("myCtrl", function($scope, $http) {
+	$scope.loadDataById = function(id) {
 
-    $scope.refreshCart = function(){
-       $http.get('/rest/cart/' + $scope.cartId).success(function (data){
-           $scope.cart = data;
-       });
-    };
+		$http.get("dataById/" + id).then(function(response) {
+			$scope.Data = response.data;
 
-    $scope.clearCart = function(){
-        $http.del('/rest/cart/' + $scope.cartId).success($scope.refreshCart());
-    };
+		});
+	};
+	$scope.refreshCart = function() {
+		$http.get('/rest/cart/' + $scope.cartId).success(function(data) {
+			$scope.cart = data;
+		});
+	};
 
-    $scope.initCartId = function(cartId){
-        $scope.cartId = cartId;
-        $scope.refreshCart(cartId);
-    };
+	$scope.clearCart = function() {
+		$http.del('/rest/cart/' + $scope.cartId).success($scope.refreshCart());
+	};
 
-    $scope.addToCart = function(productId){
-    	 alert('Product successfully added to the cart!');
-        $http.put('/rest/cart/addToCart/' + productId).success(function (){
-            alert('Product successfully added to the cart!');
-        });
-    };
+	$scope.initCartId = function(cartId) {
+		$scope.cartId = cartId;
+		$scope.refreshCart(cartId);
+	};
 
-    $scope.removeFromCart = function(productId){
-        $http.put('/rest/cart/remove/' + productId).success(function(data){
-           $scope.refreshCart();
-        });
-    };
+	$scope.addToCart = function(itemId) {
 
-    $scope.calGrandTotal = function(){
-        var grandTotal = 0;
+		$http.put("addToCart/" + itemId).success(function() {
+		}).error(function() {
+		});
 
-        for (var i = 0; i < $scope.cart.cartItems.length; i++){
-            grandTotal += $scope.cart.cartItems[i].totalPrice;
-        }
+	};
+	$scope.refreshCartItems = function() {
 
-        return grandTotal;
-    }
+		$http.get("refreshCart").success(function(data) {
+			$scope.cart = data;
+		});
+	};
+	$scope.clearCartItems = function() {
+		$http['delete']("clearCartItems").success(function(data) {
+			alert("cart Emptied");
+			$scope.refreshCartItems();
+
+		});
+	};
+	$scope.retrieveCart = function() {
+
+		$scope.refreshCartItems();
+	};
+	$scope.removeItemFromCart = function(itemId) {
+		$http.put("removeItem/" + itemId).success(function(data) {
+			alert("Item Removed");
+			$scope.refreshCartItems();
+		}).error(function() {
+			alert("Error");
+		});
+	};
+
+	$scope.removeFromCart = function(productId) {
+		$http.put('/rest/cart/remove/' + productId).success(function(data) {
+			$scope.refreshCart();
+		});
+	};
+
+	$scope.GrandTotalOfItems = function () {
+	    var grandTotal=0;
+
+	    for (var i=0; i<$scope.cart.cartItems.length; i++) {
+	        grandTotal+=$scope.cart.cartItems[i].totalPrice;
+	   }
+
+	    return grandTotal;
+	};
 });

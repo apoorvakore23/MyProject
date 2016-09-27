@@ -1,10 +1,13 @@
 package com.ecom.homedecorfrontend.models;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 import javax.validation.constraints.Min;
@@ -13,11 +16,23 @@ import javax.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
 @Table(name="Product")
-public class Product {
+@JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
+public class Product implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	/**
+	 * 
+	 */
+	
 	@Id
 	@Column
+	@SequenceGenerator(name="prod_seq",sequenceName="prod_seq")
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
 	@Column

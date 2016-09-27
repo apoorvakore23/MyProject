@@ -1,55 +1,63 @@
 package com.ecom.homedecorfrontend.models;
 
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
+import javax.persistence.SequenceGenerator;
+
+import org.hibernate.validator.constraints.NotBlank;
+
+
+
 import java.io.Serializable;
 
 
 @Entity
 public class ShippingAddress implements Serializable{
-
-
-    private static final long serialVersionUID = 989191150380037359L;
-
-
-    @Id
-    @GeneratedValue
-    private int shippingAddressId;
-    private String streetName;
-    private String apartmentNumber;
+	@Id
+	@SequenceGenerator(name = "ship_seq", sequenceName = "ship_seq")
+	@GeneratedValue(strategy=GenerationType.AUTO,generator = "ship_seq")
+	@Column(name="ShipId")
+	private int shipId;
+	@NotBlank (message = "House no. Required")
+	@Column(name="House_no")
+	
+	private String houseNumber;
+	@NotBlank (message = "Adrress Required")
+	@Column(name="addressLine1")
+    private String addressLine1;
+	@Column(name="addressLine2")
+    private String addressLine2;
+	@NotBlank (message = "City Required")
+	@Column(name="city")
     private String city;
+	@NotBlank (message = "State Required")
+	@Column(name="state")
     private String state;
+	@NotBlank (message = "Country Required")
+	@Column(name="country")
     private String country;
+	@NotBlank (message = "Zip Code Required")
+	@Column(name="zipcode")
     private String zipCode;
 
-    @OneToOne
-    private Customer customer;
+    @OneToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name="custid")
+    private Customer usersDetail;
+    
 
-    public int getShippingAddressId() {
-        return shippingAddressId;
+	public int getShipId() {
+        return shipId;
     }
 
-    public void setShippingAddressId(int shippingAddressId) {
-        this.shippingAddressId = shippingAddressId;
-    }
-
-    public String getStreetName() {
-        return streetName;
-    }
-
-    public void setStreetName(String streetName) {
-        this.streetName = streetName;
-    }
-
-    public String getApartmentNumber() {
-        return apartmentNumber;
-    }
-
-    public void setApartmentNumber(String apartmentNumber) {
-        this.apartmentNumber = apartmentNumber;
+    public void setShipId(int shippingAddressId) {
+        this.shipId = shippingAddressId;
     }
 
     public String getCity() {
@@ -84,23 +92,44 @@ public class ShippingAddress implements Serializable{
         this.zipCode = zipCode;
     }
 
-    public Customer getCustomer() {
-        return customer;
-    }
+    public String getHouseNumber() {
+		return houseNumber;
+	}
 
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
-    }
+	public void setHouseNumber(String houseNumber) {
+		this.houseNumber = houseNumber;
+	}
 
-    @Override
-    public String toString() {
-        return "ShippingAddress{" +
-                "streetName='" + streetName + '\'' +
-                ", apartmentNumber='" + apartmentNumber + '\'' +
-                ", city='" + city + '\'' +
-                ", state='" + state + '\'' +
-                ", country='" + country + '\'' +
-                ", zipCode='" + zipCode + '\'' +
-                '}';
-    }
+	public String getAddressLine1() {
+		return addressLine1;
+	}
+
+	public void setAddressLine1(String addressLine1) {
+		this.addressLine1 = addressLine1;
+	}
+
+	public String getAddressLine2() {
+		return addressLine2;
+	}
+
+	public void setAddressLine2(String addressLine2) {
+		this.addressLine2 = addressLine2;
+	}
+	
+	public Customer getUsersDetail() {
+		return usersDetail;
+	}
+
+	public void setUsersDetail(Customer usersDetail) {
+		this.usersDetail = usersDetail;
+	}
+
+	@Override
+	public String toString() {
+		return "ShippingAdd [shippingAddressId=" + shipId + ", houseNumber=" + houseNumber
+				+ ", addressLine1=" + addressLine1 + ", addressLine2=" + addressLine2 + ", city=" + city + ", state="
+				+ state + ", country=" + country + ", zipCode=" + zipCode + ", Customer=" + usersDetail + "]";
+	} 
+
+
 } // The End of Class;

@@ -38,11 +38,8 @@ public class Customer implements Serializable{
     @NotEmpty (message = "The customer password must not be null")
     private String password;
 
-    private boolean enabled;
-
-    @OneToOne
-    @JoinColumn(name = "billingAddressId")
-    private BillingAddress billingAddress;
+    private boolean enabled; 
+    
 
     @OneToOne
     @JoinColumn(name = "shippingAddressId")
@@ -113,13 +110,7 @@ public class Customer implements Serializable{
         this.enabled = enabled;
     }
 
-    public BillingAddress getBillingAddress() {
-        return billingAddress;
-    }
-
-    public void setBillingAddress(BillingAddress billingAddress) {
-        this.billingAddress = billingAddress;
-    }
+   
 
     public ShippingAddress getShippingAddress() {
         return shippingAddress;
@@ -139,6 +130,6 @@ public class Customer implements Serializable{
     
     @Override
 	public String toString() {
-		return "{shippingAddress:'"+shippingAddress+"',cart:'"+cart+"',cutomerId:'"+cutomerId+"',customerName:'"+customerName+"',customerEmail:'"+customerEmail+"',customerPhone:'"+customerPhone+"',username:'"+username+"',password:'"+password+"',billingAddress:'"+billingAddress+"'}";
+		return "{shippingAddress:'"+shippingAddress+"',cart:'"+cart+"',cutomerId:'"+cutomerId+"',customerName:'"+customerName+"',customerEmail:'"+customerEmail+"',customerPhone:'"+customerPhone+"',username:'"+username+"',password:'"+password+"'}";
 	}
 } // The End of Class;

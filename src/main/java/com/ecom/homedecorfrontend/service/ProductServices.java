@@ -27,6 +27,7 @@ public class ProductServices {
 	}
 	public List<Product> listProduct() {
 		System.out.println("in service");
+		System.out.println(productDAO.listProducts());
 		return productDAO.listProducts();
 	}
 	@Transactional

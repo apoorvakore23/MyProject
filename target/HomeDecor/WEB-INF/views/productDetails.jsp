@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" isELIgnored="false"
     pageEncoding="ISO-8859-1"%>
     <%@ page isELIgnored="false" %>
     <%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec"%>
@@ -9,8 +9,6 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-
-
 <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/main.css">
 <link rel="stylesheet"
 	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
@@ -20,7 +18,8 @@
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <script
 	src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-	<script src="assets/js/angular.js" type="text/javascript" ></script>
+<script src="<c:url value="/assets/js/controller.js" /> "></script>	
+	
 <script>
 
 	var decorApp=angular.module('homeDecor',[]);
@@ -40,11 +39,11 @@
 		<%@ include file="header.jsp"%>
 	</div>
 	<header id="head" class="secondary"></header>
-	<div class="container" >
+	<div class="container"  >
 		<div class="row">
 			
 		<div class="list-group" >
-		<div class="container" >
+		<div class="container"  ng-app="myApp" ng-controller="myCtrl" ng-init="loadDataById('${param.id}')">
 		<header class="page-header">			
 			<ol class="breadcrumb">
 			<li><a href="index">Home</a></li>
@@ -53,7 +52,7 @@
 		</header>	
 		<h1 class="page-title">View Product</h1>
 		<hr><br>
-		<div class="col-sm-4"  ng-app = "cartApp">		
+		<div class="col-sm-4" >		
 		<img src="<c:url value='/assets/Multipath/${product.file}'/>"  alt="noImage" class="img-thumbnail" >
 		</div>
 		<div class="col-sm-8" >  
@@ -63,8 +62,7 @@
 					<th>Name</th>
 					<td>${product.name}</td>
 				</tr>
-				<br>
-					<br>			<tr>
+							<tr>
 					<th>Price</th>
 					<td>${product.price}</td>
 				</tr>
@@ -78,7 +76,62 @@
 				</tr>
 				
 			</table>
-			<%-- <form:form method="POST" action="${pageContext.request.contextPath}/addtocart?productId=${product.id}"
+			
+			<table class="table">
+		<tr>
+		<td>
+		alert(${param.id});
+		<a href="<c:url value="dispProduct?id=4" />" class="btn btn-primary">Back</a>
+			</td>
+			<td>	
+			<sec:authorize access="isAuthenticated()">
+			<sec:authorize access="hasRole('ROLE_USER')">
+		<a href="#" class="btn btn-primary" ng-click="addToCart('${param.id}')">
+		<span class="glyphicon glyphicon-shopping-cart"></span>Add to cart
+							</a>
+							</sec:authorize>
+		  </sec:authorize>
+		  <sec:authorize access="isAnonymous()">
+		  <a href="${pageContext.request.contextPath}/login" class="btn btn-primary">
+		<span class="glyphicon glyphicon-shopping-cart"></span>Add to cart
+							</a>
+		  </sec:authorize>
+							</td>
+							<td>
+							<sec:authorize access="isAuthenticated()">
+							<sec:authorize access="hasRole('ROLE_USER')">
+										<a href="<c:url value='/memberShip'/>"  class="btn btn-warning"><span class="glyphicon glyphicon-hand-right"></span>View Cart</a>
+										</sec:authorize>
+										</sec:authorize>
+										<sec:authorize access="isAnonymous()">
+											<a href="${pageContext.request.contextPath}/login"  class="btn btn-warning"><span class="glyphicon glyphicon-hand-right"></span>View Cart</a>
+										</sec:authorize>
+							</td>
+			</tr>						
+</table>
+		
+	</div>
+	<br>
+	<br>
+	</div></div>
+	</div></div>
+
+	<!-- JavaScript libs are placed at the end of the document so the pages load faster -->
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+	<script src="assets/js/headroom.min.js"></script>
+	<script src="assets/js/jQuery.headroom.min.js"></script>
+	<script src="assets/js/template.js"></script>
+		
+</body>
+<footer id="footer" class="top-space"><%@ include file="/WEB-INF/views/footer.jsp" %>
+</footer>	
+		
+
+</html>
+
+
+<%-- <form:form method="POST" action="${pageContext.request.contextPath}/addtocart?productId=${product.id}"
 			modelAttribute="cart" ng-controller="cartCtrl">
 						<input type="hidden" name="_flowExecutionKey" value="${flowExecutionKey}"/>
 
@@ -93,35 +146,3 @@
 			</sec:authorize>
 			
 		</form:form> --%>
-			<p ng-controller="cartCtrl">
-                        <a href="<c:url value = "${url}" />" class="btn btn-default">Back</a>
-                        <a href="#" class="btn btn-warning btn-large" ng-click="addToCart('${product.id}')"><span class="glyphicon glyphicon-shopping-cart"></span> Order Now</a>
-                        <a href="<spring:url value="/cart" />" class="btn btn-default"><span class="glyphicon glyphicon-hand-right"></span> View Cart</a>
-                    </p>
-				
-				</div>
-						</div>
-
-		
-	</div>
-	<br>
-	<br>
-	</div></div>
-	
-
-	<!-- JavaScript libs are placed at the end of the document so the pages load faster -->
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
-	<script src="assets/js/headroom.min.js"></script>
-	<script src="assets/js/jQuery.headroom.min.js"></script>
-	<script src="assets/js/template.js"></script>
-</body>
-<footer id="footer" class="top-space"><%@ include file="/WEB-INF/views/footer.jsp" %>
-
-
-		
-
-	</footer>	
-		
-
-</html>

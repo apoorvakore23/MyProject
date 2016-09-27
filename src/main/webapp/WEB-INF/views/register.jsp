@@ -8,28 +8,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	
-	<link rel="stylesheet" media="screen" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
-	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
-	<link rel="stylesheet" href="assets/css/font-awesome.min.css">
-	<link rel="stylesheet" href="assets/css/bootstrap-theme.css" media="screen" >
-	<link rel="stylesheet" href="assets/css/main.css">
-	<script src="assets/js/regform.js"></script>  
-	<style>
+
+<link rel="stylesheet" media="screen"
+	href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
+<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+<link rel="stylesheet" href="assets/css/font-awesome.min.css">
+<link rel="stylesheet" href="assets/css/bootstrap-theme.css"
+	media="screen">
+<link rel="stylesheet" href="assets/css/main.css">
+<script src="assets/js/regform.js"></script>
+<style>
 .error {
 	color: red;
 	font-style: italic;
 	font-weight: bold;
 }
 </style>
-	
+
 
 </head>
 
 <body>
 	<!-- Fixed navbar -->
-	<div><%@ include file="header.jsp" %>
-	</div> 
+	<div><%@ include file="header.jsp"%>
+	</div>
 	<!-- /.navbar -->
 
 	<header id="head" class="secondary"></header>
@@ -43,299 +45,152 @@
 		</ol>
 
 		<div class="top-margin">
-			
+
 			<!-- Article main content -->
 			<article class="col-xs-12 maincontent">
 				<header class="page-header">
 					<h1 class="page-title">Registration</h1>
 				</header>
-				
+
 				<div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
 					<div class="panel panel-default">
 						<div class="panel-body">
 							<h3 class="thin text-center">Register a new account</h3>
-							<p class="text-center text-muted ">Already Registered with Us?  <a href="signin.html" class="glyphicon glyphicon-log-in">  Login</a>  </p>
+							<p class="text-center text-muted ">
+								Already Registered with Us? <a href="signin.html"
+									class="glyphicon glyphicon-log-in"> Login</a>
+							</p>
 							<hr>
-							
+
 							<div class="container-wrapper">
-    
-
-        <form:form action="${pageContext.request.contextPath}/register"
-                   method="post" commandName="customer">
-
-        <h3>Basic Info:</h3>
-
-        <div class="form-group">
-            <label for="name">Name</label>
-            <form:errors path="customerName" cssStyle="color: #ff0000" />
-            <form:input path="customerName" id="name" class="form-Control" />
-        </div>
-
-        <div class="form-group">
-            <label for="email">Email</label>
-            <span style="color: #ff0000">${emailMsg}</span>
-            <form:errors path="customerEmail" cssStyle="color: #ff0000" />
-            <form:input path="customerEmail" id="email" class="form-Control" />
-        </div>
-
-        <div class="form-group">
-            <label for="phone">Phone</label>
-            <form:input path="customerPhone" id="phone" class="form-Control" />
-        </div>
-
-        <div class="form-group">
-            <label for="username">Username</label>
-            <span style="color: #ff0000">${usernameMsg}</span>
-            <form:errors path="username" cssStyle="color: #ff0000" />
-            <form:input path="username" id="username" class="form-Control" />
-        </div>
-
-        <div class="form-group">
-            <label for="password">Password</label>
-            <form:errors path="password" cssStyle="color: #ff0000" />
-            <form:password path="password" id="password" class="form-Control" />
-        </div>
 
 
-        <br/>
+								<form:form action="${pageContext.request.contextPath}/register"
+									method="post" commandName="customer">
 
-        <h3>Billing Address:</h3>
+									<h3>Basic Info:</h3>
 
-        <div class="form-group">
-            <label for="billingStreet">Street Name</label>
-            <form:input path="billingAddress.streetName" id="billingStreet" class="form-Control" />
-        </div>
+									<div class="form-group">
+										<label for="name">Name</label><span class="text-danger">*</span>
 
-        <div class="form-group">
-            <label for="billingApartmentNumber">Apartment Number</label>
-            <form:input path="billingAddress.apartmentNumber" id="billingApartmentNumber" class="form-Control" />
-        </div>
-
-        <div class="form-group">
-            <label for="billingCity">City</label>
-            <form:input path="billingAddress.city" id="billingCity" class="form-Control" />
-        </div>
-
-        <div class="form-group">
-            <label for="billingState">State</label>
-            <form:input path="billingAddress.state" id="billingState" class="form-Control" />
-        </div>
-
-        <div class="form-group">
-            <label for="billingCountry">Country</label>
-            <form:input path="billingAddress.country" id="billingCountry" class="form-Control" />
-        </div>
-
-        <div class="form-group">
-            <label for="billingZip">Zipcode</label>
-            <form:input path="billingAddress.zipCode" id="billingZip" class="form-Control" />
-        </div>
-
-        <br/>
-
-        <h3>Shipping Address:</h3>
-
-        <div class="form-group">
-            <label for="shippingStreet">Street Name</label>
-            <form:input path="shippingAddress.streetName" id="shippingStreet" class="form-Control" />
-        </div>
-
-        <div class="form-group">
-            <label for="shippingApartmentNumber">Apartment Number</label>
-            <form:input path="shippingAddress.apartmentNumber" id="shippingApartmentNumber" class="form-Control" />
-        </div>
-
-        <div class="form-group">
-            <label for="shippingCity">City</label>
-            <form:input path="shippingAddress.city" id="shippingCity" class="form-Control" />
-        </div>
-
-        <div class="form-group">
-            <label for="shippingState">State</label>
-            <form:input path="shippingAddress.state" id="shippingState" class="form-Control" />
-        </div>
-
-        <div class="form-group">
-            <label for="shippingCountry">Country</label>
-            <form:input path="shippingAddress.country" id="shippingCountry" class="form-Control" />
-        </div>
-
-        <div class="form-group">
-            <label for="shippingZip">Zipcode</label>
-            <form:input path="shippingAddress.zipCode" id="shippingZip" class="form-Control" />
-        </div>
-
-        <br/><br/>
-
-        <input type="submit" value="submit" class="btn btn-default">
-        <a href="<c:url value="/" />" class="btn btn-default">Cancel</a>
-
-        </form:form>
-							
-							
-							
-							
-							
-							
-							
-							
-							
-							
-							
-							
-							
-							
-							
-							
-							
-							
-							
-							
-							
-							
-							
-							
-							
-							
-							
-							
-							
-							
-							
-							
-							
-							
-							<%-- <form:form method="post" commandName="adduser"	enctype="/form-data" action="register">
-			<table class="table table-hover">
-				<tr>
-					<td><form:label path="fname" >
-							<spring:message text="First Name"  />*
-						</form:label></td>
-					<td><form:input path="fname" class="form-control" /></td>
-					<td><form:errors path="fname" cssClass="error" /></td>
-				</tr>
-				<tr>
-					<td><form:label path="lname">
-							<spring:message text="Last Name" />
-						</form:label></td>
-					<td><form:input path="lname" class="form-control" /></td>
-					<td><form:errors path="lname" cssClass="error" /></td>
-				</tr>
-
-				
-				<tr>
-					<td><form:label path="address">
-							<spring:message text="Address" />
-						</form:label></td>
-				
-					<td><form:textarea path="address" rows="3"  cols="20" class="form-control"/></td>
-					<td><rform:errors path="address" cssClass="error" /></td>
-				</tr>
-				
-				
-				<tr>
-					<td><form:label path="contact">
-							<spring:message text="Contact No" />
-						</form:label></td>
-					<td><form:input path="contact" class="form-control"/></td>
-					<td><form:errors path="contact" cssClass="error" /></td>
-				</tr>
-				<tr>
-					<td><form:label path="userName">
-							<spring:message text="User Name " />*
-						</form:label></td>
-					<td><form:input path="userName" class="form-control" /></td>
-					<td><form:errors path="userName" cssClass="error" /></td>
-				</tr>
-				<tr>
-					<td><form:label path="email">
-							<spring:message text="Email" />
-						</form:label></td>
-					<td><form:input path="email" /></td>
-					<td><form:errors path="email" cssClass="error" class="form-control"/></td>
-				</tr>
-				<tr>
-					<td><form:label path="password">
-							<spring:message text="Password " />*
-						</form:label></td>
-					<td><form:input type="password" path="password" class="form-control"/></td>
-					<td><form:errors path="password" cssClass="error" /></td>
-				</tr>
-				
-				<tr>
-					<td colspan="2"><input type="submit" class="btn btn-info" value="Register" /></td>
-				</tr>
-			</table>
-		</form:form>
-							
-							 --%>
-							
-							
-							
-<!-- 
-							<form name="registration" onSubmit="return formValidation();"  >
-								<div class="top-margin">
-									<label>First Name</label>
-									<input name="Fname"type="text" class="form-control" />
-								</div>
-								<div class="top-margin">
-									<label>Last Name</label>
-									<input name="Lname"type="text" class="form-control" >
-								</div>
-								<div class="top-margin">
-									<label>Address</label>
-									<textarea name="address"  class="form-control" ></textarea>
-								</div>
-								<div class="top-margin">
-									<label>Email Address <span class="text-danger">*</span></label>
-									<input type="text" name="email" class="form-control"  required/>
-								</div>
-
-								<div class="top-margin top-margin">
-									<div class="col-sm-6">
-										<label>Password <span class="text-danger">*</span></label>
-										<input type="text" name="password" class="form-control" required/>
+										<form:input path="customerName" id="name" class="form-Control" />
+										<form:errors path="customerName" cssStyle="color: #ff0000" />
 									</div>
-									<div class="col-sm-6">
-										<label>Confirm Password <span class="text-danger">*</span></label>
-										<input type="text" name="password" class="form-control" required/>
-									</div>
-								</div>
 
-								<hr>
+									<div class="form-group">
+										<label for="email">Email</label> <span style="color: #ff0000">${emailMsg}</span>
 
-								<div class="top-margin">
-									<div class="col-lg-8">
-										<label class="checkbox">
-											<input type="checkbox"> 
-											I've read the <a href="page_terms.html">Terms and Conditions</a>
-										</label>                        
+										<form:input path="customerEmail" id="email"
+											class="form-Control" />
+										<span class="text-danger">*</span>
+										<form:errors path="customerEmail" cssStyle="color: #ff0000" />
 									</div>
-									<div class="col-lg-4 text-right">
-										<button class="btn btn-action" type="submit">Register</button>
+
+									<div class="form-group">
+										<label for="phone">Phone</label>
+										<form:input path="customerPhone" id="phone"
+											class="form-Control" />
 									</div>
-								</div>
-							</form> -->
+
+									<div class="form-group">
+										<label for="username">Username</label> <span
+											style="color: #ff0000">${usernameMsg}</span>
+
+										<form:input path="username" id="username" class="form-Control" />
+										<span class="text-danger">*</span>
+										<form:errors path="username" cssStyle="color: #ff0000" />
+									</div>
+
+									<div class="form-group">
+										<label for="password">Password</label>
+
+										<form:password path="password" id="password"
+											class="form-Control" />
+										<span class="text-danger">*</span>
+										<form:errors path="password" cssStyle="color: #ff0000" />
+									</div>
+
+
+
+									<br />
+
+									<h3>Shipping Address:</h3>
+
+									<div class="form-group">
+										<label for="shippingStreet">House Number </label>
+										<form:input path="shippingAddress.houseNumber"
+											id="houseNumber" class="form-Control" />
+									</div>
+
+									<div class="form-group">
+										<label for="shippingApartmentNumber">AddressLine1</label>
+										<form:input path="shippingAddress.addressLine1"
+											id="addressLine1" class="form-Control" />
+									</div>
+
+									<div class="form-group">
+										<label for="shippingCity">AddressLine2</label>
+										<form:input path="shippingAddress.addressLine2"
+											id="addressLine2" class="form-Control" />
+									</div>
+
+									<div class="form-group">
+										<label for="shippingState">city</label>
+										<form:input path="shippingAddress.city" id="city"
+											class="form-Control" />
+									</div>
+
+									<div class="form-group">
+										<label for="shippingCountry">state</label>
+										<form:input path="shippingAddress.state" id="state"
+											class="form-Control" />
+									</div>
+
+									<div class="form-group">
+										<label for="shippingZip">country</label>
+										<form:input path="shippingAddress.country" id="country"
+											class="form-Control" />
+									</div>
+									<div class="form-group">
+										<label for="shippingZip">zipCode</label>
+										<form:input path="shippingAddress.zipCode" id="zipCode"
+											class="form-Control" />
+									</div>
+									<br />
+									<br />
+
+									<input type="submit" value="submit" class="btn btn-default">
+									<a href="<c:url value="/" />" class="btn btn-default">Cancel</a>
+								</form:form>
+						</div>
+
+
+
+
+
 						</div>
 					</div>
 
 				</div>
-				
+
 			</article>
 			<!-- /Article -->
 
 		</div>
-	</div>	<!-- /container -->
-	
+	</div>
+	<!-- /container -->
+
 
 	<footer id="footer" class="top-space">
 
-		<%@ include file="footer.jsp" %>
-	</footer>	
+		<%@ include file="footer.jsp"%>
+	</footer>
 
 	<!-- JavaScript libs are placed at the end of the document so the pages load faster -->
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+	<script
+		src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script
+		src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
 	<script src="assets/js/headroom.min.js"></script>
 	<script src="assets/js/jQuery.headroom.min.js"></script>
 	<script src="assets/js/template.js"></script>

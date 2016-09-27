@@ -1,10 +1,13 @@
 package com.ecom.homedecorfrontend.models;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 import javax.validation.constraints.Max;
@@ -13,16 +16,24 @@ import javax.validation.constraints.Min;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.stereotype.Component;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
 @Table  // (name="CATEGORY")  //IF TABLENAME AND DOMAIN CLASS NAME IS SAME NO NEED TO SPECIFY NAME HERE
 @Component
-public class Category {
+@JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
+public class Category implements Serializable {
 	
 	//id,name,description are fiels in the table
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	@Id
 	@Column
 	@GeneratedValue(strategy=GenerationType.AUTO)
+	@SequenceGenerator(name="prod_seq",sequenceName="prod_seq")
 private int id;
 	@Column(name="name")//if the name of column is different from table then only specify 
 	@NotEmpty(message = "Name should not be empty")

@@ -23,15 +23,10 @@ public class CustomerDaoImpl implements CustomerDao{
     private SessionFactory sessionFactory;
 
     public void addCustomer(Customer customer){
-        Session session = sessionFactory.getCurrentSession();
-
-        customer.getBillingAddress().setCustomer(customer);
-        customer.getShippingAddress().setCustomer(customer);
-
+        Session session = sessionFactory.getCurrentSession();       
+        customer.getShippingAddress().setUsersDetail(customer);
         session.saveOrUpdate(customer);
-        session.saveOrUpdate(customer.getBillingAddress());
-        session.saveOrUpdate(customer.getShippingAddress());
-
+              session.saveOrUpdate(customer.getShippingAddress());
         UserDetails newUser = new UserDetails();
         newUser.setUsername(customer.getUsername());
         newUser.setPassword(customer.getPassword());
@@ -45,7 +40,7 @@ public class CustomerDaoImpl implements CustomerDao{
         
 
         Cart newCart = new Cart();
-        newCart.setCustomer(customer);
+        newCart.setUsersDetail(customer);
         customer.setCart(newCart);
 
         session.saveOrUpdate(customer);
@@ -56,12 +51,13 @@ public class CustomerDaoImpl implements CustomerDao{
 
     public Customer getCustomerById(int customerId){
         Session session = sessionFactory.getCurrentSession();
-        return (Customer) session.get(Customer.class, customerId);
+        return session.get(Customer.class, customerId);
     }
 
     public List<Customer> getAllCustomers(){
-        Session session = sessionFactory.getCurrentSession();
-        Query query = session.createQuery("from Customer");
+        Session session = sessionFactory.openSession();
+        Query<Customer> query = session.createQuery("from Customer");
+        @SuppressWarnings("unchecked")
         List<Customer> customerList = query.list();
 
         return customerList;
@@ -69,12 +65,12 @@ public class CustomerDaoImpl implements CustomerDao{
     }
 
     public Customer getCustomerByUsername(String username){
-        Session session = sessionFactory.getCurrentSession();
-        Query query = session.createQuery("from Customer where username = ?");
+        Session session = sessionFactory.openSession();
+        Query<Customer> query = session.createQuery("from Customer where username = ?");
         query.setString(0, username);
 
 
-        return (Customer) query.uniqueResult();
+        return query.uniqueResult();
     }
 
 
