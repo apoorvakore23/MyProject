@@ -2,7 +2,6 @@
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
-
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page isELIgnored="false" %>
 <!DOCTYPE html>
@@ -19,19 +18,8 @@
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <script
 	src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-	<script src="/assets/js/angular.js" type="text/javascript" ></script>
-	<%-- <script src="<c:url value='/assets/js/angularJsController.js'/>"></script> --%>
-<script>
-	var decorApp=angular.module('homeDecor',[]);
-	decorApp.controller('getProduct',function($scope,$http,$location){		
-		$scope.Products = ${pList} ;		
-		$scope.name="HomeDecor";
-		$scope.search=location.search.substring(8);		
-	}			
-	);
-	
-</script>
-</head>
+	<script src="<c:url value='/assets/js/controller.js'/>"></script>
+	</head>
 <body class="home">
 	<div>
 		<%@ include file="header.jsp"%>
@@ -47,7 +35,7 @@
 				<h1 class="page-title">View Product</h1>
 			</header>
 			<c:set var="pid" value="${param.id}"/>
-			<div ng-app="homeDecor" ng-controller="getProduct" >
+			<div ng-app="myApp" ng-controller="myCtrl" ng-init="loadData()" >
 			<div id="custom-search-input">
                 <div class="input-group col-md-12">
                     <input ng-model="search.name" type="text" class="form-control input-lg" placeholder="Search" />
@@ -72,7 +60,7 @@
 						</thead>	
 						<c:if test="${pid=='4' }">		
 						<tbody>								
-									<tr ng-repeat="product in Products|filter:search"> 
+									<tr ng-repeat="product in Data|filter:search"> 
 									<td><img src="<c:url value='/assets/Multipath/{{product.file}}'/>"  alt="noImage" class="img-thumbnail" ></td>
 										<td>{{product.name}}</td>
 										<td>{{product.quantity }}</td>
@@ -93,7 +81,7 @@
 					
 					<c:if test="${pid=='1' }">		
 						<tbody>								
-									<tr ng-repeat="product in Products|filter:{category:'Living'}|filter:search"> 
+									<tr ng-repeat="product in Data|filter:{category:'Living'}|filter:search"> 
 									
 										<td>{{product.name}}</td>
 										<td>{{product.quantity }}</td>
@@ -114,7 +102,7 @@
 					
 					<c:if test="${pid=='3' }">		
 						<tbody>								
-									<tr ng-repeat="product in Products|filter:{category:'Dinning'}|filter:search"> 
+									<tr ng-repeat="product in Data|filter:{category:'Dinning'}|filter:search"> 
 									
 										<td>{{product.name}}</td>
 										<td>{{product.quantity }}</td>
@@ -134,7 +122,7 @@
 										</c:if>
 										<c:if test="${pid=='2' }">		
 						<tbody>								
-									<tr ng-repeat="product in Products|filter:{category:'Bedroom'}|filter:search"> 
+									<tr ng-repeat="product in Data|filter:{category:'Bedroom'}|filter:search"> 
 									
 										<td>{{product.name}}</td>
 										<td>{{product.quantity }}</td>

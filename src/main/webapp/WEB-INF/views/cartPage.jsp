@@ -39,11 +39,11 @@
 <div  ng-app="myApp">
 	 
 	 <div  ng-controller = "myCtrl" ng-init="retrieveCart()">
-        <table class="table table-bordered table-striped fs13" >
+        <table class="table  table-striped fs13" >
 		  <thead>
 			  <tr>
 				
-				<th>IMAGE</th>
+				<th>Preview</th>
 				<th class="width110">PRODUCT</th>
 				<th >UNIT PRICE</th>
 				<th>QUANTITY</th>
@@ -53,7 +53,7 @@
 			</thead>
 			<tbody>
 				<tr ng-repeat = "items in cart.cartItems">
-					 	<td class="span1"><img height="60px" width="60px" src="<c:url value="/assets/Multipath/{{items.item.file}}" /> " alt="image"/></td>
+					 	<td class="span1"><img height="60px" width="60px" class="img-responsive" src="<c:url value="/assets/Multipath/{{items.item.file}}" /> " alt="image"/></td>
 						<td>{{items.item.name}}</td>
 						<td>{{items.item.price}}</td>
 						<td>{{items.quantity}}</td>
@@ -61,13 +61,13 @@
 						<td><a href="#"  ng-click="removeItemFromCart(items.item.id)">
 							<span class="glyphicon glyphicon-remove"></span>REMOVE</a></td>
 					</tr>
-			  <tr>
-                    <td></td>
-                    <td></td>
-					<td></td>
-                    <td>GRAND TOTAL(in Rs.)</td>
-                    <td>{{GrandTotalOfItems()}}</td>
-                    <td></th>
+			  <tr >
+			  <td></td>
+			  <td></td>
+			  <td></td>
+                    
+                    <th>GRAND TOTAL(in Rs.)</th>
+                    <td>{{GrandTotalOfItems()}}</td>																																																																																																																																																																																																																																																												
                 </tr>	  
 			</tbody>
 		  </table>
@@ -76,7 +76,7 @@
 
           <div class="row">
 		  <div class="col-sm-4">
-             <a href="<c:url value='${pageContext.request.contextPath}/dispProduct?id=4'/>" class="btn btn-primary center">CONTINUE SHOPPING</a>
+             <a href="<c:url value='/dispProduct?id=4'/>" class="btn btn-primary center">CONTINUE SHOPPING</a>
 			</div>	
 			<div class="col-sm-4">
 			<form:form>

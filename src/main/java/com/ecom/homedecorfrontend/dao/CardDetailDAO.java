@@ -39,11 +39,13 @@ public class CardDetailDAO implements Serializable {
 	        cardDetail.setUsersDetail(c);
 	        cardDetail.setCart(c.getCart());
 	        session.saveOrUpdate(cardDetail);
+	        System.out.println("carddetails"+cardDetail);
 	        CustomerOrder co = new CustomerOrder();
 	        co.setUsersDetail(c);
 	        co.setShippingAddress(c.getShippingAddress());
 	        co.setCart(c.getCart());
 	        session.save(co);
+	        System.out.println("customer details"+co);
 	        tx.commit();
 	        session.flush();
 	        session.close();

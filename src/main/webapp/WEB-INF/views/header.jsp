@@ -77,9 +77,9 @@
 						</sec:authorize>
 				<li><sec:authorize access="isAuthenticated()"> 
 				<sec:authorize access="hasRole('ROLE_USER')">
-										<a href="<c:url value='/memberShip'/>"  ><span class="glyphicon glyphicon-hand-right"></span> Cart</a>
+										<a href="<c:url value='/memberShip'/>"  ><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a>
 										</sec:authorize>
-						<li><a  class="btn"href='<c:url value="/logout" />'>
+						<li><a  class="btn" href='<c:url value="/logout" />'>
 								<span class="glyphicon glyphicon-log-out"></span> Logout
 						</a></li>
 					</sec:authorize>

@@ -32,8 +32,7 @@ public class Category implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@Id
 	@Column
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	@SequenceGenerator(name="prod_seq",sequenceName="prod_seq")
+	@GeneratedValue(strategy=GenerationType.AUTO)	
 private int id;
 	@Column(name="name")//if the name of column is different from table then only specify 
 	@NotEmpty(message = "Name should not be empty")

@@ -4,9 +4,9 @@
                           http://www.springframework.org/schema/webflow/spring-webflow.xsd">
               
   <var name="ship" class="com.ecom.homedecorfrontend.models.ShippingAddress" />  
-  <!--  <var name="pay" class="com.ecom.homedecorfrontend.models.CardDetails" />   -->
+   <var name="pay" class="com.ecom.homedecorfrontend.models.CardDetails" />  
    <var name="saveShip" class="com.ecom.homedecorfrontend.service.ShippingServices" />
-  <!--  <var name="saveCardData" class="com.ecom.homedecorfrontend.service.CardDetailService" /> -->
+   <var name="saveCardData" class="com.ecom.homedecorfrontend.service.CardDetailService" />
    
 <view-state id="memberShip" view="cartPage">
 <transition on="checkout" to="shippingPage" ></transition>

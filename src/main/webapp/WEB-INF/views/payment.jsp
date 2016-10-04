@@ -32,7 +32,7 @@
 			<article class="col-sm-8 maincontent">
 				<header class="page-header">
 
-<div class="container"   ng-app="myApp" ng-controller = "ProductController" ng-init="retrieveCart()" >
+<div class="container"   ng-app="myApp" ng-controller = "myCtrl" ng-init="retrieveCart()" >
 
 <h3>Payment Details </h3>
 <div>

@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.ecom.homedecorfrontend.models.Cart;
 import com.ecom.homedecorfrontend.models.CartItem;
+import com.ecom.homedecorfrontend.models.Product;
 
 import java.util.List;
 
@@ -24,6 +25,7 @@ public class CartItemDaoImpl implements CartItemDao{
     public void addCartItem(CartItem cartItem){
         Session session = sessionFactory.openSession();
         Transaction tx = session.beginTransaction();
+        System.out.println("DAO");
         session.saveOrUpdate(cartItem);
         tx.commit();
         session.flush();       
@@ -48,13 +50,32 @@ public class CartItemDaoImpl implements CartItemDao{
         }
     }
 
-    public CartItem getCartItemByProductId(int productId){
+    @Transactional
+	public CartItem getCartItemByProductId(int productId){
+		String hql="from CartItem where item="+ "'"+ productId+"'";
+		Query query=sessionFactory.getCurrentSession().createQuery(hql);
+		List<CartItem> list=query.list();
+		if(list==null)
+			return null;
+		else
+			return list.get(0);
+	}
+		
+		
+		/*
+    	
+		Session session = this.sessionFactory.openSession();
+		CartItem p = (CartItem) session.load(CartItem.class, new Integer(productId));
+		// logger.info("Product loaded successfully, Product details="+p);
+		return p;
+	
         Session session = sessionFactory.openSession();
-        Query query = session.createQuery("from CartItem where itemId = ?");
+       
+		Query query = session.createQuery("from CartItem where itemId = ?");
         query.setInteger(0, productId);
         session.flush();
 
-        return (CartItem) query.uniqueResult();
-    }
+        return (CartItem) query.uniqueResult();*/
+    
 
 } // The End of Class;

@@ -24,8 +24,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 public class CardDetails  implements Serializable {
 
 	@Id
-	@SequenceGenerator(name = "ship_seq", sequenceName = "ship_seq")
-	@GeneratedValue(strategy=GenerationType.AUTO,generator = "ship_seq")
+	@SequenceGenerator(name = "card_seq", sequenceName = "card_seq")
+	@GeneratedValue(strategy=GenerationType.AUTO,generator="card_seq")
 	@Column(name="cardId")
     private int cardID;
 	
@@ -161,6 +161,14 @@ public class CardDetails  implements Serializable {
 	public void setUsersDetail(Customer usersDetail) {
 			this.usersDetail = usersDetail;
 	}
+	
+	
+	@Override
+	public String toString() {
+		return "cardDetails [cardID=" + cardID + ", cardType=" + cardType
+				+ ", cardNumber=" + cardNumber + ", expiryMonth=" + expiryMonth + ", expiryYear=" + expiryYear + ", cvNumber="
+				+ cvNumber + ", nameOnCard=" + nameOnCard + ", atmPin=" + atmPin + ",cart=" + cart + ", Customer=" + usersDetail + "]";
+	} 
 
 
 }

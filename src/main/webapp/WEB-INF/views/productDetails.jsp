@@ -20,20 +20,12 @@
 	src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 <script src="<c:url value='/assets/js/controller.js' /> "></script>	
 	
-<!-- <script>
-	var decorApp=angular.module('homeDecor',[]);
-	decorApp.controller('displayProduct',function($scope,$http,$location){		
-		$scope.product = ${product} ;		
-		$scope.name="HomeDecor";
-		$scope.search=location.search.substring(8);	
-	}
-	);
-	</script> -->
+
 </head>
 <body>
 
 
-<div>
+<div>alert('${param.id}');
 		<%@ include file="header.jsp"%>
 	</div>
 	<header id="head" class="secondary"></header>
@@ -78,8 +70,7 @@
 			<table class="table">
 		<tr>
 		<td>
-		
-		<a href="<c:url value="dispProduct?id=4" />" class="btn btn-primary">Back</a>
+				<a href="<c:url value="dispProduct?id=4" />" class="btn btn-primary">Back</a>
 			</td>
 			<td>	
 			<sec:authorize access="isAuthenticated()">

@@ -15,8 +15,7 @@ public class Cart implements Serializable{
 	@SequenceGenerator(name = "cart_seq", sequenceName = "cart_seq")
 	@GeneratedValue(strategy=GenerationType.AUTO,generator = "cart_seq")
 	@Column(name="CartId")
-	private int cartId;
-	
+	private int cartId;	
 	@OneToMany(mappedBy = "cart", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<CartItem> cartItems;
 	

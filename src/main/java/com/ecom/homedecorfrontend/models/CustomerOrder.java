@@ -57,5 +57,8 @@ public class CustomerOrder implements Serializable{
 	public void setUsersDetail(Customer usersDetail) {
 		this.usersDetail = usersDetail;
 	}
-
+	@Override
+	public String toString() {
+		return "{orderId:'"+orderId+"',cart:'"+cart+"',usersDetail:'"+usersDetail+"',shippingAddress:'"+shippingAddress+"',usersDetail:'"+usersDetail+"'}";
+	}
 } // The End of Class;

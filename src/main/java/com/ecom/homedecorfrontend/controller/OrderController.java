@@ -13,7 +13,7 @@ import com.ecom.homedecorfrontend.service.CartService;
 import com.ecom.homedecorfrontend.service.CustmerOrderServiceImpl;
 
 
-@Controller
+@Controller  
 public class OrderController {
 	  @Autowired
 	    private CartService cartService;
@@ -28,7 +28,7 @@ public class OrderController {
 	    	CustomerOrder userOrder = new CustomerOrder();
 	        Cart cart=cartService.getCartById(cartId);
 	        userOrder.setCart(cart);
-
+System.out.println("inside customer order");
 	        Customer usersDetail = cart.getUsersDetail();
 	        userOrder.setUsersDetail(usersDetail);
 	  //      userOrder.setShippingAddress();

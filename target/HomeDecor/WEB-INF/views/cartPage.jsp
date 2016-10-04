@@ -7,17 +7,30 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Cart</title>
+<title>Home Decor-it's not place it's feeling.</title>
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-  <script src="<c:url value='/resources/JS/AngularController.js'/>"></script>
+  <script src="<c:url value='/assets/js/controller.js' /> "></script>
 </head>
 <body>
+
 <div>
 <%@ include file="header.jsp" %>
 </div> 
+<header id="head" class="secondary"></header>
+
+	<!-- container -->
+	<div class="container">
+
+		
+
+		<div class="row">
+			
+			<!-- Article main content -->
+			<article class="col-sm-8 maincontent">
+				<header class="page-header">
 <div class="container">
 <center>
 					<h3>ITEMS IN YOUR CART</h3>
@@ -25,12 +38,12 @@
 
 <div  ng-app="myApp">
 	 
-	 <div  ng-controller = "ProductController" ng-init="retrieveCart()">
-        <table class="table table-bordered table-striped fs13" >
+	 <div  ng-controller = "myCtrl" ng-init="retrieveCart()">
+        <table class="table  table-striped fs13" >
 		  <thead>
 			  <tr>
 				
-				<th>IMAGE</th>
+				<th>Preview</th>
 				<th class="width110">PRODUCT</th>
 				<th >UNIT PRICE</th>
 				<th>QUANTITY</th>
@@ -40,21 +53,21 @@
 			</thead>
 			<tbody>
 				<tr ng-repeat = "items in cart.cartItems">
-					 	<td class="span1"><img height="60px" width="60px" src="<c:url value="/resources/{{items.item.category}}/{{items.item.image}}" /> " alt="image"/></td>
+					 	<td class="span1"><img height="60px" width="60px" class="img-responsive" src="<c:url value="/assets/Multipath/{{items.item.file}}" /> " alt="image"/></td>
 						<td>{{items.item.name}}</td>
 						<td>{{items.item.price}}</td>
 						<td>{{items.quantity}}</td>
 						<td>{{items.totalPrice}}</td>
-						<td><a href="#" class="btn btn-danger btnAction" ng-click="removeItemFromCart(items.item.id)">
+						<td><a href="#"  ng-click="removeItemFromCart(items.item.id)">
 							<span class="glyphicon glyphicon-remove"></span>REMOVE</a></td>
 					</tr>
-			  <tr>
-                    <td></td>
-                    <td></td>
-					<td></td>
-                    <td>GRAND TOTAL(in Rs.)</td>
-                    <td>{{GrandTotalOfItems()}}</td>
-                    <td></th>
+			  <tr >
+			  <td></td>
+			  <td></td>
+			  <td></td>
+                    
+                    <th>GRAND TOTAL(in Rs.)</th>
+                    <td>{{GrandTotalOfItems()}}</td>																																																																																																																																																																																																																																																												
                 </tr>	  
 			</tbody>
 		  </table>
@@ -63,7 +76,7 @@
 
           <div class="row">
 		  <div class="col-sm-4">
-             <a href="<c:url value='/'/>" class="btn btn-primary center">CONTINUE SHOPPING</a>
+             <a href="<c:url value='/dispProduct?id=4'/>" class="btn btn-primary center">CONTINUE SHOPPING</a>
 			</div>	
 			<div class="col-sm-4">
 			<form:form>
@@ -81,7 +94,7 @@
 		</div>
       </div>   
       </div>
- 
+ </header></article></div></div>
 <div>
 <%@ include file="footer.jsp" %>
 </div>

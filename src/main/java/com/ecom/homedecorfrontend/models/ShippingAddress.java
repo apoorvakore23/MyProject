@@ -22,7 +22,7 @@ import java.io.Serializable;
 public class ShippingAddress implements Serializable{
 	@Id
 	@SequenceGenerator(name = "ship_seq", sequenceName = "ship_seq")
-	@GeneratedValue(strategy=GenerationType.AUTO,generator = "ship_seq")
+	@GeneratedValue(strategy=GenerationType.AUTO,generator="ship_seq")
 	@Column(name="ShipId")
 	private int shipId;
 	@NotBlank (message = "House no. Required")

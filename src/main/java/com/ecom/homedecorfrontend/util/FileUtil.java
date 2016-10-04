@@ -8,10 +8,7 @@ import java.io.OutputStream;
 import org.springframework.web.multipart.MultipartFile;
 
 public class FileUtil {
-	public  String removeComma(String name){
-		
-		return name.replace(",", "");	
-	}
+
 	public static void upload(String path, MultipartFile file , String fileName){
 		if(!file.isEmpty()){
 			InputStream inputStream = null;

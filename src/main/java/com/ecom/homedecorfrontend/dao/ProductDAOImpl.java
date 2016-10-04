@@ -72,8 +72,13 @@ public class ProductDAOImpl implements ProductDAO
 	}
 
 	
-	@SuppressWarnings("unchecked")
+	@Transactional
 	public List<Product> listProducts() {
+		String hql="from Product";
+		Query query=sessionFactory.getCurrentSession().createQuery(hql);
+		return query.list();
+		
+		/*
 		Session session = sessionFactory.openSession();
 		
 		@SuppressWarnings("deprecation")
@@ -81,7 +86,7 @@ public class ProductDAOImpl implements ProductDAO
 		
 		System.out.println(pList);
 		return pList;
-	}
+	*/}
 	public void storeFile(Product p) 	{
 		 
 		/*MultipartFile file= p.getFile();

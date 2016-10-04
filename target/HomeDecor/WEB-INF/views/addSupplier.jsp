@@ -50,7 +50,7 @@
 				</form:label>
 				<form:input class="form-control" path="name" />
 				<form:errors path="name">
-					<p class="errStyle">* Product Name should be atleast 3
+					<p class="errStyle">* Supplier Name should be atleast 3
 						characters</p>
 				</form:errors>
 			</div>

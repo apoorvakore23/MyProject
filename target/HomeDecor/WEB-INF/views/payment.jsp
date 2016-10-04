@@ -12,13 +12,27 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-  <script src="<c:url value='/resources/JS/AngularController.js'/>"></script>
+ <script src="<c:url value='/assets/js/controller.js' /> "></script>
 </head>
 <body>
 <div>
 <%@ include file="header.jsp" %>
 </div>
-<div class="container"   ng-app="myApp" ng-controller = "ProductController" ng-init="retrieveCart()" >
+
+<header id="head" class="secondary"></header>
+
+	<!-- container -->
+	<div class="container">
+
+		
+
+		<div class="row">
+			
+			<!-- Article main content -->
+			<article class="col-sm-8 maincontent">
+				<header class="page-header">
+
+<div class="container"   ng-app="myApp" ng-controller = "myCtrl" ng-init="retrieveCart()" >
 
 <h3>Payment Details </h3>
 <div>
@@ -134,7 +148,11 @@
         
         </form:form>
        </div>
-       </div>
+       </div></header></article></div></div>
+       
+       
+       
+       
        <div>
         <%@ include file="footer.jsp" %>
 </div>

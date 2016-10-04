@@ -22,7 +22,7 @@ public class UserDetails {
     private int usersId;
     private String username;
     private String password;
-    private Boolean enabled;
+    private Boolean enabled;//to check user active or not
     private int customerId;
 
     public UserDetails() {

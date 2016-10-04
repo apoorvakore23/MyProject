@@ -18,24 +18,14 @@
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <script
 	src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-<script src="<c:url value="/assets/js/controller.js" /> "></script>	
+<script src="<c:url value='/assets/js/controller.js' /> "></script>	
 	
-<script>
 
-	var decorApp=angular.module('homeDecor',[]);
-	decorApp.controller('displayProduct',function($scope,$http,$location){		
-		$scope.product = ${product} ;		
-		$scope.name="HomeDecor";
-		$scope.search=location.search.substring(8);	
-	}
-	);
-	
-</script>
 </head>
 <body>
 
 
-<div>
+<div>alert('${param.id}');
 		<%@ include file="header.jsp"%>
 	</div>
 	<header id="head" class="secondary"></header>
@@ -53,26 +43,26 @@
 		<h1 class="page-title">View Product</h1>
 		<hr><br>
 		<div class="col-sm-4" >		
-		<img src="<c:url value='/assets/Multipath/${product.file}'/>"  alt="noImage" class="img-thumbnail" >
+		<img src="<c:url value='/assets/Multipath/{{Data.file}}'/>"  alt="noImage" class="img-thumbnail" >
 		</div>
 		<div class="col-sm-8" >  
 				<table class=" table-hover" >
 			
 				<tr>
 					<th>Name</th>
-					<td>${product.name}</td>
+					<td>{{Data.name}}</td>
 				</tr>
 							<tr>
 					<th>Price</th>
-					<td>${product.price}</td>
+					<td>{{Data.price}}</td>
 				</tr>
 				<tr>
 					<th>Details</th>
-					<td>${product.description}</td>
+					<td>{{Data.description}}</td>
 				</tr>
 				<tr>
 					<th>Category</th>
-					<td>    ${product.category}</td>
+					<td>    {{Data.category}}</td>
 				</tr>
 				
 			</table>
@@ -80,8 +70,7 @@
 			<table class="table">
 		<tr>
 		<td>
-		alert(${param.id});
-		<a href="<c:url value="dispProduct?id=4" />" class="btn btn-primary">Back</a>
+				<a href="<c:url value="dispProduct?id=4" />" class="btn btn-primary">Back</a>
 			</td>
 			<td>	
 			<sec:authorize access="isAuthenticated()">

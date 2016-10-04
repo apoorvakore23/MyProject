@@ -16,7 +16,7 @@ public class CartItem implements Serializable {
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "cartId")
-    @JsonIgnore
+    @JsonIgnore//will not affect for this field
     private Cart cart;
 
     @ManyToOne(fetch = FetchType.EAGER)
@@ -65,6 +65,10 @@ public class CartItem implements Serializable {
     public void setTotalPrice(double totalPrice) {
         this.totalPrice = totalPrice;
     }
+   /* @Override
+	public String toString() {
+		return "{cartItemId:'"+cartItemId+"',cart:'"+cart+"',item:'"+item+"',quantity:'"+quantity+"',totalPrice:'"+totalPrice+"'}";
+	}*/
 	
 
 } // The End of Class;

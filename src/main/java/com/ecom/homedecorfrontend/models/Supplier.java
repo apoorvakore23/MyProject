@@ -31,7 +31,6 @@ private int id;
 	@Email(message = "Enter Valid Email address")
 	private String emailID;
 	@NotNull
-	
 	private int contactNo;
 	public int getId() {
 		return id;

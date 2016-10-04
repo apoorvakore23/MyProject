@@ -16,14 +16,26 @@
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <script
 	src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-<script src="<c:url value='/resources/JS/AngularController.js'/>"></script>
+  <script src="<c:url value='/assets/js/controller.js' /> "></script>
 </head>
 <body>
 <div>
 <%@ include file="header.jsp"%>
 </div>
 	<div class="container">
+		<header id="head" class="secondary"></header>
+
+	<!-- container -->
+	<div class="container">
+
 		
+
+		<div class="row">
+			
+			<!-- Article main content -->
+			<article class="col-sm-8 maincontent">
+				<header class="page-header">
+<div class="container">
 <h3>Shipping Details</h3>
 		<form:form modelAttribute="ship" role="form">
     <div class="form-group">
@@ -43,8 +55,6 @@
 				<form:input path="addressLine2" class="form-control" />
 
 			</div>
-
-
 			<div class="form-group">
 				<label >CITY</label>
 
@@ -80,7 +90,7 @@
 				
 			</div>
 		</form:form>
-	</div>
+	</div></header></article></div></div></div>
 	<div>
 	<%@ include file="footer.jsp"%>
 	</div>

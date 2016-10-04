@@ -64,13 +64,24 @@ public class CustomerDaoImpl implements CustomerDao{
 
     }
 
+    @Transactional
     public Customer getCustomerByUsername(String username){
-        Session session = sessionFactory.openSession();
+    	String hql="from Customer where username ="+"'"+username+"'";
+    	Query query=sessionFactory.getCurrentSession().createQuery(hql);
+    	List<Customer> list=query.getResultList();
+    	if(list !=null && !list.isEmpty()){
+    		return list.get(0);}
+    	return null;
+    	
+    	
+    	
+    	
+    	
+    	
+       /* Session session = sessionFactory.openSession();
         Query<Customer> query = session.createQuery("from Customer where username = ?");
         query.setString(0, username);
-
-
-        return query.uniqueResult();
+        return query.uniqueResult();*/
     }
 
 

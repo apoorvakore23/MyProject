@@ -30,25 +30,23 @@ public class Product implements Serializable {
 	 * 
 	 */
 	
-	@Id
-	@Column
-	@SequenceGenerator(name="prod_seq",sequenceName="prod_seq")
+	@Id	
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
-	@Column
+	
 	@NotEmpty(message = "Name should not be empty")
 	private String name;
-	@Column	
+		
 	@Min(1)
 	@NotNull(message = "Price should not be empty")
 	private int price; 
-	@Column
+	
 	@NotNull(message = "quantity should not be empty")
 	private int quantity;
-	@Column
+	
 	@NotEmpty(message = "Category should not be empty")
 	private String category;
-	@Column
+	
 	private String description;	
 	public String getFile() {
 		return file;

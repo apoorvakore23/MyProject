@@ -1,10 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-    <%@ page isELIgnored="false" %>
- 
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -52,7 +48,8 @@
 					<spring:message text="Product Name" />
 				</form:label>
 				<form:input class="form-control" path="name" />
-				<form:errors path="name" cssClass="errStyle" >					
+				<form:errors path="name" >
+				<p class="errStyle">* Product Name should not be empty</p>					
 				</form:errors>
 			</div>
 			<div class="form-group">
@@ -60,8 +57,8 @@
 					<spring:message text="Quantity Available" />
 				</form:label>
 				<form:input class="form-control" path="quantity" />
-				<form:errors path="quantity" cssClass="errStyle">
-					
+				<form:errors path="quantity" class="errStyle">
+					<p class="errStyle">* Product Quantity should not be empty</p>
 				</form:errors>
 			</div>
 			<div class="form-group">
@@ -70,7 +67,7 @@
 				</form:label>
 				<form:input class="form-control" path="price" />
 				<form:errors path="price" cssClass="errStyle">
-					
+					<p class="errStyle">* Product Price should not be empty</p>
 				</form:errors>
 			</div>
 			<div class="form-group">

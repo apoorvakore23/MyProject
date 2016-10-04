@@ -32,12 +32,12 @@ public class ProductController {
 	}
 	
 	@RequestMapping(value="/add", method=RequestMethod.POST )
-	public ModelAndView AddActionPage(@Valid @ModelAttribute("product")  Product p,BindingResult result,@RequestParam(value = "image", required = false) MultipartFile image, Model model)
+	public String AddActionPage(@Valid @ModelAttribute("product")  Product p,BindingResult result,@RequestParam(value = "image", required = false) MultipartFile image, Model model)
 	{	
 		if (result.hasErrors()) {
 			System.out.println("post method addproduct"+result);	
-			 	ModelAndView mv=new ModelAndView("addproduct","product",new Product());
-			 	return mv;
+			return  "addproduct";
+			 	
 				}
 				else{
 					System.out.println(p);
@@ -45,23 +45,23 @@ public class ProductController {
 					FileUtil.upload(path, image, p.getName()+".jpg");
 					p.setFile(p.getName()+".jpg");
 					services.addProduct(p);
-					List<Product> pList=services.listProduct();
-					ModelAndView mv=new ModelAndView("viewproduct");
-					mv.addObject("pList",pList);
-					System.out.println(pList);
-					return mv;
+						
+					
+					return "index";
 				}
 				
 			}
 		
 	
 	@RequestMapping(value="/dispProduct" )	
-	public ModelAndView addProduct(){
-	List<Product> pList=services.listProduct();
+	public String addProduct(){
+	/*List<Product> pList=services.listProduct();
 	ModelAndView model=new ModelAndView("viewproduct");
 	model.addObject("pList",pList);
 	System.out.println(pList);
-	return model;		
+	return model;	*/
+	System.out.println("in disp controller");
+	return "viewproduct";
 	}
 	
 	@RequestMapping(value="/details", method=RequestMethod.GET )
@@ -89,23 +89,20 @@ public class ProductController {
 	
 	
 	@RequestMapping(value="/edit/updateProduct", method=RequestMethod.POST )
-	public ModelAndView EditActionPage(@Valid @ModelAttribute("product") Product p, BindingResult result, Model model)
+	public String EditActionPage(@Valid @ModelAttribute("product") Product p, BindingResult result, Model model)
 	{
 		System.out.println(result);
 		
 		System.out.println("post method addproduct");
         if (result.hasErrors()) {
-        	return new ModelAndView("updateProduct","product",p);
+        	return "updateProduct";
         	
 		}
 		else{	
 			
 			services.updateProduct(p);
-			List<Product> pList=services.listProduct();
-			ModelAndView mv=new ModelAndView("viewproduct");
-			mv.addObject("pList",pList);
-			System.out.println(pList);
-			return mv;	
+			
+			return "index";	
 			
 		}		
 	}

@@ -23,7 +23,7 @@ public class CardDetailService implements Serializable {
     private CardDetailDAO cardDetailDao;
 
     public String addCardDetail (CardDetails cardDetail,RequestContext context) {
-    	System.out.println("card"+cardDetailDao);
+    	System.out.println("card"+cardDetail);
     	
     	HttpServletRequest request = (HttpServletRequest )context.getExternalContext().getNativeRequest();  
     	
