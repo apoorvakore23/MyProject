@@ -1,0 +1,41 @@
+   <div id="page-wrapper" >
+            <div id="page-inner">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h1 class="page-head-line">CREATE NEW BLOG</h1>
+
+                    </div>
+        
+                </div>
+         <div class="row">
+            <div class="col-md-6 col-sm-6 col-xs-12">
+               <div class="panel panel-info">
+                        <div class="panel-heading">
+                           CREATE
+                        </div>
+                        <div class="panel-body">
+                            <form role="form" ng-controller="BlogController as bctrl">
+                           <input type="hidden" ng-model="blog.blog_id" /><br><input type="hidden" ng-model="enabled" />
+                                        <div class="form-group">
+                                            <label>Enter Title</label>
+                                            <input class="form-control" type="text"  ng-model="blog.blog_title" >
+                                            <p class="help-block">This is your blog title.</p>
+                                        </div>
+                                            <div class="form-group">
+                                            <label>Write</label>
+                                            <textarea class="form-control" rows="3" ng-model="blog.blog_content"></textarea>
+                                        </div>
+                                  
+                                 
+                                       <input type="submit" class="btn btn-info" value="{{!blog.blog_id ? 'Create New' : 'Update'}}" ng-click="bctrl.submit()" />
+
+                                    </form>
+                            </div>
+                        </div>
+                            </div>
+                <!-- /. ROW  -->
+              
+</div>
+            </div>
+            <!-- /. PAGE INNER  -->
+        </div>

@@ -1,0 +1,83 @@
+
+
+<!--PAGE CONTENT -->
+        <div id="content">
+             
+            <div class="inner" style="min-height: 700px;">
+                <div ng-controller="PlacementController as pctrl">
+                <div class="row">
+                 <div class="col-lg-4" ng-repeat="list in pctrl.placementdata">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3><span ng-bind="list.p_post"></span> </h3>
+									<h6><span ng-bind="list.p_company"></span> </h6>
+                        </div>
+                        <div class="panel-body">
+                            <h5><span ng-bind="list.p_description"></span> </h3>
+									<h5> Location:<span ng-bind="list.p_location"></span> </h6>
+									<h5>Skill:<span ng-bind="list.p_skill_set"></span> </h6>
+                        <h5>Salary:<span ng-bind="list.p_salary"></span> </h6>
+                        </div>
+                        <div class="panel-footer">
+                          <form name="myEdit"><input type="submit" value="Edit" ng-click="pctrl.edit(list.p_id)" class="btn btn-warning"></form>
+                        	<form name="myDelete"><input type="submit" value="Delete" ng-click="pctrl.remove(list.p_id)" class="btn btn-danger"></form>
+                        </div>
+                    </div>
+                </div>
+                
+                
+                
+                
+                
+                
+               
+                <!-- <div class="col-lg-4 col-md-4 col-sm-4 mb" ng-repeat="list in pctrl.placementdata">
+							<div class="content-panel pn">
+								<div id="profile-01">
+									<h3><span ng-bind="list.p_post"></span> </h3>
+									<h6><span ng-bind="list.p_location"></span> </h6>
+								</div>
+								<div class="profile-01 centered">
+									<p><form name="myEdit"><input type="submit" value="Edit" ng-click="pctrl.edit(list.p_id)" class="btn btn-warning"></form></p>
+								</div>
+								<div class="centered">
+									<h6><form name="myDelete"><input type="submit" value="Delete" ng-click="pctrl.remove(list.p_id)" class="btn btn-danger"></form></h6>
+								</div>
+							</div>
+						</div> -->
+						</div>
+<!-- <table>
+<tr>
+<td>Post </td>
+<td>Location</td>
+</tr>
+<tr >
+<td><span ng-bind="list.p_post"></span> </td>
+<td><span ng-bind=""></span></td>
+<td></td>
+<td></td>
+</tr>
+</table> -->
+<form name="myForm">
+
+	<input type="hidden" ng-model="placement.p_idd" /><br><input type="hidden" ng-model="enabled" /><br>
+	Job Post:<input type="text" ng-model="placement.p_post" placeholder="address" class="form-control"/><br>
+	Company Name:<input type="text" ng-model="placement.p_company" placeholder="name"class="form-control"/><br>
+	
+	Job Location:<input type="text" ng-model="placement.p_location" placeholder="username" class="form-control"/><br>
+	Job Description:<input type="text" ng-model="placement.p_description" placeholder="password" class="form-control"/><br>
+		
+Skill set:<input type="text" ng-model="placement.p_skill_set" placeholder="contact" class="form-control"/><br>
+	Date of Job Post:<input type="text" ng-model="placement.p_date" placeholder="dob" class="form-control"/><br>
+	Salary:<input type="text" ng-model="placement.p_salary" placeholder="Email" class="form-control"/><br>
+	<input type="submit" value="{{!placement.p_id ? 'Add' : 'Update'}}" ng-click="pctrl.submit()" class="btn-info" />
+	<input type="reset" value="reset" ng-click="pctrl.reset()" class="btn-warning"/>
+	
+</form>
+</div>
+
+        </div>
+        <!--END PAGE CONTENT -->
+
+         
+         </div>

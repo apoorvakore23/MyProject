@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>users</title>
+</head>
+
+<body>
+
+<body ng-app="myApp">
+<div ng-controller="BlogController as bctrl">
+<table>
+<tr>
+<td>ID </td>
+<td>Title</td>
+</tr>
+<tr ng-repeat="list in bctrl.blogdata">
+<td><span ng-bind="list.blog_id"></span> </td>
+<td><span ng-bind="list.blog_content"></span></td>
+<td><form name="myEdit"><input type="submit" value="Edit" ng-click="bctrl.edit(list.blog_id)"></form></td>
+<td><form name="myDelete"><input type="submit" value="Delete" ng-click="bctrl.remove(list.blog_id)"></form></td>
+</tr>
+</table>
+<form name="myForm">
+
+	<input type="hidden" ng-model="blog.blog_id" /><br><input type="hidden" ng-model="enabled" /><br>
+Title:<input type="text" ng-model="blog.blog_title" placeholder="name"/><br>
+	Content:<input type="text" ng-model="blog.blog_content" placeholder="content
+	"/><br>
+	<input type="submit" value="{{!blog.blog_id ? 'Add' : 'Update'}}" ng-click="bctrl.submit()" />
+	<input type="reset" value="reset" ng-click="bctrl.reset()" />
+	
+</form>
+</div>
+</body>
+</html>

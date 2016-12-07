@@ -1,0 +1,42 @@
+<script>
+	alert('welcome');
+</script>
+			<div class="row " ng-controller="UserController as uctrl">
+
+			<div
+				class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1">
+
+				<div class="panel-body">
+					<form role="form" >
+					
+						<hr />
+						<h5>Enter Details to Login</h5>
+						<br />
+						<div class="form-group input-group">
+							<span class="input-group-addon"><i class="fa fa-tag"></i></span>
+							<input type="text" class="form-control"
+								ng-model="uctrl.user.u_username" placeholder="Your Username " />
+						</div>
+						<div class="form-group input-group">
+							<span class="input-group-addon"><i class="fa fa-lock"></i></span>
+							<input type="password" class="form-control"
+								ng-model="uctrl.user.u_password" placeholder="Your Password" />
+						</div>
+						                                    <div class="form-group">
+						                                            <label class="checkbox-inline">
+						                                                <input type="checkbox" /> Remember me
+						                                            </label>
+						                                            <span class="pull-right">
+						                                                    <a href="index.html" >Forget password ? </a> 
+						                                             </span>
+						                                        </div>
+
+						<input class="btn btn-primary" type="submit"  ng-click="uctrl.login()"value="LOGIN"/>
+						<hr />
+						Not register ? <a href="register">click here </a>
+						or go to <a href="home">Home</a>
+					</form>
+				</div>
+			</div>
+		</div>
+
