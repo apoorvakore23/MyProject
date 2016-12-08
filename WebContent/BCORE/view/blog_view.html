@@ -1,7 +1,8 @@
-<div id="page-wrapper"  ng-controller="BlogController as bctrl">
-            <div id="page-inner">
- <br /> <a class="btn btn-success" href="#/new_blog"> CREATE NEW </a> <br /> <br />
- 
+<div id="page-wrapper" ng-controller="BlogController as bctrl">
+	<div id="page-inner">
+		<br /> <a class="btn btn-success" href="#/new_blog"> CREATE NEW </a>
+		<br /> <br />
+
 		<div class="row">
 			<div class="col-sm-12">
 				<div class="panel panel-primary">
@@ -17,14 +18,22 @@
 								<th>Actions</th>
 							</tr>
 						</thead>
-						<tbody >
-							<tr  ng-repeat="bloglist in bctrl.blogdata" class="list-group-item-success">
-								
-								
-								<tr><td><span ng-bind="bloglist.blog_id"></span> </td>
+						<tbody>
+							<tr ng-repeat="bloglist in bctrl.blogdata"
+								class="list-group-item-success">
+
+
+								<td><span ng-bind="bloglist.blog_id"></span></td>
 								<td><span ng-bind="bloglist.blog_title"></span></td>
-<td><form name="myEdit"><input type="submit" class="btn btn-primary " value="Edit" ng-click="bctrl.edit(bloglist.blog_id)"></form></td>
-<td><form name="myDelete"><input type="submit" class="btn btn-primary " value="Delete" ng-click="bctrl.remove(bloglist.blog_id)"></form></td>
+								<td>
+										<input type="submit" class="btn btn-primary " value="Edit"
+											ng-click="bctrl.edit(bloglist.blog_id)">
+									</td>
+								<td>
+										<input type="submit" class="btn btn-primary " value="Delete"
+											ng-click="bctrl.remove(bloglist.blog_id)">
+									
+									</td>
 							</tr>
 						</tbody>
 					</table>

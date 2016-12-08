@@ -6,13 +6,16 @@ alert('inside app.js');
 app.config(function($routeProvider) {
     $routeProvider
     .when("/", {
+        templateUrl : 'BCORE/view/login.html',
+        controller : 'UserController'
+    	
+        
+    })
+    .when("/home", {
         templateUrl : 'BCORE/view/home.html',
         
     })
-    /*.when("/user/create", {
-        templateUrl : "view/user.html",
-        	controller : 'UserController'
-    })*/
+    
     .when("/user", {
     	templateUrl : "BCORE/view/user.html",
     	controller : 'UserController'
@@ -43,7 +46,8 @@ app.config(function($routeProvider) {
     		
         	
         	
-    });
+    })
+    .otherwise({redirectTo: '/home'});
 });
 
 

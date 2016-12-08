@@ -1,7 +1,7 @@
 'use strict';
  
 
-angular.module('myApp').controller('UserController',['$scope','$rootScope','UserService','$location',function($scope,$rootScope,UserService,$location) {
+angular.module('myApp').controller('UserController',['$scope','$location','UserService','$rootScope',function($scope,$location,UserService,$rootScope) {
 	alert('calling User controller');
     var self = this;
     self.userdata=[{userId:null,u_name:'',u_address:'',u_username:'',u_password:'',u_gender:'',u_contact:'',u_email:'',u_dob:''}];
@@ -120,7 +120,7 @@ angular.module('myApp').controller('UserController',['$scope','$rootScope','User
     	            	if($scope.user.u_username==null && $scope.user.u_password==null)
     	            		alert('Inavalid credentials..');
     	            	else
-    	            		$location.path('/');
+    	            		$location.path('/home');
     	            	
             		},
             		function(errResponse){
