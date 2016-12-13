@@ -1,0 +1,44 @@
+
+
+<!--PAGE CONTENT -->
+        <div id="content" >
+             
+            <div class="inner" style="min-height: 700px;">
+                <div ng-controller="UserController as uctrl">
+<table >
+<tr>
+<td>id </td>
+<td>name</td>
+</tr>
+<tr ng-repeat="list in uctrl.userdata" ng-init="fetchAllUserPage()">
+<td><span ng-bind="list.userId"></span> </td>
+<td><span ng-bind="list.u_name"></span></td>
+<td><form name="myEdit"><input type="submit" value="Edit" ng-click="uctrl.edit(list.userId)" class="btn btn-warning"></form></td>
+<td><form name="myDelete"><input type="submit" value="Delete" ng-click="uctrl.remove(list.userId)" class="btn btn-danger"></form></td>
+</tr>
+</table>
+<form name="myForm">
+
+	<input type="hidden" ng-model="user.userId" /><br><input type="hidden" ng-model="enabled" /><br>
+	Name:<input type="text" ng-model="user.u_name" placeholder="name"class="form-control"/><br>
+	Address:<input type="text" ng-model="user.u_address" placeholder="address" class="form-control"/><br>
+	Username:<input type="text" ng-model="user.u_username" placeholder="username" class="form-control"/><br>
+	Password:<input type="password" ng-model="user.u_password" placeholder="password" class="form-control"/><br>
+	
+	gender:<input type="radio" name="gender" ng-model="user.u_gender" value="male" checked class=""> Male<br>
+  <input type="radio" name="gender" value="female" ng-model="user.u_gender"> Female<br>
+	
+contact:<input type="text" ng-model="user.u_contact" placeholder="contact" class="form-control"/><br>
+	DOB:<input type="text" ng-model="user.u_dob" placeholder="dob" class="form-control"/><br>
+	Email:<input type="text" ng-model="user.u_email" placeholder="Email" class="form-control"/><br>
+	<input type="submit" value="{{!user.userId ? 'Add' : 'Update'}}" ng-click="uctrl.submit()" class="btn-info" />
+	<input type="reset" value="reset" ng-click="uctrl.reset()" class="btn-warning"/>
+	
+</form>
+</div>
+
+        </div>
+        <!--END PAGE CONTENT -->
+
+         
+         </div>

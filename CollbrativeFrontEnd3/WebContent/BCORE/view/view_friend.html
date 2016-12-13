@@ -1,0 +1,35 @@
+<div class="container" ng-controller="FriendController as vctrl">
+
+	<p>
+	<p>
+	<p>
+	<p>
+	
+	<p>
+	<p>
+	<p>
+	<p>
+	
+	<div class="form-group has-feedback" ng-init="vctrl.getMyFriends()">
+
+  view for friend
+
+  <p><input type="text" ng-model="sear_text"></p>
+
+
+	<div ng-repeat="friend in vctrl.friends | filter: sear_text">
+
+		<fieldset>
+			<legend></legend>
+
+			<p>Name: {{friend.friendID}} &nbsp; &nbsp;&nbsp; Status: {{friend.status}}
+			<a href="#/chat">Send Message</a>
+			
+
+			
+		</fieldset>
+	</div>
+	</div>
+
+
+</div>

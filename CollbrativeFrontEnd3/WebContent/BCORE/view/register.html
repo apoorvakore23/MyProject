@@ -1,0 +1,109 @@
+
+     <div  ng-app="myApp" ng-controller="UserController as uctrl" id="wrapper">
+ 
+		<div id="page-wrapper">
+			<div id="page-inner">
+				<div class="row">
+					<div class="col-md-12">
+						<h1 class="page-head-line">REGISTRATION</h1>
+						<h1 class="page-subhead-line">
+							If you are already registered, <a href="login"><i>click
+									here</i></a> to login.
+						</h1>
+					</div>
+				</div>
+				<!-- /. ROW  -->
+				<div class="row">
+
+					<div class="col-md-8 col-sm-4 col-xs-8">
+						<div class="panel panel-primary">
+							<div class="panel-heading">SIGN UP HERE</div>
+							<div class="panel-body">
+								<form role="form">
+									<div class="form-group">
+										<input type="hidden" ng-model="user.userId" /><br>
+										<input type="hidden" ng-model="enabled" />
+									</div>
+									<div class="form-group">
+										<label>Name</label> <input class="form-control" type="text"
+											ng-model="user.u_name" placeholder="name" required>
+										<p class="help-block">Help text here.</p>
+									</div>
+									<div class="form-group">
+										<label>Address</label>
+										<textarea class="form-control" ng-model="user.u_address"
+											placeholder="address" rows="3"></textarea>
+									</div>
+									<div class="form-group">
+										<label>Enter Email</label> <input ng-model="user.u_email"
+											placeholder="Email" class="form-control" type="email">
+										<p class="help-block">Enter your e-mail address.</p>
+									</div>
+									<div class="form-group">
+										<label>Contact No .</label> <input ng-model="user.u_contact"
+											placeholder="contact" class="form-control" type="text">
+										<p class="help-block">Help text here.</p>
+									</div>
+									<div class="form-group">
+										<label>User name</label> <input ng-model="user.u_username"
+											placeholder="username" class="form-control" type="text">
+										<p class="help-block">Help text here.</p>
+									</div>
+									<div class="form-group">
+										<label>Enter Password</label> <input
+											ng-model="user.u_password" placeholder="password"
+											class="form-control" type="password">
+										<p class="help-block">Help text here.</p>
+									</div>
+									<div class="form-group">
+										<label>Gender</label>
+										<div class="radio">
+											<label> <input type="radio" ng-model="user.u_gender"
+												name="optionsRadios" id="optionsRadios1" value="M"
+												checked="">Male
+											</label>
+										</div>
+										<div class="radio">
+											<label> <input ng-model="user.u_gender"
+												ng-model="user.u_gender" placeholder="gender" type="radio"
+												name="optionsRadios" id="optionsRadios2" value="F">Female
+											</label>
+										</div>
+									</div>
+
+
+									<div class="form-group">
+										<label>Date Of Birth</label> <input ng-model="user.u_dob"
+											class="form-control" type="date">
+									</div>
+									<input class="btn btn-primary" type="submit"
+										value="{{!user.userId ? 'Sign up' : 'Update'}}"
+										ng-click="uctrl.submit()" /> <input class="btn btn-danger" type="reset"
+										value="reset" ng-click="uctrl.reset()" />
+										
+								</form>
+															
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--/.ROW-->
+	</div>
+	<!-- /. WRAPPER  -->
+	<div id="footer-sec">
+		&copy; 2016 Chirag | Design By : <a href="http://www.binarytheme.com/"
+			target="_blank">BinaryTheme.com</a>
+	</div>
+	<!-- /. FOOTER  -->
+	<!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
+	<!-- JQUERY SCRIPTS -->
+	<script src="resources/assets/js/jquery-1.10.2.js"></script>
+	<!-- BOOTSTRAP SCRIPTS -->
+	<script src="resources/assets/js/bootstrap.js"></script>
+	<!-- METISMENU SCRIPTS -->
+	<script src="resources/assets/js/jquery.metisMenu.js"></script>
+	<!-- CUSTOM SCRIPTS -->
+	<script src="resources/assets/js/custom.js"></script>
+

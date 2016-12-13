@@ -20,12 +20,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.niit.collaborationbackend.dao.UserDAO;
 import com.niit.collaborationbackend.model.User;
+import com.niit.collaborationbackend.util.FileUtil;
 
 @RestController
 public class UsersController {
 @Autowired
 private UserDAO userDAO;
-
+private String path="E:\\reference code\\CollaborationBackEnd\\src\\main\\webapp\\resources\\ProfileImages";
 
 @GetMapping("users")
 public ResponseEntity<List<User>> getUsers()
@@ -54,6 +55,9 @@ return new ResponseEntity(user.toString(), HttpStatus.OK);
 @RequestMapping(value="user/create", method=RequestMethod.POST,consumes="application/json",produces="application/json")
 public ResponseEntity<?> createUser(@RequestBody  User user)
 {
+	FileUtil.upload(path, user.getImage(), user.getUserId()+".jpg");
+	user.setFile(user.getUserId()+".jpg");
+	
 userDAO.addUser(user);
 System.out.println("user added : " + user);
 return new ResponseEntity(userDAO.getAllUsers(), HttpStatus.OK);
@@ -96,7 +100,7 @@ else
 {
 	session.setAttribute("loggedInUser", user);
 	session.setAttribute("loggedInUserName", user.getU_username());
-	session.setAttribute("loggedInUserId", user.getUserId());
+	session.setAttribute("loggedInUserID", user.getUserId());
 	
 }
 System.out.println("user added : " + user);

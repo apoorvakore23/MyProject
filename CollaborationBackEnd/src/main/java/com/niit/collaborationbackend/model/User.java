@@ -12,11 +12,13 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.stereotype.Component;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.fasterxml.jackson.databind.ser.std.SerializableSerializer;
 
@@ -63,6 +65,36 @@ public class User{
 	@Column(name="u_DOB")
 	
 	private String u_dob;
+	public String getU_dob() {
+		return u_dob;
+	}
+
+	public void setU_dob(String u_dob) {
+		this.u_dob = u_dob;
+	}
+
+	public String getFile() {
+		return file;
+	}
+
+	public void setFile(String file) {
+		this.file = file;
+	}
+
+	public MultipartFile getImage() {
+		return image;
+	}
+
+	public void setImage(MultipartFile image) {
+		this.image = image;
+	}
+
+
+
+	@Column(name = "ImagePath")
+	private String file;
+	@Transient
+	private MultipartFile image;
 
 	/*@Column(name="Enabled")
 	boolean enabled =true;*/
@@ -154,7 +186,7 @@ private List<Blog> blog;
 	}*/
 
 	public String toString() {
-		return String.format("{userId:%s,u_name:%s,u_username:%s,u_password:%s, u_address:%s,u_gender:%s,u_email:%s,u_contact:%s}",userId,u_name,u_username,u_password,u_address,u_gender,u_email,u_contact);	
+		return String.format("{userId:%s,u_name:%s,u_username:%s,u_password:%s, u_address:%s,u_gender:%s,u_email:%s,u_contact:%s,file:%s,image:%s}",userId,u_name,u_username,u_password,u_address,u_gender,u_email,u_contact,file,image);	
 	}
 	}
 // 

@@ -1,0 +1,36 @@
+<div class="container" ng-controller="FriendController as ctrl" ng-init="ctrl.getMyFriendRequests()">
+
+	<p>
+	<p>
+	<p>
+	<p>
+	
+	<p>
+	<p>
+	<p>
+	<p>
+	
+	<div class="form-group has-feedback" >
+
+  FriendRequest for friend
+
+  <p><input type="text" ng-model="sear_text"></p>
+
+
+	<div  ng-repeat="friend in ctrl.friends | filter: sear_text" >
+
+		<fieldset>
+			<legend></legend>
+
+			<p>Name: {{friend.userID}} &nbsp; &nbsp;&nbsp; Status: {{friend.status}}
+			
+			
+<button type="button "  ng-click="ctrl.acceptFriendRequest(friend.userID)" 
+			       class="btn btn-info">Accept friend Request</button>
+			
+		</fieldset>
+	</div>
+
+
+</div>
+</div>

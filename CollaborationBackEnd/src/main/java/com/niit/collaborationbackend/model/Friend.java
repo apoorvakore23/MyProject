@@ -13,23 +13,33 @@ import org.springframework.stereotype.Component;
 @Component
 @Table(name="col_friend")
 public class Friend {
+	
+	//@GeneratedValue(strategy = GenerationType.AUTO)	
+	//private int f_id;
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)	
-	private int f_id;
-	private int friend_id;
-	private int user_id;
+	private int friendID;
+	
+	private int userID;
 	private String status;
-	public int getFriend_id() {
-		return friend_id;
+	
+	
+	/*public int getF_id() {
+		return f_id;
 	}
-	public void setFriend_id(int friend_id) {
-		this.friend_id = friend_id;
+	public void setF_id(int f_id) {
+		this.f_id = f_id;
+	}*/
+	public int getFriendID() {
+		return friendID;
 	}
-	public int getUser_id() {
-		return user_id;
+	public void setFriendID(int friendID) {
+		this.friendID = friendID;
 	}
-	public void setUser_id(int user_id) {
-		this.user_id = user_id;
+	public int getUserID() {
+		return userID;
+	}
+	public void setUserID(int userID) {
+		this.userID = userID;
 	}
 	public String getStatus() {
 		return status;
@@ -37,7 +47,9 @@ public class Friend {
 	public void setStatus(String status) {
 		this.status = status;
 	}
-	
+	public String toString() {
+		return String.format("{friendID:%s,status:%s,userID:%s}",friendID,status,userID);	
+	}
 	
 	
 }
