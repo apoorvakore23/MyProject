@@ -32,6 +32,10 @@
 	<script src="BCORE/js/angular-route.js" ></script> 
 	<script src="BCORE/js/angular-cookies.js" ></script>  
 	<script src="BCORE/js/app.js"></script>
+	<script src="BCORE/js/sockjs.js"></script>
+	<script src="BCORE/js/sockjs.min.js"></script>
+	<script src="BCORE/js/stomp.min.js"></script>
+	<script src="BCORE/js/lodash.min.js"></script>
 	
 	<script src="BCORE/resources/User/user_controller.js"></script>
 	<script src="BCORE/resources/User/userservice.js"></script>
@@ -49,6 +53,8 @@
 <script src="BCORE/resources/Friend/FriendService.js"></script>
 <script src="BCORE/resources/Event/event_controller.js"></script>
 <script src="BCORE/resources/Event/eventservice.js"></script>
+<script src="BCORE/resources/Messages/messages_controllers.js"></script>
+<script src="BCORE/resources/Messages/messages_services.js"></script>
 	  <!-- END PAGE LEVEL  STYLES -->
      <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -82,7 +88,7 @@
                         </a>
                 </header>
                 <!-- END LOGO SECTION -->
-                <ul class="nav navbar-top-links navbar-right">
+                <ul class="nav navbar-top-links navbar-right" ng-controller="UserController as uct">
 
                     <!-- MESSAGES SECTION -->
                     <li class="dropdown">
@@ -297,17 +303,14 @@
                     <!--ADMIN SETTINGS SECTIONS -->
 
                     <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <a class="dropdown-toggle" data-toggle="dropdown" >
                             <i class="icon-user "></i>&nbsp; <i class="icon-chevron-down "></i>
                         </a>
 
                         <ul class="dropdown-menu dropdown-user">
-                            <li><a href="#"><i class="icon-user"></i> User Profile </a>
-                            </li>
-                            <li><a href="#"><i class="icon-gear"></i> Settings </a>
-                            </li>
+                           
                             <li class="divider"></li>
-                            <li><a href="login.html"><i class="icon-signout"></i> Logout </a>
+                            <li><a href="#/logout" ng-click="uct.logout()"><i class="icon-signout"></i> Logout </a>
                             </li>
                         </ul>
 

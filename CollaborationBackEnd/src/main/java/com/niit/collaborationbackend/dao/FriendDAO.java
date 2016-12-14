@@ -16,7 +16,7 @@ public interface FriendDAO {
 	
 	boolean save(Friend friend);
 	boolean update(Friend friend);
-	void delete(int userID, int friendID);
+	//void delete(int userID, int friendID);
 	List<Friend> getMyFriends(int userID) ;
 	List<Friend> getNewFriendRequests(int userID);
 	//Friend update(int id , Friend friend);

@@ -11,7 +11,7 @@ app.controller('FriendController', ['UserService','$scope', 'FriendService','$lo
   			self.users = [];
           
          self.sendFriendRequest=sendFriendRequest;
-         $scope.getMyFriendRequests=getMyFriendRequests;
+         self.getMyFriendRequests=getMyFriendRequests;
          self.acceptFriendRequest=acceptFriendRequest;
          
          function sendFriendRequest(friendID)

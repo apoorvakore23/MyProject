@@ -17,7 +17,7 @@
 <td><form name="myDelete"><input type="submit" value="Delete" ng-click="uctrl.remove(list.userId)" class="btn btn-danger"></form></td>
 </tr>
 </table>
-<form name="myForm">
+<form name="myForm" enctype="multipart/from-data">
 
 	<input type="hidden" ng-model="user.userId" /><br><input type="hidden" ng-model="enabled" /><br>
 	Name:<input type="text" ng-model="user.u_name" placeholder="name"class="form-control"/><br>
@@ -31,6 +31,7 @@
 contact:<input type="text" ng-model="user.u_contact" placeholder="contact" class="form-control"/><br>
 	DOB:<input type="text" ng-model="user.u_dob" placeholder="dob" class="form-control"/><br>
 	Email:<input type="text" ng-model="user.u_email" placeholder="Email" class="form-control"/><br>
+	Upload Profile Image:<input type="file"  ng-model="user.image" multiple="multiple" class="form-control"/>
 	<input type="submit" value="{{!user.userId ? 'Add' : 'Update'}}" ng-click="uctrl.submit()" class="btn-info" />
 	<input type="reset" value="reset" ng-click="uctrl.reset()" class="btn-warning"/>
 	

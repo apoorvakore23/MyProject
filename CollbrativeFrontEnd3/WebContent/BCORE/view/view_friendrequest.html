@@ -1,4 +1,4 @@
-<div class="container" ng-controller="FriendController as ctrl" ng-init="ctrl.getMyFriendRequests()">
+<div class="container" ng-controller="FriendController as ctrl">
 
 	<p>
 	<p>
@@ -10,7 +10,7 @@
 	<p>
 	<p>
 	
-	<div class="form-group has-feedback" >
+	<div class="form-group has-feedback"   ng-init="ctrl.getMyFriendRequests()">
 
   FriendRequest for friend
 

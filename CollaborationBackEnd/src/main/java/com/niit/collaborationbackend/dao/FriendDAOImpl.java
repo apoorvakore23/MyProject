@@ -102,17 +102,17 @@ public class FriendDAOImpl implements FriendDAO{
 		return u;
 	}*/
 	
-	@Transactional
+	/*@Transactional
 	public void delete(int userID, int friendID) {
 		Friend friend = new Friend();
 		friend.setFriendID(friendID);
-		friend.setUserID(userID);
+		friend.setUser(userID);
 		sessionFactory.openSession().delete(friend);
 	}
-
+*/
 	@Transactional
 	public List<Friend> getMyFriends(int userID) {
-		String hql = "from Friend where userID=" + "'" + userID + "' and status ='"+ "A'";
+		String hql = "from Friend where (userID=" + "'" + userID + "' or friendID='"+userID+"') and status ='"+ "A'";
 		Query query = sessionFactory.openSession().createQuery(hql);
 		List<Friend> list = (List<Friend>) query.list();
 

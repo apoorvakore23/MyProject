@@ -8,7 +8,8 @@ console.log('User service');
 								createUser : createUser,
 								updateUser : updateUser,
 								deleteUser : deleteUser,
-								authenticate : authenticate
+								authenticate : authenticate,
+								logout:logout
 							};
 
 							return factory;
@@ -61,7 +62,7 @@ console.log('User service');
 							
 							 function deleteUser(userId) {
 							        var deferred = $q.defer();
-							        $http.delete(REST_SERVICE_URI+"/user/delete/"+userId)
+							        $http .delete(REST_SERVICE_URI+"/user/delete/"+userId)
 							            .then(
 							            function (response) {
 							                deferred.resolve(response.data);
@@ -90,10 +91,28 @@ console.log('User service');
 									
 									return deferred.promise;
 								}
-							 function getByUsername(u_username){
+							 
+							 function logout(){
 									var deferred = $q.defer();
-									console.log(' method called getByUsername ' + u_username);
-									$http.post(REST_SERVICE_URI + "/user/login",u_username)
+									console.log(' logout service');
+									$http.get(REST_SERVICE_URI + "/logout")
+									.then(function(response){
+										console.log('resp'+response);
+										
+										deferred.resolve(response.data);
+									},
+									function(errResponse){
+										console.error('Error in method login');
+										deferred.reject(errResponse);
+									});
+									
+									return deferred.promise;
+								}
+							 
+							 function getByUserId(userId){
+									var deferred = $q.defer();
+									console.log(' method called getByUserId ' + userId);
+									$http.post(REST_SERVICE_URI + "/user/getMyUserById",userId)
 									.then(function(response){
 										console.log('resp'+response.data);
 										deferred.resolve(response.data);

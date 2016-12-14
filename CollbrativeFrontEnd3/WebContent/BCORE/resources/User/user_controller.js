@@ -4,8 +4,8 @@
 angular.module('myApp').controller('UserController',['$scope','$location','UserService','$rootScope',function($scope,$location,UserService,$rootScope) {
 	console.log('calling User controller');
     var self = this;
-    self.userdata=[{userId:null,u_name:'',u_address:'',u_username:'',u_password:'',u_gender:'',u_contact:'',u_email:'',u_dob:''}];
-    $scope.user={userId:null,u_name:'',u_address:'',u_username:'',u_password:'',u_gender:'',u_contact:'',u_email:'',u_dob:''};
+    self.userdata=[{userId:null,u_name:'',u_address:'',u_username:'',u_password:'',u_gender:'',u_contact:'',u_email:'',image:''}];
+    $scope.user={userId:null,u_name:'',u_address:'',u_username:'',u_password:'',u_gender:'',u_contact:'',u_email:'',image:''};
     self.users=[]; 
     self.submit = submit;
     self.updateUser = updateUser;
@@ -16,7 +16,7 @@ angular.module('myApp').controller('UserController',['$scope','$location','UserS
     $scope.fetchAllUserPage=fetchAllUserPage;
     $rootScope.currentUser;
     self.createUser=createUser;
-    
+    self.logout=logout;
     //self.authenticate = authenticate;
     self.login = login;
  // fetchAllUserPage();
@@ -35,7 +35,7 @@ angular.module('myApp').controller('UserController',['$scope','$location','UserS
         );
     }
     function createUser(user){
-    	console.log('uname ' + user.u_name + 'address ' + user.u_address);
+    	console.log('uname ' + user.u_name + 'address ' + user.u_address +'image'+user.image);
         UserService.createUser(user)
             .then(
             function(u){
@@ -137,7 +137,26 @@ angular.module('myApp').controller('UserController',['$scope','$location','UserS
     	authenticate(self.user);
     	}
     	
-    
+    function logout(){
+    	UserService.logout()
+        .then(
+        function(d)
+		{     	
+        	
+      	$scope.user=d;
+        
+        		alert('Inavalid credentials..');
+        	
+        		$location.path('/userLogin');
+        	
+		},
+		function(errResponse){
+			console.error('Error while login in uctrl');
+		}
+    	) 
+    	
+    	
+    }
    function reset(){
 	   self.user={userId:null,u_name:'',u_address:'',u_username:'',u_password:'',u_gender:'',u_contact:'',u_email:'',u_dob:''};
 //        $scope.myForm.$setPristine(); //reset Form

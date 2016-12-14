@@ -40,6 +40,7 @@ app.config(function($routeProvider) {
         	
         	
     })
+    
       .when("/new_blog", {
     	templateUrl : "BCORE/view/blog_new.html",
     	controller : 'BlogController'       	
@@ -56,6 +57,10 @@ app.config(function($routeProvider) {
 	 .when("/viewfriend", {
         templateUrl : 'BCORE/view/view_friend.html',
         controller  : 'FriendController'
+    })
+     .when("/chat", {
+        templateUrl : 'BCORE/view/chat.html',
+        controller  : 'ChatController'
     })
     .otherwise({redirectTo: '/home'});
 });

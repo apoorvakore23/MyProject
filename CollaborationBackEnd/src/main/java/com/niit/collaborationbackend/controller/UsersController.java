@@ -55,8 +55,10 @@ return new ResponseEntity(user.toString(), HttpStatus.OK);
 @RequestMapping(value="user/create", method=RequestMethod.POST,consumes="application/json",produces="application/json")
 public ResponseEntity<?> createUser(@RequestBody  User user)
 {
+	System.out.println("user"+user);
 	FileUtil.upload(path, user.getImage(), user.getUserId()+".jpg");
 	user.setFile(user.getUserId()+".jpg");
+	System.out.println(user.getImage());
 	
 userDAO.addUser(user);
 System.out.println("user added : " + user);
@@ -97,7 +99,9 @@ user=userDAO.Login(user.getU_username(), user.getU_password());
 if(user==null)
 	user=new User();
 else
-{
+{ 
+	user.setIsOnline("Y");
+	// userDAO.updateUser(user.getUserId(), user);
 	session.setAttribute("loggedInUser", user);
 	session.setAttribute("loggedInUserName", user.getU_username());
 	session.setAttribute("loggedInUserID", user.getUserId());
@@ -107,6 +111,36 @@ System.out.println("user added : " + user);
 return new ResponseEntity(user, HttpStatus.OK);
 
 }
+
+@RequestMapping(value="user/getuserById", method=RequestMethod.POST,consumes="application/json",produces="application/json")
+public ResponseEntity<User> getuserById(@RequestBody  User user,HttpSession session)
+{
+	user=userDAO.getUserByUserId(user.getUserId());
+	return new ResponseEntity(user, HttpStatus.OK);
+	
+}
+
+@RequestMapping(value = "/logout", method = RequestMethod.GET)
+public ResponseEntity<User> logout(HttpSession session) {
+	System.out.println("Starting of the method logout" );
+	
+	int loggedInUserID= (int) session.getAttribute("loggedInUserID");
+	
+System.out.println("loggedInUserID : " + loggedInUserID);
+	
+	User user =userDAO.getUserByUserId(loggedInUserID);
+	
+	System.out.println("user:"+ user);
+	user.setIsOnline("N");
+
+	session.invalidate();
+	user=userDAO.updateUser(user.getUserId(), user);
+System.out.println("You have logged out sYuccessfully"+user);
+	
+	return new ResponseEntity<User>(user, HttpStatus.OK);
+
+}
+
 
 
 }

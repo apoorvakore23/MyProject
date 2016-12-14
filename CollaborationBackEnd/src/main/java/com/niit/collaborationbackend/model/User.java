@@ -1,5 +1,6 @@
 package com.niit.collaborationbackend.model;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -25,8 +26,18 @@ import com.fasterxml.jackson.databind.ser.std.SerializableSerializer;
 @Entity
 @Component
 @Table(name="Users")
-public class User{
+public class User implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	/**
+	 * 
+	 */
+	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name="userId")
@@ -42,7 +53,7 @@ public class User{
 	private String u_username;
 
 	@NotEmpty(message = "password should not be empty")
-	@Size(min = 6, max = 15)
+	//@Size(min = 6, max = 15)
 	@Column(name = "u_password")
 	private String u_password;
 	
@@ -61,9 +72,16 @@ public class User{
 	@Column(name = "u_contact")
 	@NotEmpty
 	private String u_contact;
+	private String isOnline;
+
+
+	@Column(name = "ImagePath")
+	private String file;
+	@Transient
+	private MultipartFile image;
+
 	
-	@Column(name="u_DOB")
-	
+	@Column(name="u_DOB")	
 	private String u_dob;
 	public String getU_dob() {
 		return u_dob;
@@ -88,13 +106,6 @@ public class User{
 	public void setImage(MultipartFile image) {
 		this.image = image;
 	}
-
-
-
-	@Column(name = "ImagePath")
-	private String file;
-	@Transient
-	private MultipartFile image;
 
 	/*@Column(name="Enabled")
 	boolean enabled =true;*/
@@ -187,6 +198,14 @@ private List<Blog> blog;
 
 	public String toString() {
 		return String.format("{userId:%s,u_name:%s,u_username:%s,u_password:%s, u_address:%s,u_gender:%s,u_email:%s,u_contact:%s,file:%s,image:%s}",userId,u_name,u_username,u_password,u_address,u_gender,u_email,u_contact,file,image);	
+	}
+
+	public String getIsOnline() {
+		return isOnline;
+	}
+
+	public void setIsOnline(String isOnline) {
+		this.isOnline = isOnline;
 	}
 	}
 // 
